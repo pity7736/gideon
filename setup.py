@@ -9,7 +9,7 @@ setup(
     name='gideon-db',
     version='0.0.1',
     packages=find_packages(exclude='tests'),
-    install_requires=['asyncpg==0.18.1'],
+    install_requires=['asyncpg==0.18.1', 'immutables==0.6'],
     author='Julián Cortés',
     author_email='pity7736@gmail.com',
     description='Async postgres data access layer',
