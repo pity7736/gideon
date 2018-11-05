@@ -1,5 +1,11 @@
-from Cython.Build import cythonize
 from setuptools import setup, find_packages, Extension
+try:
+    from Cython.Build import cythonize
+    USE_CYTHON = True
+    ext = 'pyx'
+except ImportError:
+    USE_CYTHON = False
+    ext = 'c'
 
 
 with open('requirements_dev.txt') as f:
@@ -8,21 +14,27 @@ with open('requirements_dev.txt') as f:
 
 model_extension = Extension(
     'gideon.models.model',
-    ['gideon/models/model.pyx'],
+    [f'gideon/models/model.{ext}'],
 )
 
 field_extension = Extension(
     'gideon.models.fields.field',
-    ['gideon/models/fields/field.pyx'],
+    [f'gideon/models/fields/field.{ext}'],
 )
 
 date_field_extension = Extension(
     'gideon.models.fields.date_field',
-    ['gideon/models/fields/date_field.pyx'],
+    [f'gideon/models/fields/date_field.{ext}'],
 )
 
-
 cython_ext_modules = [model_extension, field_extension, date_field_extension]
+
+if USE_CYTHON:
+    extensions = cythonize(cython_ext_modules)
+else:
+    extensions = cython_ext_modules
+
+
 
 setup(
     name='gideon-db',
@@ -35,5 +47,5 @@ setup(
     keywords='async asyncpg DAL',
     url='https://github.com/pity7736/gideon-db',
     tests_require=test_require,
-    ext_modules=cythonize(cython_ext_modules)
+    ext_modules=extensions
 )
