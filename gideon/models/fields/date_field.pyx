@@ -1,20 +1,11 @@
 import datetime
 
-
-class Field:
-
-    __slots__ = ('name',)
-
-    def __init__(self, name=''):
-        self.name = name
-
-    def to_db(self, value):
-        return value
+from .field cimport Field
 
 
-class DateField(Field):
+cdef class DateField(Field):
 
-    def to_db(self, value):
+    cpdef to_db(self, value):
         if isinstance(value, datetime.date) or value is None:
             return value
 

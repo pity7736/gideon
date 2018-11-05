@@ -1,3 +1,4 @@
+from gideon.models.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
 
 
@@ -6,6 +7,8 @@ class Model(metaclass=MetaModel):
     __table_name__ = ''
 
     def __init__(self, **kwargs):
+        cdef str key
+        cdef Field field
         for key, field in self._fields.items():
             value = kwargs.get(key)
             setattr(self, key, value)

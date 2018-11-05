@@ -3,3 +3,9 @@ __pycache__/
 
 # pycharm files
 .idea/
+
+# cython files
+*.c
+*.so
+build/
+*.egg-info/
