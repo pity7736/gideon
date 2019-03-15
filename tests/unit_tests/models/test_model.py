@@ -26,18 +26,11 @@ def test_mode_table_name(table_name, expected_table_name):
     assert M.__table_name__ == expected_table_name
 
 
-def test_model_name_with_two_words():
+def test_model_name():
     class CreditCard(Model):
         pass
 
     assert CreditCard.__table_name__ == 'credit_card'
-
-
-def test_mode_name_with_three_words():
-    class HTTPResponseCode(Model):
-        pass
-
-    assert HTTPResponseCode.__table_name__ == 'http_response_code'
 
 
 class M(Model):
