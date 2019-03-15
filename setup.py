@@ -12,6 +12,10 @@ with open('requirements_dev.txt') as f:
     test_require = f.readlines()
 
 
+with open('requirements.txt') as f:
+    install_requires = f.readlines()
+
+
 model_extension = Extension(
     'gideon.models.model',
     [f'gideon/models/model.{ext}'],
@@ -37,7 +41,7 @@ setup(
     name='gideon',
     version='0.0.1dev',
     packages=find_packages(exclude=('tests',)),
-    install_requires=['asyncpg==0.18.3', 'immutables==0.9'],
+    install_requires=install_requires,
     author='Julián Cortés',
     author_email='pity7736@gmail.com',
     description='Async postgres data access layer',

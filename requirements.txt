@@ -1,0 +1,2 @@
+asyncpg==0.18.3
+immutables==0.9
