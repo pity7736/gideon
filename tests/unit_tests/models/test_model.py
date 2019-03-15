@@ -33,11 +33,17 @@ def test_model_name():
     assert CreditCard.__table_name__ == 'credit_card'
 
 
+def test_fields_must_be_private():
+    with raises(ValueError):
+        class Example(Model):
+            name = Field()
+
+
 class M(Model):
     __table_name__ = 'Model'
-    id = Field(name='id')
-    name = Field(name='name')
-    desc = Field(name='description')
+    _id = Field(name='id')
+    _name = Field(name='name')
+    _desc = Field(name='description')
 
 
 def test_fields_without_data():
@@ -46,6 +52,13 @@ def test_fields_without_data():
     assert m.id is None
     assert m.name is None
     assert m.desc is None
+
+
+def test_set_value_to_field():
+    m = M()
+    m.name = 'hola'
+
+    assert m.name == 'hola'
 
 
 def test_fields_with_data_in_constructor():

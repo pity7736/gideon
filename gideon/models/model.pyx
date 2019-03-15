@@ -12,6 +12,6 @@ class Model(metaclass=MetaModel):
             setattr(self, key, value)
 
         for key, value in kwargs.items():
-            if key not in self._fields.keys() and key not in vars(self):
+            if f'_{key}' not in self._fields.keys() and key not in vars(self):
                 raise TypeError(f'Invalid field: {key} is not a field of {self.__class__}')
             setattr(self, key, value)
