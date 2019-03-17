@@ -5,15 +5,11 @@ from gideon.utils.strings import camel_case_to_snake_case
 
 
 def create_property_field(field_name):
-    # def field(self):
-    #     return getattr(self, field_name)
     return lambda self: getattr(self, field_name)
 
 
 def create_set_property_field(field_name):
-    def set_field(self, value):
-        setattr(self, field_name, value)
-    return set_field
+    return lambda self, value: setattr(self, field_name, value)
 
 
 class MetaModel(type):
