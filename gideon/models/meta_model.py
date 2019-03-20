@@ -1,5 +1,6 @@
 from immutables import Map
 
+from gideon.exceptions import PrivateField
 from gideon.models.fields import Field
 from gideon.utils.strings import camel_case_to_snake_case
 
@@ -22,7 +23,7 @@ class MetaModel(type):
         for attr, value in namespace.items():
             if isinstance(value, Field):
                 if not attr.startswith('_'):
-                    raise ValueError('Fields name must be private')
+                    raise PrivateField('Fields name must be private')
                 fields = fields.set(attr, value)
                 property_fields[attr.replace('_', '', 1)] = property(
                     create_property_field(attr),

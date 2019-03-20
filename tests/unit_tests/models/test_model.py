@@ -1,5 +1,6 @@
 from pytest import raises, mark
 
+from gideon.exceptions import NonExistsField, PrivateField
 from gideon.models.fields import Field
 from gideon.models.model import Model
 
@@ -34,7 +35,7 @@ def test_model_name():
 
 
 def test_fields_must_be_private():
-    with raises(ValueError):
+    with raises(PrivateField):
         class Example(Model):
             name = Field()
 
@@ -70,5 +71,5 @@ def test_fields_with_data_in_constructor():
 
 
 def test_wrong_fields():
-    with raises(TypeError):
+    with raises(NonExistsField):
         M(name='test', non_existent_field='fail')
