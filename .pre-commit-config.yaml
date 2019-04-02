@@ -10,4 +10,4 @@ repos:
         name: pytest
         entry: run_tests.sh
         language: script
-        type: [python]
+        types: [python]
