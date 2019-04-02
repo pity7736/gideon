@@ -1,7 +1,7 @@
 from pytest import raises, mark
 
 from gideon.exceptions import NonExistsField, PrivateField
-from gideon.models.fields import Field
+from gideon.models.fields import Field, ForeignKeyField
 from gideon.models.model import Model
 
 
@@ -47,6 +47,11 @@ class M(Model):
     _desc = Field(name='description')
 
 
+class N(Model):
+    _id = Field(name='id')
+    _m = ForeignKeyField(to=M, name='m')
+
+
 def test_fields_without_data():
     m = M()
 
@@ -73,3 +78,9 @@ def test_fields_with_data_in_constructor():
 def test_wrong_fields():
     with raises(NonExistsField):
         M(name='test', non_existent_field='fail')
+
+
+def test_foreing_attribute():
+    n = N()
+
+    assert n.m_id is None

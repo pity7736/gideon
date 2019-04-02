@@ -1,7 +1,7 @@
 from immutables import Map
 
 from gideon.exceptions import PrivateField
-from gideon.models.fields import Field
+from gideon.models.fields import Field, ForeignKeyField
 from gideon.utils.strings import camel_case_to_snake_case
 
 
@@ -29,6 +29,11 @@ class MetaModel(type):
                     create_property_field(attr),
                     create_set_property_field(attr)
                 )
+                if isinstance(value, ForeignKeyField):
+                    property_fields[f'{attr.replace("_", "", 1)}_id'] = property(
+                        create_property_field(attr),
+                        create_set_property_field(attr)
+                    )
 
         namespace['_fields'] = fields
         namespace.update(property_fields)

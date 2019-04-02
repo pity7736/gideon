@@ -31,10 +31,24 @@ date_field_extension = Extension(
     [f'gideon/models/fields/date_field.{ext}'],
 )
 
+foreign_key_extension = Extension(
+    'gideon.models.fields.foreign_key_field',
+    [f'gideon/models/fields/foreign_key_field.{ext}'],
+)
+
+
+extensions = [
+    model_extension,
+    field_extension,
+    date_field_extension,
+    foreign_key_extension
+]
+
 if USE_CYTHON:
-    extensions = cythonize([model_extension, field_extension, date_field_extension])
-else:
-    extensions = [model_extension, field_extension, date_field_extension]
+    extensions = cythonize(
+        extensions,
+        compiler_directives={'language_level': 3}
+    )
 
 
 setup(
