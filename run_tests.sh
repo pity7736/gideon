@@ -10,4 +10,3 @@ then
     echo "Running radon..."
     radon cc -s -a gideon
 fi
-
