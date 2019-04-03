@@ -1,7 +1,6 @@
-from gideon.models.fields.field cimport Field
+from gideon.fields.field cimport Field
 
 from gideon.exceptions import NonExistsField
-from gideon.models.fields import ForeignKeyField
 from gideon.models.meta_model import MetaModel
 
 

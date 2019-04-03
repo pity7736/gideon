@@ -2,7 +2,7 @@ import datetime
 
 from pytest import mark
 
-from gideon.models.fields import DateField
+from gideon.fields import DateField
 
 
 to_db_values = (

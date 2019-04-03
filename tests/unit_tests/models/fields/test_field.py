@@ -1,4 +1,4 @@
-from gideon.models.fields.field import Field
+from gideon.fields import Field
 
 
 def test_field_attributes():

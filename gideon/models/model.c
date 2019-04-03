@@ -809,29 +809,29 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "gideon/models/model.pyx",
-  "gideon/models/fields/field.pxd",
+  "gideon/fields/field.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_6gideon_6models_6fields_5field_Field;
+struct __pyx_obj_6gideon_6fields_5field_Field;
 
-/* "gideon/models/fields/field.pxd":1
+/* "gideon/fields/field.pxd":1
  * cdef class Field:             # <<<<<<<<<<<<<<
  *     cdef public str name
  * 
  */
-struct __pyx_obj_6gideon_6models_6fields_5field_Field {
+struct __pyx_obj_6gideon_6fields_5field_Field {
   PyObject_HEAD
-  struct __pyx_vtabstruct_6gideon_6models_6fields_5field_Field *__pyx_vtab;
+  struct __pyx_vtabstruct_6gideon_6fields_5field_Field *__pyx_vtab;
   PyObject *name;
 };
 
 
 
-struct __pyx_vtabstruct_6gideon_6models_6fields_5field_Field {
-  PyObject *(*to_db)(struct __pyx_obj_6gideon_6models_6fields_5field_Field *, PyObject *, int __pyx_skip_dispatch);
+struct __pyx_vtabstruct_6gideon_6fields_5field_Field {
+  PyObject *(*to_db)(struct __pyx_obj_6gideon_6fields_5field_Field *, PyObject *, int __pyx_skip_dispatch);
 };
-static struct __pyx_vtabstruct_6gideon_6models_6fields_5field_Field *__pyx_vtabptr_6gideon_6models_6fields_5field_Field;
+static struct __pyx_vtabstruct_6gideon_6fields_5field_Field *__pyx_vtabptr_6gideon_6fields_5field_Field;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1323,8 +1323,8 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'gideon.models.fields.field' */
-static PyTypeObject *__pyx_ptype_6gideon_6models_6fields_5field_Field = 0;
+/* Module declarations from 'gideon.fields.field' */
+static PyTypeObject *__pyx_ptype_6gideon_6fields_5field_Field = 0;
 
 /* Module declarations from 'gideon.models.model' */
 #define __Pyx_MODULE_NAME "gideon.models.model"
@@ -1362,16 +1362,13 @@ static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_Model___init[] = "Model.__init__";
 static const char __pyx_k_Invalid_field[] = "Invalid field: ";
 static const char __pyx_k_NonExistsField[] = "NonExistsField";
-static const char __pyx_k_ForeignKeyField[] = "ForeignKeyField";
 static const char __pyx_k_gideon_exceptions[] = "gideon.exceptions";
 static const char __pyx_k_is_not_a_field_of[] = " is not a field of ";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_gideon_models_model[] = "gideon.models.model";
-static const char __pyx_k_gideon_models_fields[] = "gideon.models.fields";
 static const char __pyx_k_gideon_models_model_pyx[] = "gideon/models/model.pyx";
 static const char __pyx_k_gideon_models_meta_model[] = "gideon.models.meta_model";
 static PyObject *__pyx_n_u_;
-static PyObject *__pyx_n_s_ForeignKeyField;
 static PyObject *__pyx_kp_u_Invalid_field;
 static PyObject *__pyx_n_s_MetaModel;
 static PyObject *__pyx_n_s_Model;
@@ -1385,7 +1382,6 @@ static PyObject *__pyx_n_s_field;
 static PyObject *__pyx_n_s_fields;
 static PyObject *__pyx_n_s_get;
 static PyObject *__pyx_n_s_gideon_exceptions;
-static PyObject *__pyx_n_s_gideon_models_fields;
 static PyObject *__pyx_n_s_gideon_models_meta_model;
 static PyObject *__pyx_n_s_gideon_models_model;
 static PyObject *__pyx_kp_s_gideon_models_model_pyx;
@@ -1413,7 +1409,7 @@ static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_codeobj__3;
 /* Late includes */
 
-/* "gideon/models/model.pyx":10
+/* "gideon/models/model.pyx":9
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
@@ -1451,7 +1447,7 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_1__init__(PyObject *__py
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 10, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 9, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -1462,7 +1458,7 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_1__init__(PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 10, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 9, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("gideon.models.model.Model.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -1479,7 +1475,7 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_1__init__(PyObject *__py
 
 static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_kwargs) {
   PyObject *__pyx_v_key = 0;
-  CYTHON_UNUSED struct __pyx_obj_6gideon_6models_6fields_5field_Field *__pyx_v_field = 0;
+  CYTHON_UNUSED struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_field = 0;
   PyObject *__pyx_v_value = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1501,7 +1497,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
   PyObject *__pyx_t_16 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "gideon/models/model.pyx":13
+  /* "gideon/models/model.pyx":12
  *         cdef str key
  *         cdef Field field
  *         for key, field in self._fields.items():             # <<<<<<<<<<<<<<
@@ -1509,13 +1505,13 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
  *             setattr(self, key, value)
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_fields); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_fields); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (unlikely(__pyx_t_5 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 13, __pyx_L1_error)
+    __PYX_ERR(0, 12, __pyx_L1_error)
   }
-  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -1524,40 +1520,40 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_6, &__pyx_t_5, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 13, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 12, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_GOTREF(__pyx_t_5);
-    if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 13, __pyx_L1_error)
-    if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_6gideon_6models_6fields_5field_Field))))) __PYX_ERR(0, 13, __pyx_L1_error)
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 12, __pyx_L1_error)
+    if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_6gideon_6fields_5field_Field))))) __PYX_ERR(0, 12, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_key, ((PyObject*)__pyx_t_6));
     __pyx_t_6 = 0;
-    __Pyx_XDECREF_SET(__pyx_v_field, ((struct __pyx_obj_6gideon_6models_6fields_5field_Field *)__pyx_t_5));
+    __Pyx_XDECREF_SET(__pyx_v_field, ((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "gideon/models/model.pyx":14
+    /* "gideon/models/model.pyx":13
  *         cdef Field field
  *         for key, field in self._fields.items():
  *             value = kwargs.get(key)             # <<<<<<<<<<<<<<
  *             setattr(self, key, value)
  * 
  */
-    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kwargs, __pyx_v_key, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kwargs, __pyx_v_key, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "gideon/models/model.pyx":15
+    /* "gideon/models/model.pyx":14
  *         for key, field in self._fields.items():
  *             value = kwargs.get(key)
  *             setattr(self, key, value)             # <<<<<<<<<<<<<<
  * 
  *         for key, value in kwargs.items():
  */
-    __pyx_t_8 = PyObject_SetAttr(__pyx_v_self, __pyx_v_key, __pyx_v_value); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 15, __pyx_L1_error)
+    __pyx_t_8 = PyObject_SetAttr(__pyx_v_self, __pyx_v_key, __pyx_v_value); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 14, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":17
+  /* "gideon/models/model.pyx":16
  *             setattr(self, key, value)
  * 
  *         for key, value in kwargs.items():             # <<<<<<<<<<<<<<
@@ -1565,7 +1561,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
  *                 raise NonExistsField(f'Invalid field: {key} is not a field of {self.__class__}')
  */
   __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_kwargs, 1, __pyx_n_s_items, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_kwargs, 1, __pyx_n_s_items, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -1573,30 +1569,30 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_2, &__pyx_t_3, &__pyx_t_5, &__pyx_t_6, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GOTREF(__pyx_t_6);
-    if (!(likely(PyUnicode_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_key, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
     __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "gideon/models/model.pyx":18
+    /* "gideon/models/model.pyx":17
  * 
  *         for key, value in kwargs.items():
  *             if f'_{key}' not in self._fields.keys() and key not in vars(self):             # <<<<<<<<<<<<<<
  *                 raise NonExistsField(f'Invalid field: {key} is not a field of {self.__class__}')
  *             setattr(self, key, value)
  */
-    __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_key); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_key); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_n_u_, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_n_u_, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_fields); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_fields); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_keys); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_keys); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_10 = NULL;
@@ -1611,10 +1607,10 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
     }
     __pyx_t_6 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_11);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_12 = (__Pyx_PySequence_ContainsTF(__pyx_t_5, __pyx_t_6, Py_NE)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_12 = (__Pyx_PySequence_ContainsTF(__pyx_t_5, __pyx_t_6, Py_NE)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_13 = (__pyx_t_12 != 0);
@@ -1623,24 +1619,24 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
       __pyx_t_9 = __pyx_t_13;
       goto __pyx_L8_bool_binop_done;
     }
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_vars, __pyx_v_self); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_vars, __pyx_v_self); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_13 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_6, Py_NE)); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_13 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_6, Py_NE)); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_12 = (__pyx_t_13 != 0);
     __pyx_t_9 = __pyx_t_12;
     __pyx_L8_bool_binop_done:;
     if (unlikely(__pyx_t_9)) {
 
-      /* "gideon/models/model.pyx":19
+      /* "gideon/models/model.pyx":18
  *         for key, value in kwargs.items():
  *             if f'_{key}' not in self._fields.keys() and key not in vars(self):
  *                 raise NonExistsField(f'Invalid field: {key} is not a field of {self.__class__}')             # <<<<<<<<<<<<<<
  *             setattr(self, key, value)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_NonExistsField); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_NonExistsField); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = PyTuple_New(4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_11 = PyTuple_New(4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 18, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __pyx_t_14 = 0;
       __pyx_t_15 = 127;
@@ -1648,7 +1644,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
       __pyx_t_14 += 15;
       __Pyx_GIVEREF(__pyx_kp_u_Invalid_field);
       PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_kp_u_Invalid_field);
-      __pyx_t_10 = __Pyx_PyUnicode_Unicode(__pyx_v_key); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyUnicode_Unicode(__pyx_v_key); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 18, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __pyx_t_15 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_10) > __pyx_t_15) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_10) : __pyx_t_15;
       __pyx_t_14 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_10);
@@ -1659,9 +1655,9 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
       __pyx_t_14 += 19;
       __Pyx_GIVEREF(__pyx_kp_u_is_not_a_field_of);
       PyTuple_SET_ITEM(__pyx_t_11, 2, __pyx_kp_u_is_not_a_field_of);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_class); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_class); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 18, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_16 = __Pyx_PyObject_FormatSimple(__pyx_t_10, __pyx_empty_unicode); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_16 = __Pyx_PyObject_FormatSimple(__pyx_t_10, __pyx_empty_unicode); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 18, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_16);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_t_15 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_16) > __pyx_t_15) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_16) : __pyx_t_15;
@@ -1669,7 +1665,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
       __Pyx_GIVEREF(__pyx_t_16);
       PyTuple_SET_ITEM(__pyx_t_11, 3, __pyx_t_16);
       __pyx_t_16 = 0;
-      __pyx_t_16 = __Pyx_PyUnicode_Join(__pyx_t_11, 4, __pyx_t_14, __pyx_t_15); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 19, __pyx_L1_error)
+      __pyx_t_16 = __Pyx_PyUnicode_Join(__pyx_t_11, 4, __pyx_t_14, __pyx_t_15); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 18, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_16);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_t_11 = NULL;
@@ -1685,14 +1681,14 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
       __pyx_t_6 = (__pyx_t_11) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_11, __pyx_t_16) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_16);
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 19, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_Raise(__pyx_t_6, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __PYX_ERR(0, 19, __pyx_L1_error)
+      __PYX_ERR(0, 18, __pyx_L1_error)
 
-      /* "gideon/models/model.pyx":18
+      /* "gideon/models/model.pyx":17
  * 
  *         for key, value in kwargs.items():
  *             if f'_{key}' not in self._fields.keys() and key not in vars(self):             # <<<<<<<<<<<<<<
@@ -1701,16 +1697,16 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
  */
     }
 
-    /* "gideon/models/model.pyx":20
+    /* "gideon/models/model.pyx":19
  *             if f'_{key}' not in self._fields.keys() and key not in vars(self):
  *                 raise NonExistsField(f'Invalid field: {key} is not a field of {self.__class__}')
  *             setattr(self, key, value)             # <<<<<<<<<<<<<<
  */
-    __pyx_t_8 = PyObject_SetAttr(__pyx_v_self, __pyx_v_key, __pyx_v_value); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 20, __pyx_L1_error)
+    __pyx_t_8 = PyObject_SetAttr(__pyx_v_self, __pyx_v_key, __pyx_v_value); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 19, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":10
+  /* "gideon/models/model.pyx":9
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
@@ -1786,7 +1782,6 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_u_, __pyx_k_, sizeof(__pyx_k_), 0, 1, 0, 1},
-  {&__pyx_n_s_ForeignKeyField, __pyx_k_ForeignKeyField, sizeof(__pyx_k_ForeignKeyField), 0, 0, 1, 1},
   {&__pyx_kp_u_Invalid_field, __pyx_k_Invalid_field, sizeof(__pyx_k_Invalid_field), 0, 1, 0, 0},
   {&__pyx_n_s_MetaModel, __pyx_k_MetaModel, sizeof(__pyx_k_MetaModel), 0, 0, 1, 1},
   {&__pyx_n_s_Model, __pyx_k_Model, sizeof(__pyx_k_Model), 0, 0, 1, 1},
@@ -1800,7 +1795,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_fields, __pyx_k_fields, sizeof(__pyx_k_fields), 0, 0, 1, 1},
   {&__pyx_n_s_get, __pyx_k_get, sizeof(__pyx_k_get), 0, 0, 1, 1},
   {&__pyx_n_s_gideon_exceptions, __pyx_k_gideon_exceptions, sizeof(__pyx_k_gideon_exceptions), 0, 0, 1, 1},
-  {&__pyx_n_s_gideon_models_fields, __pyx_k_gideon_models_fields, sizeof(__pyx_k_gideon_models_fields), 0, 0, 1, 1},
   {&__pyx_n_s_gideon_models_meta_model, __pyx_k_gideon_models_meta_model, sizeof(__pyx_k_gideon_models_meta_model), 0, 0, 1, 1},
   {&__pyx_n_s_gideon_models_model, __pyx_k_gideon_models_model, sizeof(__pyx_k_gideon_models_model), 0, 0, 1, 1},
   {&__pyx_kp_s_gideon_models_model_pyx, __pyx_k_gideon_models_model_pyx, sizeof(__pyx_k_gideon_models_model_pyx), 0, 0, 1, 0},
@@ -1825,7 +1819,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_vars = __Pyx_GetBuiltinName(__pyx_n_s_vars); if (!__pyx_builtin_vars) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_builtin_vars = __Pyx_GetBuiltinName(__pyx_n_s_vars); if (!__pyx_builtin_vars) __PYX_ERR(0, 17, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -1835,17 +1829,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "gideon/models/model.pyx":10
+  /* "gideon/models/model.pyx":9
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
  *         cdef str key
  *         cdef Field field
  */
-  __pyx_tuple__2 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_kwargs, __pyx_n_s_key, __pyx_n_s_field, __pyx_n_s_value); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_kwargs, __pyx_n_s_key, __pyx_n_s_field, __pyx_n_s_value); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_init, 10, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_init, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1906,11 +1900,11 @@ static int __Pyx_modinit_type_import_code(void) {
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("gideon.models.fields.field"); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("gideon.fields.field"); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_6gideon_6models_6fields_5field_Field = __Pyx_ImportType(__pyx_t_1, "gideon.models.fields.field", "Field", sizeof(struct __pyx_obj_6gideon_6models_6fields_5field_Field), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_6gideon_6models_6fields_5field_Field) __PYX_ERR(1, 1, __pyx_L1_error)
-  __pyx_vtabptr_6gideon_6models_6fields_5field_Field = (struct __pyx_vtabstruct_6gideon_6models_6fields_5field_Field*)__Pyx_GetVtable(__pyx_ptype_6gideon_6models_6fields_5field_Field->tp_dict); if (unlikely(!__pyx_vtabptr_6gideon_6models_6fields_5field_Field)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_ptype_6gideon_6fields_5field_Field = __Pyx_ImportType(__pyx_t_1, "gideon.fields.field", "Field", sizeof(struct __pyx_obj_6gideon_6fields_5field_Field), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_6gideon_6fields_5field_Field) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_vtabptr_6gideon_6fields_5field_Field = (struct __pyx_vtabstruct_6gideon_6fields_5field_Field*)__Pyx_GetVtable(__pyx_ptype_6gideon_6fields_5field_Field->tp_dict); if (unlikely(!__pyx_vtabptr_6gideon_6fields_5field_Field)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2138,11 +2132,11 @@ if (!__Pyx_RefNanny) {
   #endif
 
   /* "gideon/models/model.pyx":3
- * from gideon.models.fields.field cimport Field
+ * from gideon.fields.field cimport Field
  * 
  * from gideon.exceptions import NonExistsField             # <<<<<<<<<<<<<<
- * from gideon.models.fields import ForeignKeyField
  * from gideon.models.meta_model import MetaModel
+ * 
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -2161,95 +2155,74 @@ if (!__Pyx_RefNanny) {
   /* "gideon/models/model.pyx":4
  * 
  * from gideon.exceptions import NonExistsField
- * from gideon.models.fields import ForeignKeyField             # <<<<<<<<<<<<<<
- * from gideon.models.meta_model import MetaModel
- * 
- */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_ForeignKeyField);
-  __Pyx_GIVEREF(__pyx_n_s_ForeignKeyField);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_ForeignKeyField);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_gideon_models_fields, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_ForeignKeyField); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ForeignKeyField, __pyx_t_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "gideon/models/model.pyx":5
- * from gideon.exceptions import NonExistsField
- * from gideon.models.fields import ForeignKeyField
  * from gideon.models.meta_model import MetaModel             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_MetaModel);
   __Pyx_GIVEREF(__pyx_n_s_MetaModel);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_MetaModel);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_gideon_models_meta_model, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_MetaModel); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_MetaModel);
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_gideon_models_meta_model, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MetaModel, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_MetaModel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MetaModel, __pyx_t_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":8
+  /* "gideon/models/model.pyx":7
  * 
  * 
  * class Model(metaclass=MetaModel):             # <<<<<<<<<<<<<<
  * 
  *     def __init__(self, **kwargs):
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_MetaModel); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_empty_tuple, __pyx_n_s_Model, __pyx_n_s_Model, __pyx_t_2, __pyx_n_s_gideon_models_model, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_MetaModel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_empty_tuple, __pyx_n_s_Model, __pyx_n_s_Model, __pyx_t_1, __pyx_n_s_gideon_models_model, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "gideon/models/model.pyx":10
+  /* "gideon/models/model.pyx":9
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
  *         cdef str key
  *         cdef Field field
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_1__init__, 0, __pyx_n_s_Model___init, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_1__init__, 0, __pyx_n_s_Model___init, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "gideon/models/model.pyx":8
+  /* "gideon/models/model.pyx":7
  * 
  * 
  * class Model(metaclass=MetaModel):             # <<<<<<<<<<<<<<
  * 
  *     def __init__(self, **kwargs):
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_Model, __pyx_empty_tuple, __pyx_t_3, __pyx_t_2, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_Model, __pyx_empty_tuple, __pyx_t_3, __pyx_t_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Model, __pyx_t_4) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Model, __pyx_t_4) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "gideon/models/model.pyx":1
- * from gideon.models.fields.field cimport Field             # <<<<<<<<<<<<<<
+ * from gideon.fields.field cimport Field             # <<<<<<<<<<<<<<
  * 
  * from gideon.exceptions import NonExistsField
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /*--- Wrapped vars code ---*/
 

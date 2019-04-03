@@ -1,7 +1,7 @@
 from immutables import Map
 
 from gideon.exceptions import PrivateField
-from gideon.models.fields import Field, ForeignKeyField
+from gideon.fields import Field, ForeignKeyField
 from gideon.utils.strings import camel_case_to_snake_case
 
 

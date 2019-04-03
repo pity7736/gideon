@@ -6,5 +6,5 @@ then
     echo "Installing project locally..."
     pip install -e .
     echo "Running pytest..."
-    pytest $@
+    pytest -vvvv --cov=gideon --cov-report term-missing tests/
 fi

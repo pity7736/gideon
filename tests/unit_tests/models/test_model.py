@@ -1,7 +1,7 @@
 from pytest import raises, mark
 
 from gideon.exceptions import NonExistsField, PrivateField
-from gideon.models.fields import Field, ForeignKeyField
+from gideon.fields import Field, ForeignKeyField
 from gideon.models.model import Model
 
 

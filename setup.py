@@ -22,18 +22,18 @@ model_extension = Extension(
 )
 
 field_extension = Extension(
-    'gideon.models.fields.field',
-    [f'gideon/models/fields/field.{ext}'],
+    'gideon.fields.field',
+    [f'gideon/fields/field.{ext}'],
 )
 
 date_field_extension = Extension(
-    'gideon.models.fields.date_field',
-    [f'gideon/models/fields/date_field.{ext}'],
+    'gideon.fields.date_field',
+    [f'gideon/fields/date_field.{ext}'],
 )
 
 foreign_key_extension = Extension(
-    'gideon.models.fields.foreign_key_field',
-    [f'gideon/models/fields/foreign_key_field.{ext}'],
+    'gideon.fields.foreign_key_field',
+    [f'gideon/fields/foreign_key_field.{ext}'],
 )
 
 
