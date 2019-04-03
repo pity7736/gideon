@@ -11,3 +11,10 @@ repos:
         entry: run_tests.sh
         language: script
         types: [python]
+  - repo: local
+    hooks:
+      - id: radon
+        name: radon
+        entry: run_radon.sh
+        language: script
+        types: [python]
