@@ -14,3 +14,16 @@ async def test_save():
     assert category.id is None
     await category.save()
     assert category.id
+
+
+@mark.asyncio
+async def test_get():
+    subprocess.call(['psql', '-U', os.environ['DB_USER'], '-h', os.environ['DB_HOST'], '-f', '../db.sql'])
+    category = Category(name='test get category', description='test description')
+    await category.save()
+
+    category2 = await Category.get(id=category.id)
+
+    assert category.id == category2.id
+    assert category.name == category2.name
+    assert category.description == category2.description

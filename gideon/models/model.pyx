@@ -21,6 +21,20 @@ class Model(metaclass=MetaModel):
                 raise NonExistsField(f'Invalid field: {key} is not a field of {self.__class__}')
             setattr(self, key, value)
 
+    @classmethod
+    async def get(cls, **kwargs):
+        fields = []
+        for i, key in enumerate(kwargs.keys(), start=1):
+            fields.append(f'{key} = ${i}')
+
+        fields = ' AND '.join(fields)
+        sql = f'select * from {cls.__table_name__} where {fields}'
+        con = await cls._get_connection()
+        record = await con.fetchrow(sql, *kwargs.values())
+        await con.close()
+        if record:
+            return cls(**record)
+
     async def save(self):
         fields = []
         values = []
