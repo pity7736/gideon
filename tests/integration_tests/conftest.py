@@ -4,6 +4,8 @@ import subprocess
 
 from pytest import fixture
 
+from tests.factories import CategoryFactory
+
 
 @fixture(scope='session')
 def create_db():
@@ -31,3 +33,10 @@ async def db_transaction(connection):
     yield
     await connection.execute('TRUNCATE categories, movements_tags, tags, movements;')
     await connection.close()
+
+
+@fixture
+async def category():
+    cat = CategoryFactory()
+    await cat.save()
+    return cat
