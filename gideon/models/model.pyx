@@ -77,6 +77,16 @@ class Model(metaclass=MetaModel):
             result.append(cls(**record))
         return result
 
+    @classmethod
+    async def all(cls):
+        connection = await cls._get_connection()
+        records = await connection.fetch(f'select * from {cls.__table_name__}')
+        await connection.close()
+        result = []
+        for record in records:
+            result.append(cls(**record))
+        return result
+
     @staticmethod
     async def _get_connection():
         # TODO: refactor this. it should not be here

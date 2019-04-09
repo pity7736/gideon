@@ -79,3 +79,12 @@ async def test_filter_by_description(create_db, db_transaction, category):
 async def test_filter_without_params():
     with raises(AssertionError):
         await Category.filter()
+
+
+@mark.asyncio
+async def test_all(create_db, db_transaction):
+    categories = CategoryFactory.build_batch(5)
+    for category in categories:
+        await category.save()
+
+    assert len(await Category.all()) == 5
