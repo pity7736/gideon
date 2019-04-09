@@ -1,9 +1,9 @@
 import asyncpg
 import os
 
-from gideon.fields.field cimport Field
 from gideon.exceptions import NonExistsField
 from gideon.fields import ForeignKeyField
+from gideon.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
 
 

@@ -24,12 +24,14 @@ class MetaModel(type):
             if isinstance(value, Field):
                 if not attr.startswith('_'):
                     raise PrivateField('Fields name must be private')
+
                 fields = fields.set(attr, value)
                 property_fields[attr.replace('_', '', 1)] = property(
                     create_property_field(attr),
                     create_set_property_field(attr)
                 )
                 if isinstance(value, ForeignKeyField):
+                    property_fields[f'{attr}_id'] = None
                     property_fields[f'{attr.replace("_", "", 1)}_id'] = property(
                         create_property_field(attr),
                         create_set_property_field(attr)

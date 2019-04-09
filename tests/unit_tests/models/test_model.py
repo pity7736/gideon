@@ -80,7 +80,7 @@ def test_wrong_fields():
         M(name='test', non_existent_field='fail')
 
 
-def test_foreing_attribute():
+def test_foreign_attribute():
     n = N()
 
     assert n.m_id is None
