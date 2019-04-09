@@ -7,13 +7,18 @@ from tests.models import Category
 
 
 @mark.asyncio
-async def test_save():
-    # the password is in .pgpass file
-    subprocess.call(['psql', '-U', os.environ['DB_USER'], '-h', os.environ['DB_HOST'], '-f', '../db.sql'])
+async def test_save(create_db, db_transaction, connection):
     category = Category(name='test category', description='test description')
-    assert category.id is None
     await category.save()
-    assert category.id
+
+    record = await connection.fetchrow(
+        'select * from categories where id = $1',
+        category.id
+    )
+
+    assert category.id == record['id']
+    assert category.name == record['name']
+    assert category.description == record['description']
 
 
 @mark.asyncio

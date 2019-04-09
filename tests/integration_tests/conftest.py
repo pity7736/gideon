@@ -1,7 +1,15 @@
 import asyncpg
 import os
+import subprocess
 
 from pytest import fixture
+
+
+@fixture(scope='session')
+def create_db():
+    print('creating database...')
+    # the password is in .pgpass file
+    subprocess.call(['psql', '-U', os.environ['DB_USER'], '-h', os.environ['DB_HOST'], '-f', '../db.sql'])
 
 
 @fixture
@@ -21,5 +29,5 @@ async def connection():
 async def db_transaction(connection):
     # TODO: refactor this for a better solution
     yield
-    await connection.execute('TRUNCATE categories, movements_tags, tags, movements, test_model;')
+    await connection.execute('TRUNCATE categories, movements_tags, tags, movements;')
     await connection.close()
