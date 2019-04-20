@@ -1,16 +1,10 @@
 from pytest import raises, mark
 
 from gideon.exceptions import NonExistsField, PrivateField
-from gideon.fields import Field, ForeignKeyField
+from gideon.fields import Field
 from gideon.models.model import Model
 
-
-def test_model_without_table_name():
-    class M(Model):
-        pass
-
-    assert M.__table_name__ == 'm'
-
+from tests.models import Category
 
 table_names = (
     ('test_model', 'test_model'),
@@ -20,11 +14,11 @@ table_names = (
 
 
 @mark.parametrize('table_name, expected_table_name', table_names)
-def test_mode_table_name(table_name, expected_table_name):
-    class M(Model):
+def test_model_table_name(table_name, expected_table_name):
+    class Test(Model):
         __table_name__ = table_name
 
-    assert M.__table_name__ == expected_table_name
+    assert Test.__table_name__ == expected_table_name
 
 
 def test_model_name():
@@ -40,47 +34,29 @@ def test_fields_must_be_private():
             name = Field()
 
 
-class M(Model):
-    __table_name__ = 'Model'
-    _id = Field(name='id')
-    _name = Field(name='name')
-    _desc = Field(name='description')
-
-
-class N(Model):
-    _id = Field(name='id')
-    _m = ForeignKeyField(to=M, name='m')
-
-
 def test_fields_without_data():
-    m = M()
+    category = Category()
 
-    assert m.id is None
-    assert m.name is None
-    assert m.desc is None
+    assert category.id is None
+    assert category.name is None
+    assert category.description is None
 
 
 def test_set_value_to_field():
-    m = M()
-    m.name = 'hola'
+    category = Category()
+    category.name = 'hola'
 
-    assert m.name == 'hola'
+    assert category.name == 'hola'
 
 
 def test_fields_with_data_in_constructor():
-    m = M(name='test', desc='description')
+    category = Category(name='test', description='description')
 
-    assert m.id is None
-    assert m.name == 'test'
-    assert m.desc == 'description'
+    assert category.id is None
+    assert category.name == 'test'
+    assert category.description == 'description'
 
 
 def test_wrong_fields():
     with raises(NonExistsField):
-        M(name='test', non_existent_field='fail')
-
-
-def test_foreign_attribute():
-    n = N()
-
-    assert n.m_id is None
+        Category(name='test', non_existent_field='fail')

@@ -13,8 +13,7 @@ class Model(metaclass=MetaModel):
         cdef str key
         cdef Field field
         for key, field in self._fields.items():
-            value = kwargs.get(key)
-            setattr(self, key, value)
+            setattr(self, key, kwargs.get(key))
 
         for key, value in kwargs.items():
             if f'_{key}' not in self._fields.keys() and key not in vars(self):
