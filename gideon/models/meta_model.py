@@ -31,10 +31,9 @@ class MetaModel(type):
                     create_set_property_field(attr)
                 )
                 if isinstance(value, ForeignKeyField):
-                    property_fields[f'{attr}_id'] = None
                     property_fields[f'{attr.replace("_", "", 1)}_id'] = property(
-                        create_property_field(attr),
-                        create_set_property_field(attr)
+                        create_property_field(f'{attr}_id'),
+                        create_set_property_field(f'{attr}_id')
                     )
 
         namespace['_fields'] = fields

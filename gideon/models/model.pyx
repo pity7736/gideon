@@ -1,7 +1,6 @@
 import asyncpg
 import os
 
-from gideon.exceptions import NonExistsField
 from gideon.fields import ForeignKeyField
 from gideon.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
@@ -13,12 +12,9 @@ class Model(metaclass=MetaModel):
         cdef str key
         cdef Field field
         for key, field in self._fields.items():
-            setattr(self, key, kwargs.get(key))
-
-        for key, value in kwargs.items():
-            if f'_{key}' not in self._fields.keys() and key not in vars(self):
-                raise NonExistsField(f'Invalid field: {key} is not a field of {self.__class__}')
-            setattr(self, key, value)
+            setattr(self, key, kwargs.pop(key.replace('_', '', 1), None))
+            if isinstance(field, ForeignKeyField):
+                setattr(self, f'{key}_id', kwargs.pop(f'{key}_id'.replace('_', '', 1), None))
 
     @classmethod
     async def get(cls, **kwargs):
@@ -56,8 +52,10 @@ class Model(metaclass=MetaModel):
         fields = ', '.join(fields)
         values = ', '.join(values)
         con = await self._get_connection()
-        sql = f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", '')
-        self.id = await con.fetchval(sql, *arguments)
+        self.id = await con.fetchval(
+            f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
+             *arguments
+        )
         await con.close()
 
     @classmethod

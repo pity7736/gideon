@@ -1,7 +1,7 @@
 from pytest import mark, raises
 
 from tests.factories import CategoryFactory
-from tests.models import Category
+from tests.models import Category, Movement
 
 
 @mark.asyncio
@@ -88,3 +88,25 @@ async def test_all(create_db, db_transaction):
         await category.save()
 
     assert len(await Category.all()) == 5
+
+
+@mark.asyncio
+async def test_get_with_foreign_key(create_db, db_transaction, category):
+    mov = Movement(type='expense', date='2019-04-20', value=10000, note='test', category=category)
+    await mov.save()
+    movement = await Movement.get(id=mov.id)
+
+    assert movement.id == mov.id
+    assert movement.category is None
+    assert movement.category_id == category.id
+
+
+@mark.asyncio
+async def test_get_with_foreign_key_id(create_db, db_transaction, category):
+    mov = Movement(type='expense', date='2019-04-20', value=10000, note='test', category_id=category.id)
+    await mov.save()
+    movement = await Movement.get(id=mov.id)
+
+    assert movement.id == mov.id
+    assert movement.category is None
+    assert movement.category_id == category.id

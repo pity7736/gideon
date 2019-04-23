@@ -11,7 +11,8 @@ from tests.factories import CategoryFactory
 def create_db():
     print('creating database...')
     # the password is in .pgpass file
-    subprocess.call(['psql', '-U', os.environ['DB_USER'], '-h', os.environ['DB_HOST'], '-f', '../db.sql'])
+    subprocess.call(['psql', '-U', os.environ['DB_USER'], '-h', os.environ['DB_HOST'], '-f',
+                    f'{os.path.dirname(__file__)}/db.sql'])
 
 
 @fixture
@@ -37,6 +38,6 @@ async def db_transaction(connection):
 
 @fixture
 async def category():
-    cat = CategoryFactory()
+    cat = CategoryFactory.build()
     await cat.save()
     return cat
