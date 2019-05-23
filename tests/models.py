@@ -4,14 +4,12 @@ from gideon.models import Model
 
 class Category(Model):
     __table_name__ = 'categories'
-    _id = Field(name='id')
     _name = Field(name='name')
     _description = Field(name='description')
 
 
 class Movement(Model):
     __table_name__ = 'movements'
-    _id = Field(name='id')
     _type = Field(name='type')
     _date = DateField(name='date')
     _value = Field(name='value')

@@ -20,6 +20,9 @@ class MetaModel(type):
         namespace['__table_name__'] = camel_case_to_snake_case(table_name).replace(' ', '_')
         fields = Map()
         property_fields = {}
+        if '_id' not in namespace:
+            namespace['_id'] = Field(name='id')
+
         for attr, value in namespace.items():
             if isinstance(value, Field):
                 if not attr.startswith('_'):
