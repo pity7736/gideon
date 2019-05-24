@@ -1,7 +1,7 @@
 from pytest import raises, mark
 
 from gideon.exceptions import NonExistsField, PrivateField
-from gideon.fields import Field
+from gideon.fields import CharField, IntegerField, ForeignKeyField
 from gideon.models.model import Model
 
 from tests.models import Category
@@ -31,7 +31,7 @@ def test_model_name():
 def test_fields_must_be_private():
     with raises(PrivateField):
         class Example(Model):
-            name = Field()
+            name = CharField()
 
 
 def test_fields_without_data():
@@ -61,3 +61,20 @@ def test_fields_with_data_in_constructor():
 def test_wrong_fields():
     with raises(NonExistsField):
         Category(name='test', non_existent_field='fail')
+
+
+def test_annotations():
+    class TestAnnotation(Model):
+        _name = CharField(name='name')
+        _value = IntegerField(name='value')
+        _test = CharField(name='test')
+        _category = ForeignKeyField(to=Category, name='category')
+
+    assert TestAnnotation.__annotations__ == {
+        'id': int,
+        'name': str,
+        'value': int,
+        'test': str,
+        'category': Category,
+        'category_id': int
+    }

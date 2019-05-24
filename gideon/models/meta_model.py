@@ -23,22 +23,30 @@ class MetaModel(type):
         if '_id' not in namespace:
             namespace['_id'] = IntegerField(name='id')
 
+        annotations = {}
         for attr, value in namespace.items():
             if isinstance(value, Field):
                 if not attr.startswith('_'):
                     raise PrivateField('Fields name must be private')
 
                 fields = fields.set(attr, value)
-                property_fields[attr.replace('_', '', 1)] = property(
+                property_name = attr.replace('_', '', 1)
+                property_fields[property_name] = property(
                     create_property_field(attr),
                     create_set_property_field(attr)
                 )
+                annotations[property_name] = value.internal_type
                 if isinstance(value, ForeignKeyField):
-                    property_fields[f'{attr.replace("_", "", 1)}_id'] = property(
+                    property_foreign_name = f'{property_name}_id'
+                    property_fields[property_foreign_name] = property(
                         create_property_field(f'{attr}_id'),
                         create_set_property_field(f'{attr}_id')
                     )
+                    annotations[property_name] = value.to
+                    annotations[property_foreign_name] = value.internal_type
 
         namespace['_fields'] = fields
         namespace.update(property_fields)
-        return super().__new__(mcs, name, bases, namespace)
+        model = super().__new__(mcs, name, bases, namespace)
+        model.__annotations__ = annotations
+        return model

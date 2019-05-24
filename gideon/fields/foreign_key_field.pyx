@@ -10,3 +10,7 @@ cdef class ForeignKeyField(Field):
     @property
     def internal_type(self):
         return int
+
+    @property
+    def to(self):
+        return self._to

@@ -1311,6 +1311,7 @@ static PyObject *__pyx_n_s_to;
 static PyObject *__pyx_n_s_update;
 static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_to, PyObject *__pyx_v_name); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_13internal_type___get__(CYTHON_UNUSED struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2to___get__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to___get__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
 static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_2__set__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_4__del__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
@@ -1475,6 +1476,7 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
  *         return int
+ * 
  */
 
 /* Python wrapper */
@@ -1499,6 +1501,8 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
  *     @property
  *     def internal_type(self):
  *         return int             # <<<<<<<<<<<<<<
+ * 
+ *     @property
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(((PyObject *)(&PyInt_Type)));
@@ -1510,6 +1514,56 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
  *         return int
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gideon/fields/foreign_key_field.pyx":15
+ * 
+ *     @property
+ *     def to(self):             # <<<<<<<<<<<<<<
+ *         return self._to
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2to_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2to_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2to___get__(((struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2to___get__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__", 0);
+
+  /* "gideon/fields/foreign_key_field.pyx":16
+ *     @property
+ *     def to(self):
+ *         return self._to             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_self->_to);
+  __pyx_r = __pyx_v_self->_to;
+  goto __pyx_L0;
+
+  /* "gideon/fields/foreign_key_field.pyx":15
+ * 
+ *     @property
+ *     def to(self):             # <<<<<<<<<<<<<<
+ *         return self._to
  */
 
   /* function exit code */
@@ -2364,6 +2418,10 @@ static PyObject *__pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyF
   return __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_13internal_type_1__get__(o);
 }
 
+static PyObject *__pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField_to(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2to_1__get__(o);
+}
+
 static PyObject *__pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField__to(PyObject *o, CYTHON_UNUSED void *x) {
   return __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_1__get__(o);
 }
@@ -2385,6 +2443,7 @@ static PyMethodDef __pyx_methods_6gideon_6fields_17foreign_key_field_ForeignKeyF
 
 static struct PyGetSetDef __pyx_getsets_6gideon_6fields_17foreign_key_field_ForeignKeyField[] = {
   {(char *)"internal_type", __pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField_internal_type, 0, (char *)0, 0},
+  {(char *)"to", __pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField_to, 0, (char *)0, 0},
   {(char *)"_to", __pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField__to, __pyx_setprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField__to, (char *)0, 0},
   {0, 0, 0, 0, 0}
 };
