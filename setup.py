@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extension
 try:
     from Cython.Build import cythonize
     USE_CYTHON = True
@@ -30,6 +30,8 @@ if USE_CYTHON:
         extensions,
         compiler_directives={'language_level': 3}
     )
+else:
+    extensions = Extension('gideon', sources=extensions)
 
 
 setup(
