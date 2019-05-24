@@ -16,27 +16,24 @@ with open('requirements.txt') as f:
     install_requires = f.readlines()
 
 
-extensions = {
-    'models': [
-        f'gideon/models/model.{ext}'
-    ],
-    'fields': [
-        f'gideon/fields/field.{ext}',
-        f'gideon/fields/date_field.{ext}',
-        f'gideon/fields/foreign_key_field.{ext}',
-        f'gideon/fields/char_field.{ext}',
-        f'gideon/fields/integer_field.{ext}'
-    ]
-}
+extensions = [
+    ('model', f'gideon/models/model.{ext}'),
+    ('field', f'gideon/fields/field.{ext}'),
+    ('date_field', f'gideon/fields/date_field.{ext}'),
+    ('foreign_key_field', f'gideon/fields/foreign_key_field.{ext}'),
+    ('char_field', f'gideon/fields/char_field.{ext}'),
+    ('integer_field', f'gideon/fields/integer_field.{ext}')
+]
 
 
 if USE_CYTHON:
     extensions = cythonize(
-        extensions['models'] + extensions['fields'],
+        [extension[1] for extension in extensions],
         compiler_directives={'language_level': 3}
     )
 else:
-    extensions = [Extension(name=extension, sources=extensions[extension]) for extension in extensions]
+    extensions = [Extension(name=name, sources=[extension]) for name, extension in extensions]
+
 
 setup(
     name='gideon',
