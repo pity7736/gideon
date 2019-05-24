@@ -31,7 +31,7 @@ if USE_CYTHON:
         compiler_directives={'language_level': 3}
     )
 else:
-    extensions = Extension('gideon', sources=extensions)
+    extensions = [Extension('gideon', sources=extensions)]
 
 
 setup(
