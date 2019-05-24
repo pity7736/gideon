@@ -3,17 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "gideon",
+        "name": "gideon.fields.integer_field",
         "sources": [
-            "gideon/models/model.pyx",
-            "gideon/fields/field.pyx",
-            "gideon/fields/date_field.pyx",
-            "gideon/fields/foreign_key_field.pyx",
-            "gideon/fields/char_field.pyx",
             "gideon/fields/integer_field.pyx"
         ]
     },
-    "module_name": "gideon"
+    "module_name": "gideon.fields.integer_field"
 }
 END: Cython Metadata */
 
