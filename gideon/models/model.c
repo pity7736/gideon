@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "gideon.models.model",
+        "name": "model",
         "sources": [
             "gideon/models/model.pyx"
         ]
     },
-    "module_name": "gideon.models.model"
+    "module_name": "model"
 }
 END: Cython Metadata */
 
@@ -597,8 +597,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__gideon__models__model
-#define __PYX_HAVE_API__gideon__models__model
+#define __PYX_HAVE__model
+#define __PYX_HAVE_API__model
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -814,11 +814,11 @@ static const char *__pyx_f[] = {
 
 /*--- Type declarations ---*/
 struct __pyx_obj_6gideon_6fields_5field_Field;
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get;
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save;
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter;
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all;
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection;
+struct __pyx_obj_5model___pyx_scope_struct__get;
+struct __pyx_obj_5model___pyx_scope_struct_1_save;
+struct __pyx_obj_5model___pyx_scope_struct_2_filter;
+struct __pyx_obj_5model___pyx_scope_struct_3_all;
+struct __pyx_obj_5model___pyx_scope_struct_4__get_connection;
 
 /* "gideon/fields/field.pxd":1
  * cdef class Field:             # <<<<<<<<<<<<<<
@@ -832,14 +832,14 @@ struct __pyx_obj_6gideon_6fields_5field_Field {
 };
 
 
-/* "gideon/models/model.pyx":20
+/* "model.pyx":20
  * 
  *     @classmethod
  *     async def get(cls, **kwargs):             # <<<<<<<<<<<<<<
  *         fields = []
  *         for i, key in enumerate(kwargs.keys(), start=1):
  */
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get {
+struct __pyx_obj_5model___pyx_scope_struct__get {
   PyObject_HEAD
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_con;
@@ -852,14 +852,14 @@ struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get {
 };
 
 
-/* "gideon/models/model.pyx":33
+/* "model.pyx":33
  *             return cls(**record)
  * 
  *     async def save(self):             # <<<<<<<<<<<<<<
+ *         print('hola')
  *         fields = []
- *         values = []
  */
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save {
+struct __pyx_obj_5model___pyx_scope_struct_1_save {
   PyObject_HEAD
   PyObject *__pyx_v_arguments;
   PyObject *__pyx_v_con;
@@ -873,14 +873,14 @@ struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save {
 };
 
 
-/* "gideon/models/model.pyx":62
+/* "model.pyx":63
  * 
  *     @classmethod
  *     async def filter(cls, **kwargs):             # <<<<<<<<<<<<<<
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
  *         fields = []
  */
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter {
+struct __pyx_obj_5model___pyx_scope_struct_2_filter {
   PyObject_HEAD
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_connection;
@@ -894,14 +894,14 @@ struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter {
 };
 
 
-/* "gideon/models/model.pyx":78
+/* "model.pyx":79
  * 
  *     @classmethod
  *     async def all(cls):             # <<<<<<<<<<<<<<
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__}')
  */
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all {
+struct __pyx_obj_5model___pyx_scope_struct_3_all {
   PyObject_HEAD
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_connection;
@@ -911,14 +911,14 @@ struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all {
 };
 
 
-/* "gideon/models/model.pyx":88
+/* "model.pyx":89
  * 
  *     @staticmethod
  *     async def _get_connection():             # <<<<<<<<<<<<<<
  *         # TODO: refactor this. it should not be here
  *         return await asyncpg.connect(
  */
-struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection {
+struct __pyx_obj_5model___pyx_scope_struct_4__get_connection {
   PyObject_HEAD
 };
 
@@ -1639,30 +1639,31 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 /* Module declarations from 'gideon.fields.field' */
 static PyTypeObject *__pyx_ptype_6gideon_6fields_5field_Field = 0;
 
-/* Module declarations from 'gideon.models.model' */
-static PyTypeObject *__pyx_ptype_6gideon_6models_5model___pyx_scope_struct__get = 0;
-static PyTypeObject *__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_1_save = 0;
-static PyTypeObject *__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_2_filter = 0;
-static PyTypeObject *__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_3_all = 0;
-static PyTypeObject *__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_4__get_connection = 0;
-#define __Pyx_MODULE_NAME "gideon.models.model"
-extern int __pyx_module_is_main_gideon__models__model;
-int __pyx_module_is_main_gideon__models__model = 0;
+/* Module declarations from 'model' */
+static PyTypeObject *__pyx_ptype_5model___pyx_scope_struct__get = 0;
+static PyTypeObject *__pyx_ptype_5model___pyx_scope_struct_1_save = 0;
+static PyTypeObject *__pyx_ptype_5model___pyx_scope_struct_2_filter = 0;
+static PyTypeObject *__pyx_ptype_5model___pyx_scope_struct_3_all = 0;
+static PyTypeObject *__pyx_ptype_5model___pyx_scope_struct_4__get_connection = 0;
+#define __Pyx_MODULE_NAME "model"
+extern int __pyx_module_is_main_model;
+int __pyx_module_is_main_model = 0;
 
-/* Implementation of 'gideon.models.model' */
+/* Implementation of 'model' */
 static PyObject *__pyx_builtin_staticmethod;
 static PyObject *__pyx_builtin_enumerate;
+static PyObject *__pyx_builtin_print;
 static const char __pyx_k_[] = "_";
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k__2[] = "";
 static const char __pyx_k__4[] = " = $";
-static const char __pyx_k__6[] = "$";
-static const char __pyx_k__7[] = ", ";
-static const char __pyx_k__8[] = "(";
-static const char __pyx_k__9[] = "'";
+static const char __pyx_k__7[] = "$";
+static const char __pyx_k__8[] = ", ";
+static const char __pyx_k__9[] = "(";
 static const char __pyx_k_id[] = "_id";
 static const char __pyx_k_os[] = "os";
 static const char __pyx_k_AND[] = " AND ";
+static const char __pyx_k__10[] = "'";
 static const char __pyx_k_all[] = "all";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_con[] = "con";
@@ -1673,6 +1674,7 @@ static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_sql[] = "sql";
 static const char __pyx_k_None[] = "None";
 static const char __pyx_k_args[] = "args";
+static const char __pyx_k_hola[] = "hola";
 static const char __pyx_k_host[] = "host";
 static const char __pyx_k_id_2[] = "id";
 static const char __pyx_k_init[] = "__init__";
@@ -1691,6 +1693,8 @@ static const char __pyx_k_close[] = "close";
 static const char __pyx_k_fetch[] = "fetch";
 static const char __pyx_k_field[] = "field";
 static const char __pyx_k_items[] = "items";
+static const char __pyx_k_model[] = "model";
+static const char __pyx_k_print[] = "print";
 static const char __pyx_k_start[] = "start";
 static const char __pyx_k_throw[] = "throw";
 static const char __pyx_k_to_db[] = "to_db";
@@ -1744,7 +1748,6 @@ static const char __pyx_k_gideon_fields[] = "gideon.fields";
 static const char __pyx_k_get_connection[] = "_get_connection";
 static const char __pyx_k_ForeignKeyField[] = "ForeignKeyField";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_gideon_models_model[] = "gideon.models.model";
 static const char __pyx_k_Model__get_connection[] = "Model._get_connection";
 static const char __pyx_k_gideon_models_model_pyx[] = "gideon/models/model.pyx";
 static const char __pyx_k_gideon_models_meta_model[] = "gideon.models.meta_model";
@@ -1767,9 +1770,9 @@ static PyObject *__pyx_n_s_Model_get;
 static PyObject *__pyx_n_s_Model_save;
 static PyObject *__pyx_kp_u_None;
 static PyObject *__pyx_kp_u_RETURNING_id;
+static PyObject *__pyx_kp_u__10;
 static PyObject *__pyx_kp_u__2;
 static PyObject *__pyx_kp_u__4;
-static PyObject *__pyx_kp_u__6;
 static PyObject *__pyx_kp_u__7;
 static PyObject *__pyx_kp_u__8;
 static PyObject *__pyx_kp_u__9;
@@ -1801,8 +1804,8 @@ static PyObject *__pyx_n_s_get;
 static PyObject *__pyx_n_s_get_connection;
 static PyObject *__pyx_n_s_gideon_fields;
 static PyObject *__pyx_n_s_gideon_models_meta_model;
-static PyObject *__pyx_n_s_gideon_models_model;
 static PyObject *__pyx_kp_s_gideon_models_model_pyx;
+static PyObject *__pyx_n_u_hola;
 static PyObject *__pyx_n_s_host;
 static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_u_id;
@@ -1819,6 +1822,7 @@ static PyObject *__pyx_kp_u_keyword_arguments_are_obligatory;
 static PyObject *__pyx_n_s_kwargs;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_metaclass;
+static PyObject *__pyx_n_s_model;
 static PyObject *__pyx_n_s_module;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_name_2;
@@ -1827,6 +1831,7 @@ static PyObject *__pyx_n_s_password;
 static PyObject *__pyx_n_s_pop;
 static PyObject *__pyx_n_s_port;
 static PyObject *__pyx_n_s_prepare;
+static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_record;
@@ -1847,35 +1852,36 @@ static PyObject *__pyx_n_s_user;
 static PyObject *__pyx_n_s_values;
 static PyObject *__pyx_kp_u_values_2;
 static PyObject *__pyx_kp_u_where;
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_kwargs); /* proto */
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_2get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs); /* proto */
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_5save(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_8filter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs); /* proto */
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_11all(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_14_get_connection(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct__get(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_1_save(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_2_filter(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_3_all(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_4__get_connection(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_5model_5Model___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_kwargs); /* proto */
+static PyObject *__pyx_pf_5model_5Model_2get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs); /* proto */
+static PyObject *__pyx_pf_5model_5Model_5save(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5model_5Model_8filter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs); /* proto */
+static PyObject *__pyx_pf_5model_5Model_11all(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
+static PyObject *__pyx_pf_5model_5Model_14_get_connection(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct__get(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_1_save(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_2_filter(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_3_all(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_4__get_connection(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_keys = {0, &__pyx_n_s_keys, 0, 0, 0};
 static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop = {0, &__pyx_n_s_pop, 0, 0, 0};
 static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_values = {0, &__pyx_n_s_values, 0, 0, 0};
 static PyObject *__pyx_int_1;
-static PyObject *__pyx_tuple__13;
-static PyObject *__pyx_tuple__15;
+static PyObject *__pyx_tuple__6;
+static PyObject *__pyx_tuple__14;
 static PyObject *__pyx_tuple__16;
 static PyObject *__pyx_tuple__17;
 static PyObject *__pyx_tuple__18;
+static PyObject *__pyx_tuple__19;
 static PyObject *__pyx_codeobj__3;
 static PyObject *__pyx_codeobj__5;
-static PyObject *__pyx_codeobj__10;
 static PyObject *__pyx_codeobj__11;
 static PyObject *__pyx_codeobj__12;
-static PyObject *__pyx_codeobj__14;
+static PyObject *__pyx_codeobj__13;
+static PyObject *__pyx_codeobj__15;
 /* Late includes */
 
-/* "gideon/models/model.pyx":11
+/* "model.pyx":11
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
@@ -1884,9 +1890,9 @@ static PyObject *__pyx_codeobj__14;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6gideon_6models_5model_5Model_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6gideon_6models_5model_5Model_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5model_5Model_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5model_5Model_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5model_5Model_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5model_5Model_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_kwargs = 0;
   PyObject *__pyx_r = 0;
@@ -1927,11 +1933,11 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_1__init__(PyObject *__py
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 11, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
-  __Pyx_AddTraceback("gideon.models.model.Model.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6gideon_6models_5model_5Model___init__(__pyx_self, __pyx_v_self, __pyx_v_kwargs);
+  __pyx_r = __pyx_pf_5model_5Model___init__(__pyx_self, __pyx_v_self, __pyx_v_kwargs);
 
   /* function exit code */
   __Pyx_XDECREF(__pyx_v_kwargs);
@@ -1939,7 +1945,7 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_1__init__(PyObject *__py
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_kwargs) {
+static PyObject *__pyx_pf_5model_5Model___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_kwargs) {
   PyObject *__pyx_v_key = 0;
   struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_field = 0;
   PyObject *__pyx_r = NULL;
@@ -1957,7 +1963,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
   PyObject *__pyx_t_11 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "gideon/models/model.pyx":14
+  /* "model.pyx":14
  *         cdef str key
  *         cdef Field field
  *         for key, field in self._fields.items():             # <<<<<<<<<<<<<<
@@ -1990,7 +1996,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
     __Pyx_XDECREF_SET(__pyx_v_field, ((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "gideon/models/model.pyx":15
+    /* "model.pyx":15
  *         cdef Field field
  *         for key, field in self._fields.items():
  *             setattr(self, key, kwargs.pop(key.replace('_', '', 1), None))             # <<<<<<<<<<<<<<
@@ -2009,7 +2015,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
     __pyx_t_8 = PyObject_SetAttr(__pyx_v_self, __pyx_v_key, __pyx_t_6); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "gideon/models/model.pyx":16
+    /* "model.pyx":16
  *         for key, field in self._fields.items():
  *             setattr(self, key, kwargs.pop(key.replace('_', '', 1), None))
  *             if isinstance(field, ForeignKeyField):             # <<<<<<<<<<<<<<
@@ -2023,7 +2029,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
     __pyx_t_10 = (__pyx_t_9 != 0);
     if (__pyx_t_10) {
 
-      /* "gideon/models/model.pyx":17
+      /* "model.pyx":17
  *             setattr(self, key, kwargs.pop(key.replace('_', '', 1), None))
  *             if isinstance(field, ForeignKeyField):
  *                 setattr(self, f'{key}_id', kwargs.pop(f'{key}_id'.replace('_', '', 1), None))             # <<<<<<<<<<<<<<
@@ -2050,7 +2056,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "gideon/models/model.pyx":16
+      /* "model.pyx":16
  *         for key, field in self._fields.items():
  *             setattr(self, key, kwargs.pop(key.replace('_', '', 1), None))
  *             if isinstance(field, ForeignKeyField):             # <<<<<<<<<<<<<<
@@ -2061,7 +2067,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":11
+  /* "model.pyx":11
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
@@ -2077,7 +2083,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("gideon.models.model.Model.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_key);
@@ -2086,9 +2092,9 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model___init__(CYTHON_UNUSED P
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_5model_5Model_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gideon/models/model.pyx":20
+/* "model.pyx":20
  * 
  *     @classmethod
  *     async def get(cls, **kwargs):             # <<<<<<<<<<<<<<
@@ -2097,9 +2103,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_3get(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6gideon_6models_5model_5Model_3get = {"get", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6gideon_6models_5model_5Model_3get, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_3get(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5model_5Model_3get(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5model_5Model_3get = {"get", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5model_5Model_3get, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5model_5Model_3get(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_cls = 0;
   PyObject *__pyx_v_kwargs = 0;
   PyObject *__pyx_r = 0;
@@ -2140,11 +2146,11 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_3get(PyObject *__pyx_sel
   __Pyx_RaiseArgtupleInvalid("get", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 20, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_CLEAR(__pyx_v_kwargs);
-  __Pyx_AddTraceback("gideon.models.model.Model.get", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.get", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6gideon_6models_5model_5Model_2get(__pyx_self, __pyx_v_cls, __pyx_v_kwargs);
+  __pyx_r = __pyx_pf_5model_5Model_2get(__pyx_self, __pyx_v_cls, __pyx_v_kwargs);
 
   /* function exit code */
   __Pyx_XDECREF(__pyx_v_kwargs);
@@ -2152,14 +2158,14 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_3get(PyObject *__pyx_sel
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_2get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *__pyx_cur_scope;
+static PyObject *__pyx_pf_5model_5Model_2get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs) {
+  struct __pyx_obj_5model___pyx_scope_struct__get *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *)__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct__get(__pyx_ptype_6gideon_6models_5model___pyx_scope_struct__get, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5model___pyx_scope_struct__get *)__pyx_tp_new_5model___pyx_scope_struct__get(__pyx_ptype_5model___pyx_scope_struct__get, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct__get *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 20, __pyx_L1_error)
   } else {
@@ -2172,7 +2178,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_2get(CYTHON_UNUSED PyObj
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_kwargs);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_kwargs);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_6models_5model_5Model_4generator, __pyx_codeobj__3, (PyObject *) __pyx_cur_scope, __pyx_n_s_get, __pyx_n_s_Model_get, __pyx_n_s_gideon_models_model); if (unlikely(!gen)) __PYX_ERR(0, 20, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5model_5Model_4generator, __pyx_codeobj__3, (PyObject *) __pyx_cur_scope, __pyx_n_s_get, __pyx_n_s_Model_get, __pyx_n_s_model); if (unlikely(!gen)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2180,7 +2186,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_2get(CYTHON_UNUSED PyObj
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gideon.models.model.Model.get", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.get", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -2188,9 +2194,9 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_2get(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_5model_5Model_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *__pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *)__pyx_generator->closure);
+  struct __pyx_obj_5model___pyx_scope_struct__get *__pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct__get *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -2218,7 +2224,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __pyx_L3_first_run:;
   if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 20, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":21
+  /* "model.pyx":21
  *     @classmethod
  *     async def get(cls, **kwargs):
  *         fields = []             # <<<<<<<<<<<<<<
@@ -2231,7 +2237,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __pyx_cur_scope->__pyx_v_fields = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":22
+  /* "model.pyx":22
  *     async def get(cls, **kwargs):
  *         fields = []
  *         for i, key in enumerate(kwargs.keys(), start=1):             # <<<<<<<<<<<<<<
@@ -2347,7 +2353,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "gideon/models/model.pyx":23
+    /* "model.pyx":23
  *         fields = []
  *         for i, key in enumerate(kwargs.keys(), start=1):
  *             fields.append(f'{key} = ${i}')             # <<<<<<<<<<<<<<
@@ -2382,7 +2388,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
     __pyx_t_11 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_fields, __pyx_t_6); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "gideon/models/model.pyx":22
+    /* "model.pyx":22
  *     async def get(cls, **kwargs):
  *         fields = []
  *         for i, key in enumerate(kwargs.keys(), start=1):             # <<<<<<<<<<<<<<
@@ -2392,7 +2398,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":25
+  /* "model.pyx":25
  *             fields.append(f'{key} = ${i}')
  * 
  *         fields = ' AND '.join(fields)             # <<<<<<<<<<<<<<
@@ -2406,7 +2412,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":26
+  /* "model.pyx":26
  * 
  *         fields = ' AND '.join(fields)
  *         sql = f'select * from {cls.__table_name__} where {fields}'             # <<<<<<<<<<<<<<
@@ -2449,7 +2455,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __pyx_cur_scope->__pyx_v_sql = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "gideon/models/model.pyx":27
+  /* "model.pyx":27
  *         fields = ' AND '.join(fields)
  *         sql = f'select * from {cls.__table_name__} where {fields}'
  *         con = await cls._get_connection()             # <<<<<<<<<<<<<<
@@ -2495,7 +2501,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __pyx_cur_scope->__pyx_v_con = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "gideon/models/model.pyx":28
+  /* "model.pyx":28
  *         sql = f'select * from {cls.__table_name__} where {fields}'
  *         con = await cls._get_connection()
  *         record = await con.fetchrow(sql, *kwargs.values())             # <<<<<<<<<<<<<<
@@ -2544,7 +2550,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __pyx_cur_scope->__pyx_v_record = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "gideon/models/model.pyx":29
+  /* "model.pyx":29
  *         con = await cls._get_connection()
  *         record = await con.fetchrow(sql, *kwargs.values())
  *         await con.close()             # <<<<<<<<<<<<<<
@@ -2588,7 +2594,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
     }
   }
 
-  /* "gideon/models/model.pyx":30
+  /* "model.pyx":30
  *         record = await con.fetchrow(sql, *kwargs.values())
  *         await con.close()
  *         if record:             # <<<<<<<<<<<<<<
@@ -2598,7 +2604,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_record); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 30, __pyx_L1_error)
   if (__pyx_t_12) {
 
-    /* "gideon/models/model.pyx":31
+    /* "model.pyx":31
  *         await con.close()
  *         if record:
  *             return cls(**record)             # <<<<<<<<<<<<<<
@@ -2625,7 +2631,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
     __pyx_t_6 = 0;
     goto __pyx_L0;
 
-    /* "gideon/models/model.pyx":30
+    /* "model.pyx":30
  *         record = await con.fetchrow(sql, *kwargs.values())
  *         await con.close()
  *         if record:             # <<<<<<<<<<<<<<
@@ -2635,7 +2641,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "gideon/models/model.pyx":20
+  /* "model.pyx":20
  * 
  *     @classmethod
  *     async def get(cls, **kwargs):             # <<<<<<<<<<<<<<
@@ -2663,38 +2669,38 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_4generator(__pyx_Corouti
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_5model_5Model_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gideon/models/model.pyx":33
+/* "model.pyx":33
  *             return cls(**record)
  * 
  *     async def save(self):             # <<<<<<<<<<<<<<
+ *         print('hola')
  *         fields = []
- *         values = []
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_6save(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_6gideon_6models_5model_5Model_6save = {"save", (PyCFunction)__pyx_pw_6gideon_6models_5model_5Model_6save, METH_O, 0};
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_6save(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5model_5Model_6save(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5model_5Model_6save = {"save", (PyCFunction)__pyx_pw_5model_5Model_6save, METH_O, 0};
+static PyObject *__pyx_pw_5model_5Model_6save(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("save (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6models_5model_5Model_5save(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5model_5Model_5save(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_5save(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *__pyx_cur_scope;
+static PyObject *__pyx_pf_5model_5Model_5save(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_5model___pyx_scope_struct_1_save *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("save", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *)__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_1_save(__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_1_save, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5model___pyx_scope_struct_1_save *)__pyx_tp_new_5model___pyx_scope_struct_1_save(__pyx_ptype_5model___pyx_scope_struct_1_save, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct_1_save *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 33, __pyx_L1_error)
   } else {
@@ -2704,7 +2710,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_5save(CYTHON_UNUSED PyOb
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_6models_5model_5Model_7generator1, __pyx_codeobj__5, (PyObject *) __pyx_cur_scope, __pyx_n_s_save, __pyx_n_s_Model_save, __pyx_n_s_gideon_models_model); if (unlikely(!gen)) __PYX_ERR(0, 33, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5model_5Model_7generator1, __pyx_codeobj__5, (PyObject *) __pyx_cur_scope, __pyx_n_s_save, __pyx_n_s_Model_save, __pyx_n_s_model); if (unlikely(!gen)) __PYX_ERR(0, 33, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2712,7 +2718,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_5save(CYTHON_UNUSED PyOb
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gideon.models.model.Model.save", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.save", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -2720,9 +2726,9 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_5save(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_5model_5Model_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *__pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *)__pyx_generator->closure);
+  struct __pyx_obj_5model___pyx_scope_struct_1_save *__pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct_1_save *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
@@ -2751,46 +2757,57 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 33, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":34
+  /* "model.pyx":34
  * 
  *     async def save(self):
+ *         print('hola')             # <<<<<<<<<<<<<<
+ *         fields = []
+ *         values = []
+ */
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "model.pyx":35
+ *     async def save(self):
+ *         print('hola')
  *         fields = []             # <<<<<<<<<<<<<<
  *         values = []
  *         arguments = []
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_fields = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":35
- *     async def save(self):
+  /* "model.pyx":36
+ *         print('hola')
  *         fields = []
  *         values = []             # <<<<<<<<<<<<<<
  *         arguments = []
  *         i = 1
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_values = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":36
+  /* "model.pyx":37
  *         fields = []
  *         values = []
  *         arguments = []             # <<<<<<<<<<<<<<
  *         i = 1
  *         for field in self._fields.values():
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_arguments = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":37
+  /* "model.pyx":38
  *         values = []
  *         arguments = []
  *         i = 1             # <<<<<<<<<<<<<<
@@ -2801,7 +2818,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __Pyx_GIVEREF(__pyx_int_1);
   __pyx_cur_scope->__pyx_v_i = __pyx_int_1;
 
-  /* "gideon/models/model.pyx":38
+  /* "model.pyx":39
  *         arguments = []
  *         i = 1
  *         for field in self._fields.values():             # <<<<<<<<<<<<<<
@@ -2809,13 +2826,13 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
  *             if field_name != 'id':
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_fields); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_fields); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (unlikely(__pyx_t_5 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 38, __pyx_L1_error)
+    __PYX_ERR(0, 39, __pyx_L1_error)
   }
-  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_values, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_values, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -2824,75 +2841,75 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, NULL, &__pyx_t_6, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 38, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_field);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_field, __pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "gideon/models/model.pyx":39
+    /* "model.pyx":40
  *         i = 1
  *         for field in self._fields.values():
  *             field_name = field.name             # <<<<<<<<<<<<<<
  *             if field_name != 'id':
  *                 if isinstance(field, ForeignKeyField):
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_field, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_field, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_field_name);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_field_name, __pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "gideon/models/model.pyx":40
+    /* "model.pyx":41
  *         for field in self._fields.values():
  *             field_name = field.name
  *             if field_name != 'id':             # <<<<<<<<<<<<<<
  *                 if isinstance(field, ForeignKeyField):
  *                     instance = getattr(self, field_name)
  */
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_cur_scope->__pyx_v_field_name, __pyx_n_u_id_2, Py_NE)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_cur_scope->__pyx_v_field_name, __pyx_n_u_id_2, Py_NE)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 41, __pyx_L1_error)
     if (__pyx_t_8) {
 
-      /* "gideon/models/model.pyx":41
+      /* "model.pyx":42
  *             field_name = field.name
  *             if field_name != 'id':
  *                 if isinstance(field, ForeignKeyField):             # <<<<<<<<<<<<<<
  *                     instance = getattr(self, field_name)
  *                     field_name = f'{field_name}_id'
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_ForeignKeyField); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_ForeignKeyField); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_8 = PyObject_IsInstance(__pyx_cur_scope->__pyx_v_field, __pyx_t_6); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 41, __pyx_L1_error)
+      __pyx_t_8 = PyObject_IsInstance(__pyx_cur_scope->__pyx_v_field, __pyx_t_6); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_9 = (__pyx_t_8 != 0);
       if (__pyx_t_9) {
 
-        /* "gideon/models/model.pyx":42
+        /* "model.pyx":43
  *             if field_name != 'id':
  *                 if isinstance(field, ForeignKeyField):
  *                     instance = getattr(self, field_name)             # <<<<<<<<<<<<<<
  *                     field_name = f'{field_name}_id'
  *                     if instance:
  */
-        __pyx_t_6 = __Pyx_GetAttr(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_field_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 42, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_GetAttr(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_field_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 43, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_instance);
         __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_instance, __pyx_t_6);
         __Pyx_GIVEREF(__pyx_t_6);
         __pyx_t_6 = 0;
 
-        /* "gideon/models/model.pyx":43
+        /* "model.pyx":44
  *                 if isinstance(field, ForeignKeyField):
  *                     instance = getattr(self, field_name)
  *                     field_name = f'{field_name}_id'             # <<<<<<<<<<<<<<
  *                     if instance:
  *                         setattr(self, field_name, instance.id)
  */
-        __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_field_name, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 43, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_field_name, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_t_6, __pyx_n_u_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_t_6, __pyx_n_u_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 44, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_field_name);
@@ -2900,29 +2917,29 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
         __Pyx_GIVEREF(__pyx_t_5);
         __pyx_t_5 = 0;
 
-        /* "gideon/models/model.pyx":44
+        /* "model.pyx":45
  *                     instance = getattr(self, field_name)
  *                     field_name = f'{field_name}_id'
  *                     if instance:             # <<<<<<<<<<<<<<
  *                         setattr(self, field_name, instance.id)
  * 
  */
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_instance); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 44, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_instance); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 45, __pyx_L1_error)
         if (__pyx_t_9) {
 
-          /* "gideon/models/model.pyx":45
+          /* "model.pyx":46
  *                     field_name = f'{field_name}_id'
  *                     if instance:
  *                         setattr(self, field_name, instance.id)             # <<<<<<<<<<<<<<
  * 
  *                 fields.append(field_name)
  */
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_instance, __pyx_n_s_id_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_instance, __pyx_n_s_id_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_10 = PyObject_SetAttr(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_field_name, __pyx_t_5); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 45, __pyx_L1_error)
+          __pyx_t_10 = PyObject_SetAttr(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_field_name, __pyx_t_5); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 46, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-          /* "gideon/models/model.pyx":44
+          /* "model.pyx":45
  *                     instance = getattr(self, field_name)
  *                     field_name = f'{field_name}_id'
  *                     if instance:             # <<<<<<<<<<<<<<
@@ -2931,7 +2948,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
  */
         }
 
-        /* "gideon/models/model.pyx":41
+        /* "model.pyx":42
  *             field_name = field.name
  *             if field_name != 'id':
  *                 if isinstance(field, ForeignKeyField):             # <<<<<<<<<<<<<<
@@ -2940,40 +2957,40 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
  */
       }
 
-      /* "gideon/models/model.pyx":47
+      /* "model.pyx":48
  *                         setattr(self, field_name, instance.id)
  * 
  *                 fields.append(field_name)             # <<<<<<<<<<<<<<
  *                 values.append(f'${i}')
  *                 arguments.append(field.to_db(getattr(self, field_name)))
  */
-      __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_fields, __pyx_cur_scope->__pyx_v_field_name); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_fields, __pyx_cur_scope->__pyx_v_field_name); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
 
-      /* "gideon/models/model.pyx":48
+      /* "model.pyx":49
  * 
  *                 fields.append(field_name)
  *                 values.append(f'${i}')             # <<<<<<<<<<<<<<
  *                 arguments.append(field.to_db(getattr(self, field_name)))
  *                 i += 1
  */
-      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_i, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_i, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyUnicode_Concat(__pyx_kp_u__6, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyUnicode_Concat(__pyx_kp_u__7, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_values, __pyx_t_6); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_values, __pyx_t_6); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "gideon/models/model.pyx":49
+      /* "model.pyx":50
  *                 fields.append(field_name)
  *                 values.append(f'${i}')
  *                 arguments.append(field.to_db(getattr(self, field_name)))             # <<<<<<<<<<<<<<
  *                 i += 1
  * 
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_field, __pyx_n_s_to_db); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_field, __pyx_n_s_to_db); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_GetAttr(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_field_name); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_GetAttr(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_field_name); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __pyx_t_12 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -2988,27 +3005,27 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
       __pyx_t_6 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_12, __pyx_t_11) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_11);
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 49, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_10 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_arguments, __pyx_t_6); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 49, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_arguments, __pyx_t_6); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "gideon/models/model.pyx":50
+      /* "model.pyx":51
  *                 values.append(f'${i}')
  *                 arguments.append(field.to_db(getattr(self, field_name)))
  *                 i += 1             # <<<<<<<<<<<<<<
  * 
  *         fields = ', '.join(fields)
  */
-      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_i, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_i, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_i);
       __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_i, __pyx_t_6);
       __Pyx_GIVEREF(__pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "gideon/models/model.pyx":40
+      /* "model.pyx":41
  *         for field in self._fields.values():
  *             field_name = field.name
  *             if field_name != 'id':             # <<<<<<<<<<<<<<
@@ -3019,42 +3036,42 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":52
+  /* "model.pyx":53
  *                 i += 1
  * 
  *         fields = ', '.join(fields)             # <<<<<<<<<<<<<<
  *         values = ', '.join(values)
  *         con = await self._get_connection()
  */
-  __pyx_t_1 = PyUnicode_Join(__pyx_kp_u__7, __pyx_cur_scope->__pyx_v_fields); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_Join(__pyx_kp_u__8, __pyx_cur_scope->__pyx_v_fields); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_fields);
   __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_fields, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":53
+  /* "model.pyx":54
  * 
  *         fields = ', '.join(fields)
  *         values = ', '.join(values)             # <<<<<<<<<<<<<<
  *         con = await self._get_connection()
  *         self.id = await con.fetchval(
  */
-  __pyx_t_1 = PyUnicode_Join(__pyx_kp_u__7, __pyx_cur_scope->__pyx_v_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_Join(__pyx_kp_u__8, __pyx_cur_scope->__pyx_v_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_values);
   __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_values, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":54
+  /* "model.pyx":55
  *         fields = ', '.join(fields)
  *         values = ', '.join(values)
  *         con = await self._get_connection()             # <<<<<<<<<<<<<<
  *         self.id = await con.fetchval(
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_get_connection); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_get_connection); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -3068,7 +3085,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   }
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1);
@@ -3082,35 +3099,35 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L9_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 54, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 55, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else {
     __pyx_t_1 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_con = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":55
+  /* "model.pyx":56
  *         values = ', '.join(values)
  *         con = await self._get_connection()
  *         self.id = await con.fetchval(             # <<<<<<<<<<<<<<
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_con, __pyx_n_s_fetchval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_con, __pyx_n_s_fetchval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "gideon/models/model.pyx":56
+  /* "model.pyx":57
  *         con = await self._get_connection()
  *         self.id = await con.fetchval(
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),             # <<<<<<<<<<<<<<
  *              *arguments
  *         )
  */
-  __pyx_t_6 = PyTuple_New(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_3 = 0;
   __pyx_t_13 = 127;
@@ -3118,9 +3135,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __pyx_t_3 += 12;
   __Pyx_GIVEREF(__pyx_kp_u_insert_into);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_insert_into);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_table_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_table_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) : __pyx_t_13;
@@ -3128,11 +3145,11 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __Pyx_GIVEREF(__pyx_t_11);
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_11);
   __pyx_t_11 = 0;
-  __Pyx_INCREF(__pyx_kp_u__8);
+  __Pyx_INCREF(__pyx_kp_u__9);
   __pyx_t_3 += 1;
-  __Pyx_GIVEREF(__pyx_kp_u__8);
-  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u__8);
-  __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_fields, __pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GIVEREF(__pyx_kp_u__9);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u__9);
+  __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_fields, __pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) : __pyx_t_13;
   __pyx_t_3 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11);
@@ -3143,7 +3160,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __pyx_t_3 += 10;
   __Pyx_GIVEREF(__pyx_kp_u_values_2);
   PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_kp_u_values_2);
-  __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_values, __pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_values, __pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) : __pyx_t_13;
   __pyx_t_3 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11);
@@ -3154,48 +3171,48 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __pyx_t_3 += 14;
   __Pyx_GIVEREF(__pyx_kp_u_RETURNING_id);
   PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_kp_u_RETURNING_id);
-  __pyx_t_11 = __Pyx_PyUnicode_Join(__pyx_t_6, 7, __pyx_t_3, __pyx_t_13); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyUnicode_Join(__pyx_t_6, 7, __pyx_t_3, __pyx_t_13); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyUnicode_Replace(((PyObject*)__pyx_t_11), __pyx_kp_u__9, __pyx_kp_u__2, -1L); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_6 = PyUnicode_Replace(((PyObject*)__pyx_t_11), __pyx_kp_u__10, __pyx_kp_u__2, -1L); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "gideon/models/model.pyx":55
+  /* "model.pyx":56
  *         values = ', '.join(values)
  *         con = await self._get_connection()
  *         self.id = await con.fetchval(             # <<<<<<<<<<<<<<
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments
  */
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "gideon/models/model.pyx":57
+  /* "model.pyx":58
  *         self.id = await con.fetchval(
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments             # <<<<<<<<<<<<<<
  *         )
  *         await con.close()
  */
-  __pyx_t_6 = PySequence_Tuple(__pyx_cur_scope->__pyx_v_arguments); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_6 = PySequence_Tuple(__pyx_cur_scope->__pyx_v_arguments); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
 
-  /* "gideon/models/model.pyx":55
+  /* "model.pyx":56
  *         values = ', '.join(values)
  *         con = await self._get_connection()
  *         self.id = await con.fetchval(             # <<<<<<<<<<<<<<
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments
  */
-  __pyx_t_5 = PyNumber_Add(__pyx_t_11, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_t_11, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3210,24 +3227,24 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
     __pyx_generator->resume_label = 2;
     return __pyx_r;
     __pyx_L10_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 56, __pyx_L1_error)
     __pyx_t_6 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_6);
   } else {
     __pyx_t_6 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_6) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_6) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
   }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_id_2, __pyx_t_6) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_id_2, __pyx_t_6) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "gideon/models/model.pyx":59
+  /* "model.pyx":60
  *              *arguments
  *         )
  *         await con.close()             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_con, __pyx_n_s_close); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_con, __pyx_n_s_close); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -3241,7 +3258,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   }
   __pyx_t_6 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 59, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6);
@@ -3255,22 +3272,22 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
     __pyx_generator->resume_label = 3;
     return __pyx_r;
     __pyx_L11_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 59, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 60, __pyx_L1_error)
   } else {
     PyObject* exc_type = __Pyx_PyErr_Occurred();
     if (exc_type) {
       if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
-      else __PYX_ERR(0, 59, __pyx_L1_error)
+      else __PYX_ERR(0, 60, __pyx_L1_error)
     }
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "gideon/models/model.pyx":33
+  /* "model.pyx":33
  *             return cls(**record)
  * 
  *     async def save(self):             # <<<<<<<<<<<<<<
+ *         print('hola')
  *         fields = []
- *         values = []
  */
 
   /* function exit code */
@@ -3293,9 +3310,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_5model_5Model_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gideon/models/model.pyx":62
+/* "model.pyx":63
  * 
  *     @classmethod
  *     async def filter(cls, **kwargs):             # <<<<<<<<<<<<<<
@@ -3304,9 +3321,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_9filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6gideon_6models_5model_5Model_9filter = {"filter", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6gideon_6models_5model_5Model_9filter, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_9filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5model_5Model_9filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5model_5Model_9filter = {"filter", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5model_5Model_9filter, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5model_5Model_9filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_cls = 0;
   PyObject *__pyx_v_kwargs = 0;
   PyObject *__pyx_r = 0;
@@ -3333,7 +3350,7 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_9filter(PyObject *__pyx_
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "filter") < 0)) __PYX_ERR(0, 62, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "filter") < 0)) __PYX_ERR(0, 63, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -3344,14 +3361,14 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_9filter(PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("filter", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 62, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("filter", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 63, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_CLEAR(__pyx_v_kwargs);
-  __Pyx_AddTraceback("gideon.models.model.Model.filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6gideon_6models_5model_5Model_8filter(__pyx_self, __pyx_v_cls, __pyx_v_kwargs);
+  __pyx_r = __pyx_pf_5model_5Model_8filter(__pyx_self, __pyx_v_cls, __pyx_v_kwargs);
 
   /* function exit code */
   __Pyx_XDECREF(__pyx_v_kwargs);
@@ -3359,16 +3376,16 @@ static PyObject *__pyx_pw_6gideon_6models_5model_5Model_9filter(PyObject *__pyx_
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_8filter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *__pyx_cur_scope;
+static PyObject *__pyx_pf_5model_5Model_8filter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_kwargs) {
+  struct __pyx_obj_5model___pyx_scope_struct_2_filter *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("filter", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *)__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_2_filter(__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_2_filter, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5model___pyx_scope_struct_2_filter *)__pyx_tp_new_5model___pyx_scope_struct_2_filter(__pyx_ptype_5model___pyx_scope_struct_2_filter, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct_2_filter *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 62, __pyx_L1_error)
+    __PYX_ERR(0, 63, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -3379,7 +3396,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_8filter(CYTHON_UNUSED Py
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_kwargs);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_kwargs);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_6models_5model_5Model_10generator2, __pyx_codeobj__10, (PyObject *) __pyx_cur_scope, __pyx_n_s_filter, __pyx_n_s_Model_filter, __pyx_n_s_gideon_models_model); if (unlikely(!gen)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5model_5Model_10generator2, __pyx_codeobj__11, (PyObject *) __pyx_cur_scope, __pyx_n_s_filter, __pyx_n_s_Model_filter, __pyx_n_s_model); if (unlikely(!gen)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3387,7 +3404,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_8filter(CYTHON_UNUSED Py
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gideon.models.model.Model.filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -3395,9 +3412,9 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_8filter(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_5model_5Model_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *__pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *)__pyx_generator->closure);
+  struct __pyx_obj_5model___pyx_scope_struct_2_filter *__pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct_2_filter *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
@@ -3423,9 +3440,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 63, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":63
+  /* "model.pyx":64
  *     @classmethod
  *     async def filter(cls, **kwargs):
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'             # <<<<<<<<<<<<<<
@@ -3434,45 +3451,45 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 64, __pyx_L1_error)
     if (unlikely(!__pyx_t_1)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_keyword_arguments_are_obligatory);
-      __PYX_ERR(0, 63, __pyx_L1_error)
+      __PYX_ERR(0, 64, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gideon/models/model.pyx":64
+  /* "model.pyx":65
  *     async def filter(cls, **kwargs):
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
  *         fields = []             # <<<<<<<<<<<<<<
  *         for i, field in enumerate(kwargs.keys(), start=1):
  *             fields.append(f'{field} = ${i}')
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_cur_scope->__pyx_v_fields = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "gideon/models/model.pyx":65
+  /* "model.pyx":66
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
  *         fields = []
  *         for i, field in enumerate(kwargs.keys(), start=1):             # <<<<<<<<<<<<<<
  *             fields.append(f'{field} = ${i}')
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_Keys(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_Keys(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_start, __pyx_int_1) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_enumerate, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_start, __pyx_int_1) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_enumerate, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -3480,9 +3497,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __pyx_t_2 = __pyx_t_4; __Pyx_INCREF(__pyx_t_2); __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_6 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 66, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   for (;;) {
@@ -3490,17 +3507,17 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_4); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 65, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_4); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 66, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       } else {
         if (__pyx_t_5 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_4); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 65, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_4); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 66, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       }
@@ -3510,7 +3527,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 65, __pyx_L1_error)
+          else __PYX_ERR(0, 66, __pyx_L1_error)
         }
         break;
       }
@@ -3522,7 +3539,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 65, __pyx_L1_error)
+        __PYX_ERR(0, 66, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -3535,15 +3552,15 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_7);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       #endif
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_8 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_8 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_9 = Py_TYPE(__pyx_t_8)->tp_iternext;
@@ -3551,7 +3568,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
       __Pyx_GOTREF(__pyx_t_3);
       index = 1; __pyx_t_7 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_7)) goto __pyx_L6_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_7);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       goto __pyx_L7_unpacking_done;
@@ -3559,7 +3576,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 65, __pyx_L1_error)
+      __PYX_ERR(0, 66, __pyx_L1_error)
       __pyx_L7_unpacking_done:;
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_i);
@@ -3571,18 +3588,18 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __Pyx_GIVEREF(__pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "gideon/models/model.pyx":66
+    /* "model.pyx":67
  *         fields = []
  *         for i, field in enumerate(kwargs.keys(), start=1):
  *             fields.append(f'{field} = ${i}')             # <<<<<<<<<<<<<<
  * 
  *         fields = ' AND '.join(fields)
  */
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_10 = 0;
     __pyx_t_11 = 127;
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_field, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_field, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_11;
     __pyx_t_10 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7);
@@ -3593,20 +3610,20 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __pyx_t_10 += 4;
     __Pyx_GIVEREF(__pyx_kp_u__4);
     PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_kp_u__4);
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_i, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_i, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_11;
     __pyx_t_10 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7);
     __Pyx_GIVEREF(__pyx_t_7);
     PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_7);
     __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_4, 3, __pyx_t_10, __pyx_t_11); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_4, 3, __pyx_t_10, __pyx_t_11); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_12 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_fields, __pyx_t_7); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_fields, __pyx_t_7); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "gideon/models/model.pyx":65
+    /* "model.pyx":66
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
  *         fields = []
  *         for i, field in enumerate(kwargs.keys(), start=1):             # <<<<<<<<<<<<<<
@@ -3616,28 +3633,28 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "gideon/models/model.pyx":68
+  /* "model.pyx":69
  *             fields.append(f'{field} = ${i}')
  * 
  *         fields = ' AND '.join(fields)             # <<<<<<<<<<<<<<
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__} where {fields}', *kwargs.values())
  */
-  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_AND, __pyx_cur_scope->__pyx_v_fields); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_AND, __pyx_cur_scope->__pyx_v_fields); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_fields);
   __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_fields, __pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "gideon/models/model.pyx":69
+  /* "model.pyx":70
  * 
  *         fields = ' AND '.join(fields)
  *         connection = await cls._get_connection()             # <<<<<<<<<<<<<<
  *         records = await connection.fetch(f'select * from {cls.__table_name__} where {fields}', *kwargs.values())
  *         await connection.close()
  */
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_get_connection); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_get_connection); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -3651,7 +3668,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2);
@@ -3665,27 +3682,27 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L8_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 69, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 70, __pyx_L1_error)
     __pyx_t_2 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_2);
   } else {
     __pyx_t_2 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_2) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_2) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_cur_scope->__pyx_v_connection = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "gideon/models/model.pyx":70
+  /* "model.pyx":71
  *         fields = ' AND '.join(fields)
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__} where {fields}', *kwargs.values())             # <<<<<<<<<<<<<<
  *         await connection.close()
  *         result = []
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_fetch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_fetch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = PyTuple_New(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_5 = 0;
   __pyx_t_11 = 127;
@@ -3693,9 +3710,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   __pyx_t_5 += 14;
   __Pyx_GIVEREF(__pyx_kp_u_select_from);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_kp_u_select_from);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_table_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_table_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) : __pyx_t_11;
@@ -3707,31 +3724,31 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   __pyx_t_5 += 7;
   __Pyx_GIVEREF(__pyx_kp_u_where);
   PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_kp_u_where);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_fields, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_fields, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) : __pyx_t_11;
   __pyx_t_5 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_7, 3, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_7, 4, __pyx_t_5, __pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_7, 4, __pyx_t_5, __pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_Values(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_Values(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PySequence_Tuple(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PySequence_Tuple(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Add(__pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3746,25 +3763,25 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __pyx_generator->resume_label = 2;
     return __pyx_r;
     __pyx_L9_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 70, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 71, __pyx_L1_error)
     __pyx_t_4 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_4);
   } else {
     __pyx_t_4 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_4) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_4) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_cur_scope->__pyx_v_records = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "gideon/models/model.pyx":71
+  /* "model.pyx":72
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__} where {fields}', *kwargs.values())
  *         await connection.close()             # <<<<<<<<<<<<<<
  *         result = []
  *         for record in records:
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_close); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_close); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -3778,7 +3795,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   }
   __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_4);
@@ -3792,29 +3809,29 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __pyx_generator->resume_label = 3;
     return __pyx_r;
     __pyx_L10_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 71, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 72, __pyx_L1_error)
   } else {
     PyObject* exc_type = __Pyx_PyErr_Occurred();
     if (exc_type) {
       if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
-      else __PYX_ERR(0, 71, __pyx_L1_error)
+      else __PYX_ERR(0, 72, __pyx_L1_error)
     }
   }
 
-  /* "gideon/models/model.pyx":72
+  /* "model.pyx":73
  *         records = await connection.fetch(f'select * from {cls.__table_name__} where {fields}', *kwargs.values())
  *         await connection.close()
  *         result = []             # <<<<<<<<<<<<<<
  *         for record in records:
  *             result.append(cls(**record))
  */
-  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_cur_scope->__pyx_v_result = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "gideon/models/model.pyx":73
+  /* "model.pyx":74
  *         await connection.close()
  *         result = []
  *         for record in records:             # <<<<<<<<<<<<<<
@@ -3825,26 +3842,26 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __pyx_t_4 = __pyx_cur_scope->__pyx_v_records; __Pyx_INCREF(__pyx_t_4); __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_records); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_records); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_6 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 74, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_6)) {
       if (likely(PyList_CheckExact(__pyx_t_4))) {
         if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_4)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 73, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 74, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
         if (__pyx_t_5 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 73, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 74, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
@@ -3854,7 +3871,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 73, __pyx_L1_error)
+          else __PYX_ERR(0, 74, __pyx_L1_error)
         }
         break;
       }
@@ -3865,7 +3882,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "gideon/models/model.pyx":74
+    /* "model.pyx":75
  *         result = []
  *         for record in records:
  *             result.append(cls(**record))             # <<<<<<<<<<<<<<
@@ -3874,22 +3891,22 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
  */
     if (unlikely(__pyx_cur_scope->__pyx_v_record == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-      __PYX_ERR(0, 74, __pyx_L1_error)
+      __PYX_ERR(0, 75, __pyx_L1_error)
     }
     if (likely(PyDict_CheckExact(__pyx_cur_scope->__pyx_v_record))) {
-      __pyx_t_3 = PyDict_Copy(__pyx_cur_scope->__pyx_v_record); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+      __pyx_t_3 = PyDict_Copy(__pyx_cur_scope->__pyx_v_record); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     } else {
-      __pyx_t_3 = PyObject_CallFunctionObjArgs((PyObject*)&PyDict_Type, __pyx_cur_scope->__pyx_v_record, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+      __pyx_t_3 = PyObject_CallFunctionObjArgs((PyObject*)&PyDict_Type, __pyx_cur_scope->__pyx_v_record, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_cls, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_cls, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_12 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_result, __pyx_t_2); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_result, __pyx_t_2); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "gideon/models/model.pyx":73
+    /* "model.pyx":74
  *         await connection.close()
  *         result = []
  *         for record in records:             # <<<<<<<<<<<<<<
@@ -3899,7 +3916,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "gideon/models/model.pyx":75
+  /* "model.pyx":76
  *         for record in records:
  *             result.append(cls(**record))
  *         return result             # <<<<<<<<<<<<<<
@@ -3911,7 +3928,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "gideon/models/model.pyx":62
+  /* "model.pyx":63
  * 
  *     @classmethod
  *     async def filter(cls, **kwargs):             # <<<<<<<<<<<<<<
@@ -3937,9 +3954,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_10generator2(__pyx_Corou
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_5model_5Model_13generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gideon/models/model.pyx":78
+/* "model.pyx":79
  * 
  *     @classmethod
  *     async def all(cls):             # <<<<<<<<<<<<<<
@@ -3948,29 +3965,29 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_12all(PyObject *__pyx_self, PyObject *__pyx_v_cls); /*proto*/
-static PyMethodDef __pyx_mdef_6gideon_6models_5model_5Model_12all = {"all", (PyCFunction)__pyx_pw_6gideon_6models_5model_5Model_12all, METH_O, 0};
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_12all(PyObject *__pyx_self, PyObject *__pyx_v_cls) {
+static PyObject *__pyx_pw_5model_5Model_12all(PyObject *__pyx_self, PyObject *__pyx_v_cls); /*proto*/
+static PyMethodDef __pyx_mdef_5model_5Model_12all = {"all", (PyCFunction)__pyx_pw_5model_5Model_12all, METH_O, 0};
+static PyObject *__pyx_pw_5model_5Model_12all(PyObject *__pyx_self, PyObject *__pyx_v_cls) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("all (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6models_5model_5Model_11all(__pyx_self, ((PyObject *)__pyx_v_cls));
+  __pyx_r = __pyx_pf_5model_5Model_11all(__pyx_self, ((PyObject *)__pyx_v_cls));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_11all(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *__pyx_cur_scope;
+static PyObject *__pyx_pf_5model_5Model_11all(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls) {
+  struct __pyx_obj_5model___pyx_scope_struct_3_all *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("all", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *)__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_3_all(__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_3_all, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5model___pyx_scope_struct_3_all *)__pyx_tp_new_5model___pyx_scope_struct_3_all(__pyx_ptype_5model___pyx_scope_struct_3_all, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct_3_all *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 78, __pyx_L1_error)
+    __PYX_ERR(0, 79, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -3978,7 +3995,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_11all(CYTHON_UNUSED PyOb
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_cls);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_cls);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_6models_5model_5Model_13generator3, __pyx_codeobj__11, (PyObject *) __pyx_cur_scope, __pyx_n_s_all, __pyx_n_s_Model_all, __pyx_n_s_gideon_models_model); if (unlikely(!gen)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5model_5Model_13generator3, __pyx_codeobj__12, (PyObject *) __pyx_cur_scope, __pyx_n_s_all, __pyx_n_s_Model_all, __pyx_n_s_model); if (unlikely(!gen)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3986,7 +4003,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_11all(CYTHON_UNUSED PyOb
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gideon.models.model.Model.all", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model.all", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -3994,9 +4011,9 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_11all(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_5model_5Model_13generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *__pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *)__pyx_generator->closure);
+  struct __pyx_obj_5model___pyx_scope_struct_3_all *__pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct_3_all *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -4017,16 +4034,16 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 78, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 79, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":79
+  /* "model.pyx":80
  *     @classmethod
  *     async def all(cls):
  *         connection = await cls._get_connection()             # <<<<<<<<<<<<<<
  *         records = await connection.fetch(f'select * from {cls.__table_name__}')
  *         await connection.close()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_get_connection); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_get_connection); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4040,7 +4057,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1);
@@ -4054,32 +4071,32 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 79, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 80, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else {
     __pyx_t_1 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_connection = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":80
+  /* "model.pyx":81
  *     async def all(cls):
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__}')             # <<<<<<<<<<<<<<
  *         await connection.close()
  *         result = []
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_fetch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_fetch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_table_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_n_s_table_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_kp_u_select_from, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_kp_u_select_from, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -4095,7 +4112,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1);
@@ -4109,25 +4126,25 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
     __pyx_generator->resume_label = 2;
     return __pyx_r;
     __pyx_L5_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 80, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 81, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else {
     __pyx_t_1 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_records = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":81
+  /* "model.pyx":82
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__}')
  *         await connection.close()             # <<<<<<<<<<<<<<
  *         result = []
  *         for record in records:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_close); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_connection, __pyx_n_s_close); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4141,7 +4158,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1);
@@ -4155,29 +4172,29 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
     __pyx_generator->resume_label = 3;
     return __pyx_r;
     __pyx_L6_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 81, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 82, __pyx_L1_error)
   } else {
     PyObject* exc_type = __Pyx_PyErr_Occurred();
     if (exc_type) {
       if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
-      else __PYX_ERR(0, 81, __pyx_L1_error)
+      else __PYX_ERR(0, 82, __pyx_L1_error)
     }
   }
 
-  /* "gideon/models/model.pyx":82
+  /* "model.pyx":83
  *         records = await connection.fetch(f'select * from {cls.__table_name__}')
  *         await connection.close()
  *         result = []             # <<<<<<<<<<<<<<
  *         for record in records:
  *             result.append(cls(**record))
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_result = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":83
+  /* "model.pyx":84
  *         await connection.close()
  *         result = []
  *         for record in records:             # <<<<<<<<<<<<<<
@@ -4188,26 +4205,26 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_records; __Pyx_INCREF(__pyx_t_1); __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_records); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_records); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_6 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 84, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_6)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 83, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 84, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_5 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 83, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 84, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -4217,7 +4234,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 83, __pyx_L1_error)
+          else __PYX_ERR(0, 84, __pyx_L1_error)
         }
         break;
       }
@@ -4228,7 +4245,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "gideon/models/model.pyx":84
+    /* "model.pyx":85
  *         result = []
  *         for record in records:
  *             result.append(cls(**record))             # <<<<<<<<<<<<<<
@@ -4237,22 +4254,22 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
  */
     if (unlikely(__pyx_cur_scope->__pyx_v_record == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-      __PYX_ERR(0, 84, __pyx_L1_error)
+      __PYX_ERR(0, 85, __pyx_L1_error)
     }
     if (likely(PyDict_CheckExact(__pyx_cur_scope->__pyx_v_record))) {
-      __pyx_t_2 = PyDict_Copy(__pyx_cur_scope->__pyx_v_record); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_2 = PyDict_Copy(__pyx_cur_scope->__pyx_v_record); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     } else {
-      __pyx_t_2 = PyObject_CallFunctionObjArgs((PyObject*)&PyDict_Type, __pyx_cur_scope->__pyx_v_record, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_2 = PyObject_CallFunctionObjArgs((PyObject*)&PyDict_Type, __pyx_cur_scope->__pyx_v_record, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_cls, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_cls, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_7 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_result, __pyx_t_3); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_result, __pyx_t_3); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "gideon/models/model.pyx":83
+    /* "model.pyx":84
  *         await connection.close()
  *         result = []
  *         for record in records:             # <<<<<<<<<<<<<<
@@ -4262,7 +4279,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":85
+  /* "model.pyx":86
  *         for record in records:
  *             result.append(cls(**record))
  *         return result             # <<<<<<<<<<<<<<
@@ -4274,7 +4291,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "gideon/models/model.pyx":78
+  /* "model.pyx":79
  * 
  *     @classmethod
  *     async def all(cls):             # <<<<<<<<<<<<<<
@@ -4299,9 +4316,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_13generator3(__pyx_Corou
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_5model_5Model_16generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gideon/models/model.pyx":88
+/* "model.pyx":89
  * 
  *     @staticmethod
  *     async def _get_connection():             # <<<<<<<<<<<<<<
@@ -4310,34 +4327,34 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_Corou
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_15_get_connection(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_6gideon_6models_5model_5Model_15_get_connection = {"_get_connection", (PyCFunction)__pyx_pw_6gideon_6models_5model_5Model_15_get_connection, METH_NOARGS, 0};
-static PyObject *__pyx_pw_6gideon_6models_5model_5Model_15_get_connection(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5model_5Model_15_get_connection(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_5model_5Model_15_get_connection = {"_get_connection", (PyCFunction)__pyx_pw_5model_5Model_15_get_connection, METH_NOARGS, 0};
+static PyObject *__pyx_pw_5model_5Model_15_get_connection(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_get_connection (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6models_5model_5Model_14_get_connection(__pyx_self);
+  __pyx_r = __pyx_pf_5model_5Model_14_get_connection(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6models_5model_5Model_14_get_connection(CYTHON_UNUSED PyObject *__pyx_self) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection *__pyx_cur_scope;
+static PyObject *__pyx_pf_5model_5Model_14_get_connection(CYTHON_UNUSED PyObject *__pyx_self) {
+  struct __pyx_obj_5model___pyx_scope_struct_4__get_connection *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_get_connection", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection *)__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_4__get_connection(__pyx_ptype_6gideon_6models_5model___pyx_scope_struct_4__get_connection, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5model___pyx_scope_struct_4__get_connection *)__pyx_tp_new_5model___pyx_scope_struct_4__get_connection(__pyx_ptype_5model___pyx_scope_struct_4__get_connection, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5model___pyx_scope_struct_4__get_connection *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 88, __pyx_L1_error)
+    __PYX_ERR(0, 89, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_6models_5model_5Model_16generator4, __pyx_codeobj__12, (PyObject *) __pyx_cur_scope, __pyx_n_s_get_connection, __pyx_n_s_Model__get_connection, __pyx_n_s_gideon_models_model); if (unlikely(!gen)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5model_5Model_16generator4, __pyx_codeobj__13, (PyObject *) __pyx_cur_scope, __pyx_n_s_get_connection, __pyx_n_s_Model__get_connection, __pyx_n_s_model); if (unlikely(!gen)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4345,7 +4362,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_14_get_connection(CYTHON
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gideon.models.model.Model._get_connection", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("model.Model._get_connection", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -4353,7 +4370,7 @@ static PyObject *__pyx_pf_6gideon_6models_5model_5Model_14_get_connection(CYTHON
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_5model_5Model_16generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
@@ -4370,9 +4387,9 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_Corou
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 88, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 89, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":90
+  /* "model.pyx":91
  *     async def _get_connection():
  *         # TODO: refactor this. it should not be here
  *         return await asyncpg.connect(             # <<<<<<<<<<<<<<
@@ -4380,90 +4397,73 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_Corou
  *             password=os.environ['DB_PASSWORD'],
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncpg); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncpg); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_connect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_connect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":91
+  /* "model.pyx":92
  *         # TODO: refactor this. it should not be here
  *         return await asyncpg.connect(
  *             user=os.environ['DB_USER'],             # <<<<<<<<<<<<<<
  *             password=os.environ['DB_PASSWORD'],
  *             host=os.environ['DB_HOST'],
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_USER); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_USER); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_user, __pyx_t_3) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_user, __pyx_t_3) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "gideon/models/model.pyx":92
+  /* "model.pyx":93
  *         return await asyncpg.connect(
  *             user=os.environ['DB_USER'],
  *             password=os.environ['DB_PASSWORD'],             # <<<<<<<<<<<<<<
  *             host=os.environ['DB_HOST'],
  *             port=os.environ['DB_PORT'],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_PASSWORD); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_PASSWORD); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_password, __pyx_t_3) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_password, __pyx_t_3) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "gideon/models/model.pyx":93
+  /* "model.pyx":94
  *             user=os.environ['DB_USER'],
  *             password=os.environ['DB_PASSWORD'],
  *             host=os.environ['DB_HOST'],             # <<<<<<<<<<<<<<
  *             port=os.environ['DB_PORT'],
  *             database=os.environ['DB_NAME']
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_HOST); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_host, __pyx_t_3) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "gideon/models/model.pyx":94
- *             password=os.environ['DB_PASSWORD'],
- *             host=os.environ['DB_HOST'],
- *             port=os.environ['DB_PORT'],             # <<<<<<<<<<<<<<
- *             database=os.environ['DB_NAME']
- *         )
- */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_PORT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_HOST); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_port, __pyx_t_3) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_host, __pyx_t_3) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "gideon/models/model.pyx":95
+  /* "model.pyx":95
+ *             password=os.environ['DB_PASSWORD'],
  *             host=os.environ['DB_HOST'],
- *             port=os.environ['DB_PORT'],
- *             database=os.environ['DB_NAME']             # <<<<<<<<<<<<<<
+ *             port=os.environ['DB_PORT'],             # <<<<<<<<<<<<<<
+ *             database=os.environ['DB_NAME']
  *         )
  */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
@@ -4471,20 +4471,37 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_Corou
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_NAME); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_PORT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_database, __pyx_t_3) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_port, __pyx_t_3) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "gideon/models/model.pyx":90
+  /* "model.pyx":96
+ *             host=os.environ['DB_HOST'],
+ *             port=os.environ['DB_PORT'],
+ *             database=os.environ['DB_NAME']             # <<<<<<<<<<<<<<
+ *         )
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_environ); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_n_u_DB_NAME); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_database, __pyx_t_3) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "model.pyx":91
  *     async def _get_connection():
  *         # TODO: refactor this. it should not be here
  *         return await asyncpg.connect(             # <<<<<<<<<<<<<<
  *             user=os.environ['DB_USER'],
  *             password=os.environ['DB_PASSWORD'],
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4499,11 +4516,11 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_Corou
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 91, __pyx_L1_error)
     __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
   } else {
     __pyx_t_3 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_3) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_3) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_r = NULL; __Pyx_ReturnWithStopIteration(__pyx_t_3);
@@ -4511,7 +4528,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_Corou
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "gideon/models/model.pyx":88
+  /* "model.pyx":89
  * 
  *     @staticmethod
  *     async def _get_connection():             # <<<<<<<<<<<<<<
@@ -4537,14 +4554,14 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_16generator4(__pyx_Corou
   return __pyx_r;
 }
 
-static struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *__pyx_freelist_6gideon_6models_5model___pyx_scope_struct__get[8];
-static int __pyx_freecount_6gideon_6models_5model___pyx_scope_struct__get = 0;
+static struct __pyx_obj_5model___pyx_scope_struct__get *__pyx_freelist_5model___pyx_scope_struct__get[8];
+static int __pyx_freecount_5model___pyx_scope_struct__get = 0;
 
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct__get(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct__get(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct__get > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get)))) {
-    o = (PyObject*)__pyx_freelist_6gideon_6models_5model___pyx_scope_struct__get[--__pyx_freecount_6gideon_6models_5model___pyx_scope_struct__get];
-    memset(o, 0, sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5model___pyx_scope_struct__get > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct__get)))) {
+    o = (PyObject*)__pyx_freelist_5model___pyx_scope_struct__get[--__pyx_freecount_5model___pyx_scope_struct__get];
+    memset(o, 0, sizeof(struct __pyx_obj_5model___pyx_scope_struct__get));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -4554,8 +4571,8 @@ static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct__get(PyT
   return o;
 }
 
-static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct__get(PyObject *o) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *)o;
+static void __pyx_tp_dealloc_5model___pyx_scope_struct__get(PyObject *o) {
+  struct __pyx_obj_5model___pyx_scope_struct__get *p = (struct __pyx_obj_5model___pyx_scope_struct__get *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_con);
@@ -4565,16 +4582,16 @@ static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct__get(PyOb
   Py_CLEAR(p->__pyx_v_kwargs);
   Py_CLEAR(p->__pyx_v_record);
   Py_CLEAR(p->__pyx_v_sql);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct__get < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get)))) {
-    __pyx_freelist_6gideon_6models_5model___pyx_scope_struct__get[__pyx_freecount_6gideon_6models_5model___pyx_scope_struct__get++] = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5model___pyx_scope_struct__get < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct__get)))) {
+    __pyx_freelist_5model___pyx_scope_struct__get[__pyx_freecount_5model___pyx_scope_struct__get++] = ((struct __pyx_obj_5model___pyx_scope_struct__get *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct__get(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_5model___pyx_scope_struct__get(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get *)o;
+  struct __pyx_obj_5model___pyx_scope_struct__get *p = (struct __pyx_obj_5model___pyx_scope_struct__get *)o;
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
   }
@@ -4599,12 +4616,12 @@ static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct__get(PyOb
   return 0;
 }
 
-static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct__get = {
+static PyTypeObject __pyx_type_5model___pyx_scope_struct__get = {
   PyVarObject_HEAD_INIT(0, 0)
-  "gideon.models.model.__pyx_scope_struct__get", /*tp_name*/
-  sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct__get), /*tp_basicsize*/
+  "model.__pyx_scope_struct__get", /*tp_name*/
+  sizeof(struct __pyx_obj_5model___pyx_scope_struct__get), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct__get, /*tp_dealloc*/
+  __pyx_tp_dealloc_5model___pyx_scope_struct__get, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -4626,7 +4643,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct__get = 
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct__get, /*tp_traverse*/
+  __pyx_tp_traverse_5model___pyx_scope_struct__get, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -4642,7 +4659,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct__get = 
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6gideon_6models_5model___pyx_scope_struct__get, /*tp_new*/
+  __pyx_tp_new_5model___pyx_scope_struct__get, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -4657,14 +4674,14 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct__get = 
   #endif
 };
 
-static struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_1_save[8];
-static int __pyx_freecount_6gideon_6models_5model___pyx_scope_struct_1_save = 0;
+static struct __pyx_obj_5model___pyx_scope_struct_1_save *__pyx_freelist_5model___pyx_scope_struct_1_save[8];
+static int __pyx_freecount_5model___pyx_scope_struct_1_save = 0;
 
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_1_save(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_1_save(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_1_save > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save)))) {
-    o = (PyObject*)__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_1_save[--__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_1_save];
-    memset(o, 0, sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5model___pyx_scope_struct_1_save > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_1_save)))) {
+    o = (PyObject*)__pyx_freelist_5model___pyx_scope_struct_1_save[--__pyx_freecount_5model___pyx_scope_struct_1_save];
+    memset(o, 0, sizeof(struct __pyx_obj_5model___pyx_scope_struct_1_save));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -4674,8 +4691,8 @@ static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_1_save(P
   return o;
 }
 
-static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_1_save(PyObject *o) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *)o;
+static void __pyx_tp_dealloc_5model___pyx_scope_struct_1_save(PyObject *o) {
+  struct __pyx_obj_5model___pyx_scope_struct_1_save *p = (struct __pyx_obj_5model___pyx_scope_struct_1_save *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_arguments);
   Py_CLEAR(p->__pyx_v_con);
@@ -4686,16 +4703,16 @@ static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_1_save(Py
   Py_CLEAR(p->__pyx_v_instance);
   Py_CLEAR(p->__pyx_v_self);
   Py_CLEAR(p->__pyx_v_values);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_1_save < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save)))) {
-    __pyx_freelist_6gideon_6models_5model___pyx_scope_struct_1_save[__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_1_save++] = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5model___pyx_scope_struct_1_save < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_1_save)))) {
+    __pyx_freelist_5model___pyx_scope_struct_1_save[__pyx_freecount_5model___pyx_scope_struct_1_save++] = ((struct __pyx_obj_5model___pyx_scope_struct_1_save *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_1_save(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_5model___pyx_scope_struct_1_save(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save *)o;
+  struct __pyx_obj_5model___pyx_scope_struct_1_save *p = (struct __pyx_obj_5model___pyx_scope_struct_1_save *)o;
   if (p->__pyx_v_arguments) {
     e = (*v)(p->__pyx_v_arguments, a); if (e) return e;
   }
@@ -4726,12 +4743,12 @@ static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_1_save(Py
   return 0;
 }
 
-static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save = {
+static PyTypeObject __pyx_type_5model___pyx_scope_struct_1_save = {
   PyVarObject_HEAD_INIT(0, 0)
-  "gideon.models.model.__pyx_scope_struct_1_save", /*tp_name*/
-  sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_1_save), /*tp_basicsize*/
+  "model.__pyx_scope_struct_1_save", /*tp_name*/
+  sizeof(struct __pyx_obj_5model___pyx_scope_struct_1_save), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_1_save, /*tp_dealloc*/
+  __pyx_tp_dealloc_5model___pyx_scope_struct_1_save, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -4753,7 +4770,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save 
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_1_save, /*tp_traverse*/
+  __pyx_tp_traverse_5model___pyx_scope_struct_1_save, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -4769,7 +4786,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save 
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_1_save, /*tp_new*/
+  __pyx_tp_new_5model___pyx_scope_struct_1_save, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -4784,14 +4801,14 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save 
   #endif
 };
 
-static struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_2_filter[8];
-static int __pyx_freecount_6gideon_6models_5model___pyx_scope_struct_2_filter = 0;
+static struct __pyx_obj_5model___pyx_scope_struct_2_filter *__pyx_freelist_5model___pyx_scope_struct_2_filter[8];
+static int __pyx_freecount_5model___pyx_scope_struct_2_filter = 0;
 
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_2_filter(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_2_filter(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_2_filter > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter)))) {
-    o = (PyObject*)__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_2_filter[--__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_2_filter];
-    memset(o, 0, sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5model___pyx_scope_struct_2_filter > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_2_filter)))) {
+    o = (PyObject*)__pyx_freelist_5model___pyx_scope_struct_2_filter[--__pyx_freecount_5model___pyx_scope_struct_2_filter];
+    memset(o, 0, sizeof(struct __pyx_obj_5model___pyx_scope_struct_2_filter));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -4801,8 +4818,8 @@ static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_2_filter
   return o;
 }
 
-static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_2_filter(PyObject *o) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *)o;
+static void __pyx_tp_dealloc_5model___pyx_scope_struct_2_filter(PyObject *o) {
+  struct __pyx_obj_5model___pyx_scope_struct_2_filter *p = (struct __pyx_obj_5model___pyx_scope_struct_2_filter *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_connection);
@@ -4813,16 +4830,16 @@ static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_2_filter(
   Py_CLEAR(p->__pyx_v_record);
   Py_CLEAR(p->__pyx_v_records);
   Py_CLEAR(p->__pyx_v_result);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_2_filter < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter)))) {
-    __pyx_freelist_6gideon_6models_5model___pyx_scope_struct_2_filter[__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_2_filter++] = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5model___pyx_scope_struct_2_filter < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_2_filter)))) {
+    __pyx_freelist_5model___pyx_scope_struct_2_filter[__pyx_freecount_5model___pyx_scope_struct_2_filter++] = ((struct __pyx_obj_5model___pyx_scope_struct_2_filter *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_2_filter(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_5model___pyx_scope_struct_2_filter(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter *)o;
+  struct __pyx_obj_5model___pyx_scope_struct_2_filter *p = (struct __pyx_obj_5model___pyx_scope_struct_2_filter *)o;
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
   }
@@ -4853,12 +4870,12 @@ static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_2_filter(
   return 0;
 }
 
-static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filter = {
+static PyTypeObject __pyx_type_5model___pyx_scope_struct_2_filter = {
   PyVarObject_HEAD_INIT(0, 0)
-  "gideon.models.model.__pyx_scope_struct_2_filter", /*tp_name*/
-  sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter), /*tp_basicsize*/
+  "model.__pyx_scope_struct_2_filter", /*tp_name*/
+  sizeof(struct __pyx_obj_5model___pyx_scope_struct_2_filter), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_2_filter, /*tp_dealloc*/
+  __pyx_tp_dealloc_5model___pyx_scope_struct_2_filter, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -4880,7 +4897,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filte
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_2_filter, /*tp_traverse*/
+  __pyx_tp_traverse_5model___pyx_scope_struct_2_filter, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -4896,7 +4913,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filte
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_2_filter, /*tp_new*/
+  __pyx_tp_new_5model___pyx_scope_struct_2_filter, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -4911,14 +4928,14 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filte
   #endif
 };
 
-static struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_3_all[8];
-static int __pyx_freecount_6gideon_6models_5model___pyx_scope_struct_3_all = 0;
+static struct __pyx_obj_5model___pyx_scope_struct_3_all *__pyx_freelist_5model___pyx_scope_struct_3_all[8];
+static int __pyx_freecount_5model___pyx_scope_struct_3_all = 0;
 
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_3_all(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_3_all(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_3_all > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all)))) {
-    o = (PyObject*)__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_3_all[--__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_3_all];
-    memset(o, 0, sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5model___pyx_scope_struct_3_all > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_3_all)))) {
+    o = (PyObject*)__pyx_freelist_5model___pyx_scope_struct_3_all[--__pyx_freecount_5model___pyx_scope_struct_3_all];
+    memset(o, 0, sizeof(struct __pyx_obj_5model___pyx_scope_struct_3_all));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -4928,24 +4945,24 @@ static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_3_all(Py
   return o;
 }
 
-static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_3_all(PyObject *o) {
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *)o;
+static void __pyx_tp_dealloc_5model___pyx_scope_struct_3_all(PyObject *o) {
+  struct __pyx_obj_5model___pyx_scope_struct_3_all *p = (struct __pyx_obj_5model___pyx_scope_struct_3_all *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_connection);
   Py_CLEAR(p->__pyx_v_record);
   Py_CLEAR(p->__pyx_v_records);
   Py_CLEAR(p->__pyx_v_result);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_3_all < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all)))) {
-    __pyx_freelist_6gideon_6models_5model___pyx_scope_struct_3_all[__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_3_all++] = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5model___pyx_scope_struct_3_all < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_3_all)))) {
+    __pyx_freelist_5model___pyx_scope_struct_3_all[__pyx_freecount_5model___pyx_scope_struct_3_all++] = ((struct __pyx_obj_5model___pyx_scope_struct_3_all *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_3_all(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_5model___pyx_scope_struct_3_all(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *p = (struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all *)o;
+  struct __pyx_obj_5model___pyx_scope_struct_3_all *p = (struct __pyx_obj_5model___pyx_scope_struct_3_all *)o;
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
   }
@@ -4964,12 +4981,12 @@ static int __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_3_all(PyO
   return 0;
 }
 
-static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all = {
+static PyTypeObject __pyx_type_5model___pyx_scope_struct_3_all = {
   PyVarObject_HEAD_INIT(0, 0)
-  "gideon.models.model.__pyx_scope_struct_3_all", /*tp_name*/
-  sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all), /*tp_basicsize*/
+  "model.__pyx_scope_struct_3_all", /*tp_name*/
+  sizeof(struct __pyx_obj_5model___pyx_scope_struct_3_all), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_3_all, /*tp_dealloc*/
+  __pyx_tp_dealloc_5model___pyx_scope_struct_3_all, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -4991,7 +5008,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all =
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_6gideon_6models_5model___pyx_scope_struct_3_all, /*tp_traverse*/
+  __pyx_tp_traverse_5model___pyx_scope_struct_3_all, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -5007,7 +5024,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all =
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_3_all, /*tp_new*/
+  __pyx_tp_new_5model___pyx_scope_struct_3_all, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -5022,14 +5039,14 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all =
   #endif
 };
 
-static struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection *__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_4__get_connection[8];
-static int __pyx_freecount_6gideon_6models_5model___pyx_scope_struct_4__get_connection = 0;
+static struct __pyx_obj_5model___pyx_scope_struct_4__get_connection *__pyx_freelist_5model___pyx_scope_struct_4__get_connection[8];
+static int __pyx_freecount_5model___pyx_scope_struct_4__get_connection = 0;
 
-static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_4__get_connection(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5model___pyx_scope_struct_4__get_connection(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_4__get_connection > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection)))) {
-    o = (PyObject*)__pyx_freelist_6gideon_6models_5model___pyx_scope_struct_4__get_connection[--__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_4__get_connection];
-    memset(o, 0, sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5model___pyx_scope_struct_4__get_connection > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_4__get_connection)))) {
+    o = (PyObject*)__pyx_freelist_5model___pyx_scope_struct_4__get_connection[--__pyx_freecount_5model___pyx_scope_struct_4__get_connection];
+    memset(o, 0, sizeof(struct __pyx_obj_5model___pyx_scope_struct_4__get_connection));
     (void) PyObject_INIT(o, t);
   } else {
     o = (*t->tp_alloc)(t, 0);
@@ -5038,20 +5055,20 @@ static PyObject *__pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_4__get_c
   return o;
 }
 
-static void __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_4__get_connection(PyObject *o) {
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_4__get_connection < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection)))) {
-    __pyx_freelist_6gideon_6models_5model___pyx_scope_struct_4__get_connection[__pyx_freecount_6gideon_6models_5model___pyx_scope_struct_4__get_connection++] = ((struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection *)o);
+static void __pyx_tp_dealloc_5model___pyx_scope_struct_4__get_connection(PyObject *o) {
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5model___pyx_scope_struct_4__get_connection < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5model___pyx_scope_struct_4__get_connection)))) {
+    __pyx_freelist_5model___pyx_scope_struct_4__get_connection[__pyx_freecount_5model___pyx_scope_struct_4__get_connection++] = ((struct __pyx_obj_5model___pyx_scope_struct_4__get_connection *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_connection = {
+static PyTypeObject __pyx_type_5model___pyx_scope_struct_4__get_connection = {
   PyVarObject_HEAD_INIT(0, 0)
-  "gideon.models.model.__pyx_scope_struct_4__get_connection", /*tp_name*/
-  sizeof(struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection), /*tp_basicsize*/
+  "model.__pyx_scope_struct_4__get_connection", /*tp_name*/
+  sizeof(struct __pyx_obj_5model___pyx_scope_struct_4__get_connection), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6gideon_6models_5model___pyx_scope_struct_4__get_connection, /*tp_dealloc*/
+  __pyx_tp_dealloc_5model___pyx_scope_struct_4__get_connection, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -5089,7 +5106,7 @@ static PyTypeObject __pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6gideon_6models_5model___pyx_scope_struct_4__get_connection, /*tp_new*/
+  __pyx_tp_new_5model___pyx_scope_struct_4__get_connection, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -5168,9 +5185,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Model_save, __pyx_k_Model_save, sizeof(__pyx_k_Model_save), 0, 0, 1, 1},
   {&__pyx_kp_u_None, __pyx_k_None, sizeof(__pyx_k_None), 0, 1, 0, 0},
   {&__pyx_kp_u_RETURNING_id, __pyx_k_RETURNING_id, sizeof(__pyx_k_RETURNING_id), 0, 1, 0, 0},
+  {&__pyx_kp_u__10, __pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0, 0},
   {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
   {&__pyx_kp_u__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0, 0},
-  {&__pyx_kp_u__6, __pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0, 0},
   {&__pyx_kp_u__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0, 0},
   {&__pyx_kp_u__8, __pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0, 0},
   {&__pyx_kp_u__9, __pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0, 0},
@@ -5202,8 +5219,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_get_connection, __pyx_k_get_connection, sizeof(__pyx_k_get_connection), 0, 0, 1, 1},
   {&__pyx_n_s_gideon_fields, __pyx_k_gideon_fields, sizeof(__pyx_k_gideon_fields), 0, 0, 1, 1},
   {&__pyx_n_s_gideon_models_meta_model, __pyx_k_gideon_models_meta_model, sizeof(__pyx_k_gideon_models_meta_model), 0, 0, 1, 1},
-  {&__pyx_n_s_gideon_models_model, __pyx_k_gideon_models_model, sizeof(__pyx_k_gideon_models_model), 0, 0, 1, 1},
   {&__pyx_kp_s_gideon_models_model_pyx, __pyx_k_gideon_models_model_pyx, sizeof(__pyx_k_gideon_models_model_pyx), 0, 0, 1, 0},
+  {&__pyx_n_u_hola, __pyx_k_hola, sizeof(__pyx_k_hola), 0, 1, 0, 1},
   {&__pyx_n_s_host, __pyx_k_host, sizeof(__pyx_k_host), 0, 0, 1, 1},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_u_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 1, 0, 1},
@@ -5220,6 +5237,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_kwargs, __pyx_k_kwargs, sizeof(__pyx_k_kwargs), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_metaclass, __pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 0, 1, 1},
+  {&__pyx_n_s_model, __pyx_k_model, sizeof(__pyx_k_model), 0, 0, 1, 1},
   {&__pyx_n_s_module, __pyx_k_module, sizeof(__pyx_k_module), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_name_2, __pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 0, 1, 1},
@@ -5228,6 +5246,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pop, __pyx_k_pop, sizeof(__pyx_k_pop), 0, 0, 1, 1},
   {&__pyx_n_s_port, __pyx_k_port, sizeof(__pyx_k_port), 0, 0, 1, 1},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
+  {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
   {&__pyx_n_s_record, __pyx_k_record, sizeof(__pyx_k_record), 0, 0, 1, 1},
@@ -5251,8 +5270,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 88, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 34, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -5262,74 +5282,85 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "gideon/models/model.pyx":11
+  /* "model.pyx":34
+ * 
+ *     async def save(self):
+ *         print('hola')             # <<<<<<<<<<<<<<
+ *         fields = []
+ *         values = []
+ */
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_n_u_hola); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
+
+  /* "model.pyx":11
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
  *         cdef str key
  *         cdef Field field
  */
-  __pyx_tuple__13 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_kwargs, __pyx_n_s_key, __pyx_n_s_field); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_init, 11, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_kwargs, __pyx_n_s_key, __pyx_n_s_field); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__14);
+  __Pyx_GIVEREF(__pyx_tuple__14);
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_init, 11, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 11, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":20
+  /* "model.pyx":20
  * 
  *     @classmethod
  *     async def get(cls, **kwargs):             # <<<<<<<<<<<<<<
  *         fields = []
  *         for i, key in enumerate(kwargs.keys(), start=1):
  */
-  __pyx_tuple__15 = PyTuple_Pack(8, __pyx_n_s_cls, __pyx_n_s_kwargs, __pyx_n_s_fields_2, __pyx_n_s_i, __pyx_n_s_key, __pyx_n_s_sql, __pyx_n_s_con, __pyx_n_s_record); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__15);
-  __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_get, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(8, __pyx_n_s_cls, __pyx_n_s_kwargs, __pyx_n_s_fields_2, __pyx_n_s_i, __pyx_n_s_key, __pyx_n_s_sql, __pyx_n_s_con, __pyx_n_s_record); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__16);
+  __Pyx_GIVEREF(__pyx_tuple__16);
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_get, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 20, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":33
+  /* "model.pyx":33
  *             return cls(**record)
  * 
  *     async def save(self):             # <<<<<<<<<<<<<<
+ *         print('hola')
  *         fields = []
- *         values = []
  */
-  __pyx_tuple__16 = PyTuple_Pack(9, __pyx_n_s_self, __pyx_n_s_fields_2, __pyx_n_s_values, __pyx_n_s_arguments, __pyx_n_s_i, __pyx_n_s_field, __pyx_n_s_field_name, __pyx_n_s_instance, __pyx_n_s_con); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 33, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__16);
-  __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_save, 33, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(9, __pyx_n_s_self, __pyx_n_s_fields_2, __pyx_n_s_values, __pyx_n_s_arguments, __pyx_n_s_i, __pyx_n_s_field, __pyx_n_s_field_name, __pyx_n_s_instance, __pyx_n_s_con); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__17);
+  __Pyx_GIVEREF(__pyx_tuple__17);
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_save, 33, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 33, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":62
+  /* "model.pyx":63
  * 
  *     @classmethod
  *     async def filter(cls, **kwargs):             # <<<<<<<<<<<<<<
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
  *         fields = []
  */
-  __pyx_tuple__17 = PyTuple_Pack(9, __pyx_n_s_cls, __pyx_n_s_kwargs, __pyx_n_s_fields_2, __pyx_n_s_i, __pyx_n_s_field, __pyx_n_s_connection, __pyx_n_s_records, __pyx_n_s_result, __pyx_n_s_record); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 62, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__17);
-  __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_filter, 62, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(9, __pyx_n_s_cls, __pyx_n_s_kwargs, __pyx_n_s_fields_2, __pyx_n_s_i, __pyx_n_s_field, __pyx_n_s_connection, __pyx_n_s_records, __pyx_n_s_result, __pyx_n_s_record); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__18);
+  __Pyx_GIVEREF(__pyx_tuple__18);
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_filter, 63, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 63, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":78
+  /* "model.pyx":79
  * 
  *     @classmethod
  *     async def all(cls):             # <<<<<<<<<<<<<<
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__}')
  */
-  __pyx_tuple__18 = PyTuple_Pack(5, __pyx_n_s_cls, __pyx_n_s_connection, __pyx_n_s_records, __pyx_n_s_result, __pyx_n_s_record); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__18);
-  __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_all, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(5, __pyx_n_s_cls, __pyx_n_s_connection, __pyx_n_s_records, __pyx_n_s_result, __pyx_n_s_record); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__19);
+  __Pyx_GIVEREF(__pyx_tuple__19);
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_all, 79, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 79, __pyx_L1_error)
 
-  /* "gideon/models/model.pyx":88
+  /* "model.pyx":89
  * 
  *     @staticmethod
  *     async def _get_connection():             # <<<<<<<<<<<<<<
  *         # TODO: refactor this. it should not be here
  *         return await asyncpg.connect(
  */
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_get_connection, 88, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_gideon_models_model_pyx, __pyx_n_s_get_connection, 89, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5384,36 +5415,36 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_6gideon_6models_5model___pyx_scope_struct__get) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __pyx_type_6gideon_6models_5model___pyx_scope_struct__get.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6gideon_6models_5model___pyx_scope_struct__get.tp_dictoffset && __pyx_type_6gideon_6models_5model___pyx_scope_struct__get.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_6gideon_6models_5model___pyx_scope_struct__get.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if (PyType_Ready(&__pyx_type_5model___pyx_scope_struct__get) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_type_5model___pyx_scope_struct__get.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5model___pyx_scope_struct__get.tp_dictoffset && __pyx_type_5model___pyx_scope_struct__get.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5model___pyx_scope_struct__get.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_6gideon_6models_5model___pyx_scope_struct__get = &__pyx_type_6gideon_6models_5model___pyx_scope_struct__get;
-  if (PyType_Ready(&__pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
-  __pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save.tp_dictoffset && __pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  __pyx_ptype_5model___pyx_scope_struct__get = &__pyx_type_5model___pyx_scope_struct__get;
+  if (PyType_Ready(&__pyx_type_5model___pyx_scope_struct_1_save) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_type_5model___pyx_scope_struct_1_save.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5model___pyx_scope_struct_1_save.tp_dictoffset && __pyx_type_5model___pyx_scope_struct_1_save.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5model___pyx_scope_struct_1_save.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_6gideon_6models_5model___pyx_scope_struct_1_save = &__pyx_type_6gideon_6models_5model___pyx_scope_struct_1_save;
-  if (PyType_Ready(&__pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filter) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
-  __pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filter.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filter.tp_dictoffset && __pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filter.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filter.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  __pyx_ptype_5model___pyx_scope_struct_1_save = &__pyx_type_5model___pyx_scope_struct_1_save;
+  if (PyType_Ready(&__pyx_type_5model___pyx_scope_struct_2_filter) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_type_5model___pyx_scope_struct_2_filter.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5model___pyx_scope_struct_2_filter.tp_dictoffset && __pyx_type_5model___pyx_scope_struct_2_filter.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5model___pyx_scope_struct_2_filter.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_6gideon_6models_5model___pyx_scope_struct_2_filter = &__pyx_type_6gideon_6models_5model___pyx_scope_struct_2_filter;
-  if (PyType_Ready(&__pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
-  __pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all.tp_dictoffset && __pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  __pyx_ptype_5model___pyx_scope_struct_2_filter = &__pyx_type_5model___pyx_scope_struct_2_filter;
+  if (PyType_Ready(&__pyx_type_5model___pyx_scope_struct_3_all) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_type_5model___pyx_scope_struct_3_all.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5model___pyx_scope_struct_3_all.tp_dictoffset && __pyx_type_5model___pyx_scope_struct_3_all.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5model___pyx_scope_struct_3_all.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_6gideon_6models_5model___pyx_scope_struct_3_all = &__pyx_type_6gideon_6models_5model___pyx_scope_struct_3_all;
-  if (PyType_Ready(&__pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_connection) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
-  __pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_connection.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_connection.tp_dictoffset && __pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_connection.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_connection.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  __pyx_ptype_5model___pyx_scope_struct_3_all = &__pyx_type_5model___pyx_scope_struct_3_all;
+  if (PyType_Ready(&__pyx_type_5model___pyx_scope_struct_4__get_connection) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_type_5model___pyx_scope_struct_4__get_connection.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5model___pyx_scope_struct_4__get_connection.tp_dictoffset && __pyx_type_5model___pyx_scope_struct_4__get_connection.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5model___pyx_scope_struct_4__get_connection.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_6gideon_6models_5model___pyx_scope_struct_4__get_connection = &__pyx_type_6gideon_6models_5model___pyx_scope_struct_4__get_connection;
+  __pyx_ptype_5model___pyx_scope_struct_4__get_connection = &__pyx_type_5model___pyx_scope_struct_4__get_connection;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5630,14 +5661,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_gideon__models__model) {
+  if (__pyx_module_is_main_model) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name_2, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "gideon.models.model")) {
-      if (unlikely(PyDict_SetItemString(modules, "gideon.models.model", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "model")) {
+      if (unlikely(PyDict_SetItemString(modules, "model", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -5658,7 +5689,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "gideon/models/model.pyx":1
+  /* "model.pyx":1
  * import asyncpg             # <<<<<<<<<<<<<<
  * import os
  * 
@@ -5668,7 +5699,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_asyncpg, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":2
+  /* "model.pyx":2
  * import asyncpg
  * import os             # <<<<<<<<<<<<<<
  * 
@@ -5679,7 +5710,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":4
+  /* "model.pyx":4
  * import os
  * 
  * from gideon.fields import ForeignKeyField             # <<<<<<<<<<<<<<
@@ -5700,7 +5731,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "gideon/models/model.pyx":6
+  /* "model.pyx":6
  * from gideon.fields import ForeignKeyField
  * from gideon.fields.field cimport Field
  * from gideon.models.meta_model import MetaModel             # <<<<<<<<<<<<<<
@@ -5721,7 +5752,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":9
+  /* "model.pyx":9
  * 
  * 
  * class Model(metaclass=MetaModel):             # <<<<<<<<<<<<<<
@@ -5732,32 +5763,32 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_MetaModel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_empty_tuple, __pyx_n_s_Model, __pyx_n_s_Model, __pyx_t_1, __pyx_n_s_gideon_models_model, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_empty_tuple, __pyx_n_s_Model, __pyx_n_s_Model, __pyx_t_1, __pyx_n_s_model, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "gideon/models/model.pyx":11
+  /* "model.pyx":11
  * class Model(metaclass=MetaModel):
  * 
  *     def __init__(self, **kwargs):             # <<<<<<<<<<<<<<
  *         cdef str key
  *         cdef Field field
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_1__init__, 0, __pyx_n_s_Model___init, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5model_5Model_1__init__, 0, __pyx_n_s_Model___init, NULL, __pyx_n_s_model, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "gideon/models/model.pyx":20
+  /* "model.pyx":20
  * 
  *     @classmethod
  *     async def get(cls, **kwargs):             # <<<<<<<<<<<<<<
  *         fields = []
  *         for i, key in enumerate(kwargs.keys(), start=1):
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_3get, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_n_s_Model_get, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5model_5Model_3get, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_n_s_Model_get, NULL, __pyx_n_s_model, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "gideon/models/model.pyx":19
+  /* "model.pyx":19
  *                 setattr(self, f'{key}_id', kwargs.pop(f'{key}_id'.replace('_', '', 1), None))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5770,88 +5801,88 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get, __pyx_t_5) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "gideon/models/model.pyx":33
+  /* "model.pyx":33
  *             return cls(**record)
  * 
  *     async def save(self):             # <<<<<<<<<<<<<<
+ *         print('hola')
  *         fields = []
- *         values = []
  */
-  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_6save, 0, __pyx_n_s_Model_save, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5model_5Model_6save, 0, __pyx_n_s_Model_save, NULL, __pyx_n_s_model, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_save, __pyx_t_5) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "gideon/models/model.pyx":62
+  /* "model.pyx":63
  * 
  *     @classmethod
  *     async def filter(cls, **kwargs):             # <<<<<<<<<<<<<<
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
  *         fields = []
  */
-  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_9filter, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_n_s_Model_filter, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5model_5Model_9filter, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_n_s_Model_filter, NULL, __pyx_n_s_model, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
 
-  /* "gideon/models/model.pyx":61
+  /* "model.pyx":62
  *         await con.close()
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def filter(cls, **kwargs):
  *         assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
  */
-  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_filter, __pyx_t_4) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_filter, __pyx_t_4) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "gideon/models/model.pyx":78
+  /* "model.pyx":79
  * 
  *     @classmethod
  *     async def all(cls):             # <<<<<<<<<<<<<<
  *         connection = await cls._get_connection()
  *         records = await connection.fetch(f'select * from {cls.__table_name__}')
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_12all, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_n_s_Model_all, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5model_5Model_12all, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_n_s_Model_all, NULL, __pyx_n_s_model, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "gideon/models/model.pyx":77
+  /* "model.pyx":78
  *         return result
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def all(cls):
  *         connection = await cls._get_connection()
  */
-  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_all, __pyx_t_5) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_all, __pyx_t_5) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "gideon/models/model.pyx":88
+  /* "model.pyx":89
  * 
  *     @staticmethod
  *     async def _get_connection():             # <<<<<<<<<<<<<<
  *         # TODO: refactor this. it should not be here
  *         return await asyncpg.connect(
  */
-  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6gideon_6models_5model_5Model_15_get_connection, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_Model__get_connection, NULL, __pyx_n_s_gideon_models_model, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5model_5Model_15_get_connection, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_Model__get_connection, NULL, __pyx_n_s_model, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
 
-  /* "gideon/models/model.pyx":87
+  /* "model.pyx":88
  *         return result
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     async def _get_connection():
  *         # TODO: refactor this. it should not be here
  */
-  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_connection, __pyx_t_4) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_connection, __pyx_t_4) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "gideon/models/model.pyx":9
+  /* "model.pyx":9
  * 
  * 
  * class Model(metaclass=MetaModel):             # <<<<<<<<<<<<<<
@@ -5866,7 +5897,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gideon/models/model.pyx":1
+  /* "model.pyx":1
  * import asyncpg             # <<<<<<<<<<<<<<
  * import os
  * 
@@ -5887,11 +5918,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_5);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init gideon.models.model", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init model", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init gideon.models.model");
+    PyErr_SetString(PyExc_ImportError, "init model");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

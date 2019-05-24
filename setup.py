@@ -36,12 +36,23 @@ foreign_key_extension = Extension(
     [f'gideon/fields/foreign_key_field.{ext}'],
 )
 
+char_field_extension = Extension(
+    'gideon.fields.char_field',
+    [f'gideon/fields/char_field.{ext}'],
+)
+
+integer_field_extension = Extension(
+    'gideon.fields.integer_field',
+    [f'gideon/fields/integer_field.{ext}'],
+)
 
 extensions = [
     model_extension,
     field_extension,
     date_field_extension,
-    foreign_key_extension
+    foreign_key_extension,
+    char_field_extension,
+    integer_field_extension
 ]
 
 if USE_CYTHON:
