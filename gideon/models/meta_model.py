@@ -47,6 +47,5 @@ class MetaModel(type):
 
         namespace['_fields'] = fields
         namespace.update(property_fields)
-        model = super().__new__(mcs, name, bases, namespace)
-        model.__annotations__ = annotations
-        return model
+        namespace['__annotations__'] = annotations
+        return super().__new__(mcs, name, bases, namespace)
