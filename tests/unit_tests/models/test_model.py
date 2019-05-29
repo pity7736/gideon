@@ -78,3 +78,22 @@ def test_annotations():
         'category': Category,
         'category_id': int
     }
+
+
+def test_read_only_field():
+    class ReadOnly(Model):
+        _name = CharField(name='name')
+        _immutable = IntegerField(name='immutable', read_only=True)
+
+    read = ReadOnly()
+
+    read.name = 'test'
+    with raises(AttributeError):
+        read.immutable = 'test'
+
+
+def test_foreign_key_not_can_be_read_only():
+    with raises(AssertionError):
+        class ForeignReadOnly(Model):
+            _name = CharField(name='name')
+            _category = ForeignKeyField(to=Category, name='category', read_only=True)

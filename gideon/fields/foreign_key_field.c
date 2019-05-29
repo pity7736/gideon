@@ -3,6 +3,7 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
+        "depends": [],
         "name": "gideon.fields.foreign_key_field",
         "sources": [
             "gideon/fields/foreign_key_field.pyx"
@@ -600,6 +601,9 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE__gideon__fields__foreign_key_field
 #define __PYX_HAVE_API__gideon__fields__foreign_key_field
 /* Early includes */
+#include <string.h>
+#include <stdio.h>
+#include "pythread.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -810,21 +814,27 @@ static const char *__pyx_filename;
 static const char *__pyx_f[] = {
   "gideon/fields/foreign_key_field.pyx",
   "stringsource",
+  "type.pxd",
+  "bool.pxd",
+  "complex.pxd",
 };
 
 /*--- Type declarations ---*/
 struct __pyx_obj_6gideon_6fields_5field_Field;
 struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField;
 
-/* "field.pxd":1
- * cdef class Field:             # <<<<<<<<<<<<<<
- *     cdef public str name
+/* "field.pxd":4
  * 
+ * 
+ * cdef class Field:             # <<<<<<<<<<<<<<
+ *     cdef readonly str _name
+ *     cdef readonly bool _read_only
  */
 struct __pyx_obj_6gideon_6fields_5field_Field {
   PyObject_HEAD
   struct __pyx_vtabstruct_6gideon_6fields_5field_Field *__pyx_vtab;
-  PyObject *name;
+  PyObject *_name;
+  PyBoolObject *_read_only;
 };
 
 
@@ -832,7 +842,7 @@ struct __pyx_obj_6gideon_6fields_5field_Field {
  * 
  * 
  * cdef class ForeignKeyField(Field):             # <<<<<<<<<<<<<<
- *     cdef public _to
+ *     cdef readonly _to
  */
 struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField {
   struct __pyx_obj_6gideon_6fields_5field_Field __pyx_base;
@@ -841,10 +851,12 @@ struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField {
 
 
 
-/* "field.pxd":1
- * cdef class Field:             # <<<<<<<<<<<<<<
- *     cdef public str name
+/* "field.pxd":4
  * 
+ * 
+ * cdef class Field:             # <<<<<<<<<<<<<<
+ *     cdef readonly str _name
+ *     cdef readonly bool _read_only
  */
 
 struct __pyx_vtabstruct_6gideon_6fields_5field_Field {
@@ -858,7 +870,7 @@ static struct __pyx_vtabstruct_6gideon_6fields_5field_Field *__pyx_vtabptr_6gide
  * 
  * cdef class ForeignKeyField(Field):             # <<<<<<<<<<<<<<
  * 
- *     def __init__(self, to, str name):
+ *     def __init__(self, to, **kwargs):
  */
 
 struct __pyx_vtabstruct_6gideon_6fields_17foreign_key_field_ForeignKeyField {
@@ -940,10 +952,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 /* GetBuiltinName.proto */
 static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
-/* RaiseArgTupleInvalid.proto */
-static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
-    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
-
 /* RaiseDoubleKeywords.proto */
 static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
 
@@ -952,17 +960,43 @@ static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
     const char* function_name);
 
-/* ArgTypeTest.proto */
-#define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
-    ((likely((Py_TYPE(obj) == type) | (none_allowed && (obj == Py_None)))) ? 1 :\
-        __Pyx__ArgTypeTest(obj, type, name, exact))
-static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
+
+/* dict_getitem_default.proto */
+static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value);
 
 /* PyObjectCall.proto */
 #if CYTHON_COMPILING_IN_CPYTHON
 static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
 #else
 #define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+#endif
+
+/* UnpackUnboundCMethod.proto */
+typedef struct {
+    PyObject *type;
+    PyObject **method_name;
+    PyCFunction func;
+    PyObject *method;
+    int flag;
+} __Pyx_CachedCFunction;
+
+/* CallUnboundCMethod1.proto */
+static PyObject* __Pyx__CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg);
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg);
+#else
+#define __Pyx_CallUnboundCMethod1(cfunc, self, arg)  __Pyx__CallUnboundCMethod1(cfunc, self, arg)
+#endif
+
+/* CallUnboundCMethod2.proto */
+static PyObject* __Pyx__CallUnboundCMethod2(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg1, PyObject* arg2);
+#if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030600B1
+static CYTHON_INLINE PyObject *__Pyx_CallUnboundCMethod2(__Pyx_CachedCFunction *cfunc, PyObject *self, PyObject *arg1, PyObject *arg2);
+#else
+#define __Pyx_CallUnboundCMethod2(cfunc, self, arg1, arg2)  __Pyx__CallUnboundCMethod2(cfunc, self, arg1, arg2)
 #endif
 
 /* PyErrExceptionMatches.proto */
@@ -1134,6 +1168,9 @@ static PyObject *__Pyx_GetItemInt_Generic(PyObject *o, PyObject* j);
 static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i,
                                                      int is_list, int wraparound, int boundscheck);
 
+/* ExtTypeTest.proto */
+static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
+
 /* HasAttr.proto */
 static CYTHON_INLINE int __Pyx_HasAttr(PyObject *, PyObject *);
 
@@ -1235,6 +1272,89 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'cpython.version' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.type' */
+static PyTypeObject *__pyx_ptype_7cpython_4type_type = 0;
+
+/* Module declarations from 'libc.string' */
+
+/* Module declarations from 'libc.stdio' */
+
+/* Module declarations from 'cpython.object' */
+
+/* Module declarations from 'cpython.ref' */
+
+/* Module declarations from 'cpython.exc' */
+
+/* Module declarations from 'cpython.module' */
+
+/* Module declarations from 'cpython.mem' */
+
+/* Module declarations from 'cpython.tuple' */
+
+/* Module declarations from 'cpython.list' */
+
+/* Module declarations from 'cpython.sequence' */
+
+/* Module declarations from 'cpython.mapping' */
+
+/* Module declarations from 'cpython.iterator' */
+
+/* Module declarations from 'cpython.number' */
+
+/* Module declarations from 'cpython.int' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.bool' */
+static PyTypeObject *__pyx_ptype_7cpython_4bool_bool = 0;
+
+/* Module declarations from 'cpython.long' */
+
+/* Module declarations from 'cpython.float' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.complex' */
+static PyTypeObject *__pyx_ptype_7cpython_7complex_complex = 0;
+
+/* Module declarations from 'cpython.string' */
+
+/* Module declarations from 'cpython.unicode' */
+
+/* Module declarations from 'cpython.dict' */
+
+/* Module declarations from 'cpython.instance' */
+
+/* Module declarations from 'cpython.function' */
+
+/* Module declarations from 'cpython.method' */
+
+/* Module declarations from 'cpython.weakref' */
+
+/* Module declarations from 'cpython.getargs' */
+
+/* Module declarations from 'cpython.pythread' */
+
+/* Module declarations from 'cpython.pystate' */
+
+/* Module declarations from 'cpython.cobject' */
+
+/* Module declarations from 'cpython.oldbuffer' */
+
+/* Module declarations from 'cpython.set' */
+
+/* Module declarations from 'cpython.buffer' */
+
+/* Module declarations from 'cpython.bytes' */
+
+/* Module declarations from 'cpython.pycapsule' */
+
+/* Module declarations from 'cpython' */
+
 /* Module declarations from 'gideon.fields.field' */
 static PyTypeObject *__pyx_ptype_6gideon_6fields_5field_Field = 0;
 
@@ -1248,15 +1368,15 @@ int __pyx_module_is_main_gideon__fields__foreign_key_field = 0;
 /* Implementation of 'gideon.fields.foreign_key_field' */
 static PyObject *__pyx_builtin_super;
 static const char __pyx_k_to[] = "to";
+static const char __pyx_k_get[] = "get";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_init[] = "__init__";
 static const char __pyx_k_main[] = "__main__";
-static const char __pyx_k_name[] = "name";
+static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_super[] = "super";
 static const char __pyx_k_import[] = "__import__";
-static const char __pyx_k_name_2[] = "__name__";
 static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_update[] = "update";
@@ -1264,6 +1384,7 @@ static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
+static const char __pyx_k_read_only[] = "read_only";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
@@ -1276,20 +1397,22 @@ static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_pyx_unpickle_ForeignKeyField[] = "__pyx_unpickle_ForeignKeyField";
+static const char __pyx_k_ForeignKeyField_not_can_be_read[] = "ForeignKeyField not can be read only";
 static const char __pyx_k_gideon_fields_foreign_key_field[] = "gideon.fields.foreign_key_field";
-static const char __pyx_k_Incompatible_checksums_s_vs_0x33[] = "Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))";
+static const char __pyx_k_Incompatible_checksums_s_vs_0xf8[] = "Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))";
 static PyObject *__pyx_n_s_ForeignKeyField;
-static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x33;
+static PyObject *__pyx_kp_u_ForeignKeyField_not_can_be_read;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xf8;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_dict;
+static PyObject *__pyx_n_s_get;
 static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_n_s_gideon_fields_foreign_key_field;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_init;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
-static PyObject *__pyx_n_s_name_2;
 static PyObject *__pyx_n_s_new;
 static PyObject *__pyx_n_s_pickle;
 static PyObject *__pyx_n_s_pyx_PickleError;
@@ -1299,6 +1422,7 @@ static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_pyx_type;
 static PyObject *__pyx_n_s_pyx_unpickle_ForeignKeyField;
 static PyObject *__pyx_n_s_pyx_vtable;
+static PyObject *__pyx_n_u_read_only;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
@@ -1309,17 +1433,16 @@ static PyObject *__pyx_n_s_super;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_to;
 static PyObject *__pyx_n_s_update;
-static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_to, PyObject *__pyx_v_name); /* proto */
+static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_to, PyObject *__pyx_v_kwargs); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_13internal_type___get__(CYTHON_UNUSED struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2to___get__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to___get__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
-static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_2__set__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_4__del__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_2__reduce_cython__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_4__setstate_cython__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_ForeignKeyField(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_6gideon_6fields_17foreign_key_field_ForeignKeyField(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_int_54253289;
+static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_get = {0, &__pyx_n_s_get, 0, 0, 0};
+static PyObject *__pyx_int_260980130;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 /* Late includes */
@@ -1327,28 +1450,28 @@ static PyObject *__pyx_codeobj__2;
 /* "gideon/fields/foreign_key_field.pyx":6
  * cdef class ForeignKeyField(Field):
  * 
- *     def __init__(self, to, str name):             # <<<<<<<<<<<<<<
- *         super().__init__(name=name)
- *         self._to = to
+ *     def __init__(self, to, **kwargs):             # <<<<<<<<<<<<<<
+ *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
+ *         super().__init__(**kwargs)
  */
 
 /* Python wrapper */
 static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_to = 0;
-  PyObject *__pyx_v_name = 0;
+  PyObject *__pyx_v_kwargs = 0;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
+  __pyx_v_kwargs = PyDict_New(); if (unlikely(!__pyx_v_kwargs)) return -1;
+  __Pyx_GOTREF(__pyx_v_kwargs);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_to,&__pyx_n_s_name,0};
-    PyObject* values[2] = {0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_to,0};
+    PyObject* values[1] = {0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         CYTHON_FALLTHROUGH;
         case  0: break;
@@ -1359,61 +1482,70 @@ static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_1__ini
         case  0:
         if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_to)) != 0)) kw_args--;
         else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 6, __pyx_L3_error)
-        }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 6, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 6, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_to = values[0];
-    __pyx_v_name = ((PyObject*)values[1]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 6, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 6, __pyx_L3_error)
   __pyx_L3_error:;
+  __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("gideon.fields.foreign_key_field.ForeignKeyField.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 6, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init__(((struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *)__pyx_v_self), __pyx_v_to, __pyx_v_name);
+  __pyx_r = __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init__(((struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *)__pyx_v_self), __pyx_v_to, __pyx_v_kwargs);
 
   /* function exit code */
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __pyx_r = -1;
-  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_kwargs);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_to, PyObject *__pyx_v_name) {
+static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_to, PyObject *__pyx_v_kwargs) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
+  int __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "gideon/fields/foreign_key_field.pyx":7
  * 
- *     def __init__(self, to, str name):
- *         super().__init__(name=name)             # <<<<<<<<<<<<<<
+ *     def __init__(self, to, **kwargs):
+ *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'             # <<<<<<<<<<<<<<
+ *         super().__init__(**kwargs)
+ *         self._to = to
+ */
+  #ifndef CYTHON_WITHOUT_ASSERTIONS
+  if (unlikely(!Py_OptimizeFlag)) {
+    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kwargs, __pyx_n_u_read_only, Py_False); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = (__pyx_t_1 == Py_False);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!(__pyx_t_2 != 0))) {
+      PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_ForeignKeyField_not_can_be_read);
+      __PYX_ERR(0, 7, __pyx_L1_error)
+    }
+  }
+  #endif
+
+  /* "gideon/fields/foreign_key_field.pyx":8
+ *     def __init__(self, to, **kwargs):
+ *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
+ *         super().__init__(**kwargs)             # <<<<<<<<<<<<<<
  *         self._to = to
  * 
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6gideon_6fields_17foreign_key_field_ForeignKeyField));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6gideon_6fields_17foreign_key_field_ForeignKeyField));
@@ -1421,24 +1553,20 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "gideon/fields/foreign_key_field.pyx":8
- *     def __init__(self, to, str name):
- *         super().__init__(name=name)
+  /* "gideon/fields/foreign_key_field.pyx":9
+ *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
+ *         super().__init__(**kwargs)
  *         self._to = to             # <<<<<<<<<<<<<<
  * 
  *     @property
@@ -1452,9 +1580,9 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   /* "gideon/fields/foreign_key_field.pyx":6
  * cdef class ForeignKeyField(Field):
  * 
- *     def __init__(self, to, str name):             # <<<<<<<<<<<<<<
- *         super().__init__(name=name)
- *         self._to = to
+ *     def __init__(self, to, **kwargs):             # <<<<<<<<<<<<<<
+ *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
+ *         super().__init__(**kwargs)
  */
 
   /* function exit code */
@@ -1462,7 +1590,6 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("gideon.fields.foreign_key_field.ForeignKeyField.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
@@ -1471,7 +1598,7 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   return __pyx_r;
 }
 
-/* "gideon/fields/foreign_key_field.pyx":11
+/* "gideon/fields/foreign_key_field.pyx":12
  * 
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
@@ -1497,7 +1624,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/foreign_key_field.pyx":12
+  /* "gideon/fields/foreign_key_field.pyx":13
  *     @property
  *     def internal_type(self):
  *         return int             # <<<<<<<<<<<<<<
@@ -1509,7 +1636,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __pyx_r = ((PyObject *)(&PyInt_Type));
   goto __pyx_L0;
 
-  /* "gideon/fields/foreign_key_field.pyx":11
+  /* "gideon/fields/foreign_key_field.pyx":12
  * 
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
@@ -1524,7 +1651,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   return __pyx_r;
 }
 
-/* "gideon/fields/foreign_key_field.pyx":15
+/* "gideon/fields/foreign_key_field.pyx":16
  * 
  *     @property
  *     def to(self):             # <<<<<<<<<<<<<<
@@ -1549,7 +1676,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/foreign_key_field.pyx":16
+  /* "gideon/fields/foreign_key_field.pyx":17
  *     @property
  *     def to(self):
  *         return self._to             # <<<<<<<<<<<<<<
@@ -1559,7 +1686,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __pyx_r = __pyx_v_self->_to;
   goto __pyx_L0;
 
-  /* "gideon/fields/foreign_key_field.pyx":15
+  /* "gideon/fields/foreign_key_field.pyx":16
  * 
  *     @property
  *     def to(self):             # <<<<<<<<<<<<<<
@@ -1576,7 +1703,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
 /* "gideon/fields/foreign_key_field.pxd":5
  * 
  * cdef class ForeignKeyField(Field):
- *     cdef public _to             # <<<<<<<<<<<<<<
+ *     cdef readonly _to             # <<<<<<<<<<<<<<
  */
 
 /* Python wrapper */
@@ -1604,64 +1731,6 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   /* function exit code */
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_2__set__(((struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *)__pyx_v_self), ((PyObject *)__pyx_v_value));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_2__set__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self, PyObject *__pyx_v_value) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__set__", 0);
-  __Pyx_INCREF(__pyx_v_value);
-  __Pyx_GIVEREF(__pyx_v_value);
-  __Pyx_GOTREF(__pyx_v_self->_to);
-  __Pyx_DECREF(__pyx_v_self->_to);
-  __pyx_v_self->_to = __pyx_v_value;
-
-  /* function exit code */
-  __pyx_r = 0;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_5__del__(PyObject *__pyx_v_self) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_4__del__(((struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_4__del__(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v_self) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__del__", 0);
-  __Pyx_INCREF(Py_None);
-  __Pyx_GIVEREF(Py_None);
-  __Pyx_GOTREF(__pyx_v_self->_to);
-  __Pyx_DECREF(__pyx_v_self->_to);
-  __pyx_v_self->_to = Py_None;
-
-  /* function exit code */
-  __pyx_r = 0;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -1702,24 +1771,27 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   /* "(tree fragment)":5
  *     cdef object _dict
  *     cdef bint use_setstate
- *     state = (self._to, self.name)             # <<<<<<<<<<<<<<
+ *     state = (self._name, self._read_only, self._to)             # <<<<<<<<<<<<<<
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_v_self->__pyx_base._name);
+  __Pyx_GIVEREF(__pyx_v_self->__pyx_base._name);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_self->__pyx_base._name);
+  __Pyx_INCREF(((PyObject *)__pyx_v_self->__pyx_base._read_only));
+  __Pyx_GIVEREF(((PyObject *)__pyx_v_self->__pyx_base._read_only));
+  PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self->__pyx_base._read_only));
   __Pyx_INCREF(__pyx_v_self->_to);
   __Pyx_GIVEREF(__pyx_v_self->_to);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_self->_to);
-  __Pyx_INCREF(__pyx_v_self->__pyx_base.name);
-  __Pyx_GIVEREF(__pyx_v_self->__pyx_base.name);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_self->__pyx_base.name);
+  PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_self->_to);
   __pyx_v_state = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":6
  *     cdef bint use_setstate
- *     state = (self._to, self.name)
+ *     state = (self._name, self._read_only, self._to)
  *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
  *     if _dict is not None:
  *         state += (_dict,)
@@ -1730,7 +1802,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":7
- *     state = (self._to, self.name)
+ *     state = (self._name, self._read_only, self._to)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -1763,12 +1835,12 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
  *         state += (_dict,)
  *         use_setstate = True             # <<<<<<<<<<<<<<
  *     else:
- *         use_setstate = self._to is not None or self.name is not None
+ *         use_setstate = self._name is not None or self._read_only is not None or self._to is not None
  */
     __pyx_v_use_setstate = 1;
 
     /* "(tree fragment)":7
- *     state = (self._to, self.name)
+ *     state = (self._name, self._read_only, self._to)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -1780,21 +1852,28 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   /* "(tree fragment)":11
  *         use_setstate = True
  *     else:
- *         use_setstate = self._to is not None or self.name is not None             # <<<<<<<<<<<<<<
+ *         use_setstate = self._name is not None or self._read_only is not None or self._to is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, None), state
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, None), state
  */
   /*else*/ {
-    __pyx_t_2 = (__pyx_v_self->_to != Py_None);
+    __pyx_t_2 = (__pyx_v_self->__pyx_base._name != ((PyObject*)Py_None));
     __pyx_t_5 = (__pyx_t_2 != 0);
     if (!__pyx_t_5) {
     } else {
       __pyx_t_3 = __pyx_t_5;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_5 = (__pyx_v_self->__pyx_base.name != ((PyObject*)Py_None));
+    __pyx_t_5 = (((PyObject *)__pyx_v_self->__pyx_base._read_only) != Py_None);
     __pyx_t_2 = (__pyx_t_5 != 0);
-    __pyx_t_3 = __pyx_t_2;
+    if (!__pyx_t_2) {
+    } else {
+      __pyx_t_3 = __pyx_t_2;
+      goto __pyx_L4_bool_binop_done;
+    }
+    __pyx_t_2 = (__pyx_v_self->_to != Py_None);
+    __pyx_t_5 = (__pyx_t_2 != 0);
+    __pyx_t_3 = __pyx_t_5;
     __pyx_L4_bool_binop_done:;
     __pyx_v_use_setstate = __pyx_t_3;
   }
@@ -1802,20 +1881,20 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
 
   /* "(tree fragment)":12
  *     else:
- *         use_setstate = self._to is not None or self.name is not None
+ *         use_setstate = self._name is not None or self._read_only is not None or self._to is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, None), state
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, None), state
  *     else:
  */
   __pyx_t_3 = (__pyx_v_use_setstate != 0);
   if (__pyx_t_3) {
 
     /* "(tree fragment)":13
- *         use_setstate = self._to is not None or self.name is not None
+ *         use_setstate = self._name is not None or self._read_only is not None or self._to is not None
  *     if use_setstate:
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, state)
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, state)
  */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle_ForeignKeyField); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
@@ -1825,9 +1904,9 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_54253289);
-    __Pyx_GIVEREF(__pyx_int_54253289);
-    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_54253289);
+    __Pyx_INCREF(__pyx_int_260980130);
+    __Pyx_GIVEREF(__pyx_int_260980130);
+    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_260980130);
     __Pyx_INCREF(Py_None);
     __Pyx_GIVEREF(Py_None);
     PyTuple_SET_ITEM(__pyx_t_1, 2, Py_None);
@@ -1848,17 +1927,17 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
 
     /* "(tree fragment)":12
  *     else:
- *         use_setstate = self._to is not None or self.name is not None
+ *         use_setstate = self._name is not None or self._read_only is not None or self._to is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, None), state
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, None), state
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, None), state
  *     else:
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_ForeignKeyField__set_state(self, __pyx_state)
  */
@@ -1871,9 +1950,9 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_54253289);
-    __Pyx_GIVEREF(__pyx_int_54253289);
-    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_54253289);
+    __Pyx_INCREF(__pyx_int_260980130);
+    __Pyx_GIVEREF(__pyx_int_260980130);
+    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_260980130);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
     PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_state);
@@ -1913,7 +1992,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, state)
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ForeignKeyField__set_state(self, __pyx_state)
  */
@@ -1938,7 +2017,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, state)
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, state)
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_ForeignKeyField__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
@@ -1949,7 +2028,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_ForeignKeyField, (type(self), 0x33bd6e9, state)
+ *         return __pyx_unpickle_ForeignKeyField, (type(self), 0xf8e3da2, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ForeignKeyField__set_state(self, __pyx_state)
  */
@@ -2062,18 +2141,18 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_For
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x33bd6e9:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xf8e3da2:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x33bd6e9) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xf8e3da2) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x33bd6e9:
+ *     if __pyx_checksum != 0xf8e3da2:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))" % __pyx_checksum)
  *     __pyx_result = ForeignKeyField.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
@@ -2092,15 +2171,15 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_For
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0x33bd6e9:
+ *     if __pyx_checksum != 0xf8e3da2:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))" % __pyx_checksum)             # <<<<<<<<<<<<<<
  *     __pyx_result = ForeignKeyField.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x33, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xf8, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -2127,15 +2206,15 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_For
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x33bd6e9:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xf8e3da2:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))" % __pyx_checksum)
  *     __pyx_result = ForeignKeyField.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
  *         __pyx_unpickle_ForeignKeyField__set_state(<ForeignKeyField> __pyx_result, __pyx_state)
@@ -2161,7 +2240,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_For
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))" % __pyx_checksum)
  *     __pyx_result = ForeignKeyField.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_ForeignKeyField__set_state(<ForeignKeyField> __pyx_result, __pyx_state)
@@ -2184,7 +2263,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_For
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x33bd6e9 = (_to, name))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf8e3da2 = (_name, _read_only, _to))" % __pyx_checksum)
  *     __pyx_result = ForeignKeyField.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_ForeignKeyField__set_state(<ForeignKeyField> __pyx_result, __pyx_state)
@@ -2197,7 +2276,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_For
  *         __pyx_unpickle_ForeignKeyField__set_state(<ForeignKeyField> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
  * cdef __pyx_unpickle_ForeignKeyField__set_state(ForeignKeyField __pyx_result, tuple __pyx_state):
- *     __pyx_result._to = __pyx_state[0]; __pyx_result.name = __pyx_state[1]
+ *     __pyx_result._name = __pyx_state[0]; __pyx_result._read_only = __pyx_state[1]; __pyx_result._to = __pyx_state[2]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -2230,8 +2309,8 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field___pyx_unpickle_For
  *         __pyx_unpickle_ForeignKeyField__set_state(<ForeignKeyField> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_ForeignKeyField__set_state(ForeignKeyField __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result._to = __pyx_state[0]; __pyx_result.name = __pyx_state[1]
- *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result._name = __pyx_state[0]; __pyx_result._read_only = __pyx_state[1]; __pyx_result._to = __pyx_state[2]
+ *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
  */
 
 static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_ForeignKeyField__set_state(struct __pyx_obj_6gideon_6fields_17foreign_key_field_ForeignKeyField *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
@@ -2250,9 +2329,9 @@ static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_Fore
   /* "(tree fragment)":12
  *     return __pyx_result
  * cdef __pyx_unpickle_ForeignKeyField__set_state(ForeignKeyField __pyx_result, tuple __pyx_state):
- *     __pyx_result._to = __pyx_state[0]; __pyx_result.name = __pyx_state[1]             # <<<<<<<<<<<<<<
- *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[2])
+ *     __pyx_result._name = __pyx_state[0]; __pyx_result._read_only = __pyx_state[1]; __pyx_result._to = __pyx_state[2]             # <<<<<<<<<<<<<<
+ *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[3])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -2260,10 +2339,11 @@ static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_Fore
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
+  if (!(likely(PyUnicode_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_to);
-  __Pyx_DECREF(__pyx_v___pyx_result->_to);
-  __pyx_v___pyx_result->_to = __pyx_t_1;
+  __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base._name);
+  __Pyx_DECREF(__pyx_v___pyx_result->__pyx_base._name);
+  __pyx_v___pyx_result->__pyx_base._name = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -2271,25 +2351,36 @@ static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_Fore
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(1, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_7cpython_4bool_bool))))) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.name);
-  __Pyx_DECREF(__pyx_v___pyx_result->__pyx_base.name);
-  __pyx_v___pyx_result->__pyx_base.name = ((PyObject*)__pyx_t_1);
+  __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base._read_only);
+  __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base._read_only));
+  __pyx_v___pyx_result->__pyx_base._read_only = ((PyBoolObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 12, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_1);
+  __Pyx_GOTREF(__pyx_v___pyx_result->_to);
+  __Pyx_DECREF(__pyx_v___pyx_result->_to);
+  __pyx_v___pyx_result->_to = __pyx_t_1;
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":13
  * cdef __pyx_unpickle_ForeignKeyField__set_state(ForeignKeyField __pyx_result, tuple __pyx_state):
- *     __pyx_result._to = __pyx_state[0]; __pyx_result.name = __pyx_state[1]
- *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[2])
+ *     __pyx_result._name = __pyx_state[0]; __pyx_result._read_only = __pyx_state[1]; __pyx_result._to = __pyx_state[2]
+ *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[3])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
     __PYX_ERR(1, 13, __pyx_L1_error)
   }
   __pyx_t_3 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(1, 13, __pyx_L1_error)
-  __pyx_t_4 = ((__pyx_t_3 > 2) != 0);
+  __pyx_t_4 = ((__pyx_t_3 > 3) != 0);
   if (__pyx_t_4) {
   } else {
     __pyx_t_2 = __pyx_t_4;
@@ -2302,9 +2393,9 @@ static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_Fore
   if (__pyx_t_2) {
 
     /* "(tree fragment)":14
- *     __pyx_result._to = __pyx_state[0]; __pyx_result.name = __pyx_state[1]
- *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[2])             # <<<<<<<<<<<<<<
+ *     __pyx_result._name = __pyx_state[0]; __pyx_result._read_only = __pyx_state[1]; __pyx_result._to = __pyx_state[2]
+ *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[3])             # <<<<<<<<<<<<<<
  */
     __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
@@ -2315,7 +2406,7 @@ static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_Fore
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
       __PYX_ERR(1, 14, __pyx_L1_error)
     }
-    __pyx_t_6 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 14, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -2337,9 +2428,9 @@ static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_Fore
 
     /* "(tree fragment)":13
  * cdef __pyx_unpickle_ForeignKeyField__set_state(ForeignKeyField __pyx_result, tuple __pyx_state):
- *     __pyx_result._to = __pyx_state[0]; __pyx_result.name = __pyx_state[1]
- *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[2])
+ *     __pyx_result._name = __pyx_state[0]; __pyx_result._read_only = __pyx_state[1]; __pyx_result._to = __pyx_state[2]
+ *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[3])
  */
   }
 
@@ -2347,8 +2438,8 @@ static PyObject *__pyx_f_6gideon_6fields_17foreign_key_field___pyx_unpickle_Fore
  *         __pyx_unpickle_ForeignKeyField__set_state(<ForeignKeyField> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_ForeignKeyField__set_state(ForeignKeyField __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result._to = __pyx_state[0]; __pyx_result.name = __pyx_state[1]
- *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result._name = __pyx_state[0]; __pyx_result._read_only = __pyx_state[1]; __pyx_result._to = __pyx_state[2]
+ *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
  */
 
   /* function exit code */
@@ -2387,9 +2478,6 @@ static void __pyx_tp_dealloc_6gideon_6fields_17foreign_key_field_ForeignKeyField
   #endif
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->_to);
-  #if CYTHON_USE_TYPE_SLOTS
-  if (PyType_IS_GC(Py_TYPE(o)->tp_base))
-  #endif
   PyObject_GC_Track(o);
   if (likely(__pyx_ptype_6gideon_6fields_5field_Field)) __pyx_ptype_6gideon_6fields_5field_Field->tp_dealloc(o); else __Pyx_call_next_tp_dealloc(o, __pyx_tp_dealloc_6gideon_6fields_17foreign_key_field_ForeignKeyField);
 }
@@ -2426,15 +2514,6 @@ static PyObject *__pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyF
   return __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_1__get__(o);
 }
 
-static int __pyx_setprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField__to(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
-  if (v) {
-    return __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_3__set__(o, v);
-  }
-  else {
-    return __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3_to_5__del__(o);
-  }
-}
-
 static PyMethodDef __pyx_methods_6gideon_6fields_17foreign_key_field_ForeignKeyField[] = {
   {"__reduce_cython__", (PyCFunction)__pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_3__reduce_cython__, METH_NOARGS, 0},
   {"__setstate_cython__", (PyCFunction)__pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_5__setstate_cython__, METH_O, 0},
@@ -2444,7 +2523,7 @@ static PyMethodDef __pyx_methods_6gideon_6fields_17foreign_key_field_ForeignKeyF
 static struct PyGetSetDef __pyx_getsets_6gideon_6fields_17foreign_key_field_ForeignKeyField[] = {
   {(char *)"internal_type", __pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField_internal_type, 0, (char *)0, 0},
   {(char *)"to", __pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField_to, 0, (char *)0, 0},
-  {(char *)"_to", __pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField__to, __pyx_setprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField__to, (char *)0, 0},
+  {(char *)"_to", __pyx_getprop_6gideon_6fields_17foreign_key_field_15ForeignKeyField__to, 0, (char *)0, 0},
   {0, 0, 0, 0, 0}
 };
 
@@ -2553,17 +2632,18 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ForeignKeyField, __pyx_k_ForeignKeyField, sizeof(__pyx_k_ForeignKeyField), 0, 0, 1, 1},
-  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x33, __pyx_k_Incompatible_checksums_s_vs_0x33, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x33), 0, 0, 1, 0},
+  {&__pyx_kp_u_ForeignKeyField_not_can_be_read, __pyx_k_ForeignKeyField_not_can_be_read, sizeof(__pyx_k_ForeignKeyField_not_can_be_read), 0, 1, 0, 0},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0xf8, __pyx_k_Incompatible_checksums_s_vs_0xf8, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xf8), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
+  {&__pyx_n_s_get, __pyx_k_get, sizeof(__pyx_k_get), 0, 0, 1, 1},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
   {&__pyx_n_s_gideon_fields_foreign_key_field, __pyx_k_gideon_fields_foreign_key_field, sizeof(__pyx_k_gideon_fields_foreign_key_field), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
-  {&__pyx_n_s_name_2, __pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
@@ -2573,6 +2653,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_ForeignKeyField, __pyx_k_pyx_unpickle_ForeignKeyField, sizeof(__pyx_k_pyx_unpickle_ForeignKeyField), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
+  {&__pyx_n_u_read_only, __pyx_k_read_only, sizeof(__pyx_k_read_only), 0, 1, 0, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
@@ -2586,7 +2667,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 8, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2613,8 +2694,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 }
 
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
+  __pyx_umethod_PyDict_Type_get.type = (PyObject*)&PyDict_Type;
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
-  __pyx_int_54253289 = PyInt_FromLong(54253289L); if (unlikely(!__pyx_int_54253289)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_260980130 = PyInt_FromLong(260980130L); if (unlikely(!__pyx_int_260980130)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2685,10 +2767,36 @@ static int __Pyx_modinit_type_init_code(void) {
 
 static int __Pyx_modinit_type_import_code(void) {
   __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "type", 
+  #if defined(PYPY_VERSION_NUM) && PYPY_VERSION_NUM < 0x050B0000
+  sizeof(PyTypeObject),
+  #else
+  sizeof(PyHeapTypeObject),
+  #endif
+  __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_4type_type) __PYX_ERR(2, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_4bool_bool = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "bool", sizeof(PyBoolObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_4bool_bool) __PYX_ERR(3, 8, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_7complex_complex = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "complex", sizeof(PyComplexObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_7complex_complex) __PYX_ERR(4, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 
 static int __Pyx_modinit_variable_import_code(void) {
@@ -2878,7 +2986,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   if (__pyx_module_is_main_gideon__fields__foreign_key_field) {
-    if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name_2, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
@@ -2897,7 +3005,7 @@ if (!__Pyx_RefNanny) {
   (void)__Pyx_modinit_variable_export_code();
   (void)__Pyx_modinit_function_export_code();
   if (unlikely(__Pyx_modinit_type_init_code() != 0)) goto __pyx_L1_error;
-  (void)__Pyx_modinit_type_import_code();
+  if (unlikely(__Pyx_modinit_type_import_code() != 0)) goto __pyx_L1_error;
   (void)__Pyx_modinit_variable_import_code();
   (void)__Pyx_modinit_function_import_code();
   /*--- Execution code ---*/
@@ -2993,32 +3101,6 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
 #endif
     }
     return result;
-}
-
-/* RaiseArgTupleInvalid */
-static void __Pyx_RaiseArgtupleInvalid(
-    const char* func_name,
-    int exact,
-    Py_ssize_t num_min,
-    Py_ssize_t num_max,
-    Py_ssize_t num_found)
-{
-    Py_ssize_t num_expected;
-    const char *more_or_less;
-    if (num_found < num_min) {
-        num_expected = num_min;
-        more_or_less = "at least";
-    } else {
-        num_expected = num_max;
-        more_or_less = "at most";
-    }
-    if (exact) {
-        more_or_less = "exactly";
-    }
-    PyErr_Format(PyExc_TypeError,
-                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
-                 func_name, more_or_less, num_expected,
-                 (num_expected == 1) ? "" : "s", num_found);
 }
 
 /* RaiseDoubleKeywords */
@@ -3137,25 +3219,30 @@ bad:
     return -1;
 }
 
-/* ArgTypeTest */
-static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
 {
-    if (unlikely(!type)) {
-        PyErr_SetString(PyExc_SystemError, "Missing type object");
-        return 0;
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
     }
-    else if (exact) {
-        #if PY_MAJOR_VERSION == 2
-        if ((type == &PyBaseString_Type) && likely(__Pyx_PyBaseString_CheckExact(obj))) return 1;
-        #endif
-    }
-    else {
-        if (likely(__Pyx_TypeCheck(obj, type))) return 1;
+    if (exact) {
+        more_or_less = "exactly";
     }
     PyErr_Format(PyExc_TypeError,
-        "Argument '%.200s' has incorrect type (expected %.200s, got %.200s)",
-        name, type->tp_name, Py_TYPE(obj)->tp_name);
-    return 0;
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
 }
 
 /* PyObjectCall */
@@ -3177,6 +3264,164 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg
     return result;
 }
 #endif
+
+/* UnpackUnboundCMethod */
+static int __Pyx_TryUnpackUnboundCMethod(__Pyx_CachedCFunction* target) {
+    PyObject *method;
+    method = __Pyx_PyObject_GetAttrStr(target->type, *target->method_name);
+    if (unlikely(!method))
+        return -1;
+    target->method = method;
+#if CYTHON_COMPILING_IN_CPYTHON
+    #if PY_MAJOR_VERSION >= 3
+    if (likely(__Pyx_TypeCheck(method, &PyMethodDescr_Type)))
+    #endif
+    {
+        PyMethodDescrObject *descr = (PyMethodDescrObject*) method;
+        target->func = descr->d_method->ml_meth;
+        target->flag = descr->d_method->ml_flags & ~(METH_CLASS | METH_STATIC | METH_COEXIST | METH_STACKLESS);
+    }
+#endif
+    return 0;
+}
+
+/* CallUnboundCMethod1 */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg) {
+    if (likely(cfunc->func)) {
+        int flag = cfunc->flag;
+        if (flag == METH_O) {
+            return (*(cfunc->func))(self, arg);
+        } else if (PY_VERSION_HEX >= 0x030600B1 && flag == METH_FASTCALL) {
+            if (PY_VERSION_HEX >= 0x030700A0) {
+                return (*(__Pyx_PyCFunctionFast)(void*)(PyCFunction)cfunc->func)(self, &arg, 1);
+            } else {
+                return (*(__Pyx_PyCFunctionFastWithKeywords)(void*)(PyCFunction)cfunc->func)(self, &arg, 1, NULL);
+            }
+        } else if (PY_VERSION_HEX >= 0x030700A0 && flag == (METH_FASTCALL | METH_KEYWORDS)) {
+            return (*(__Pyx_PyCFunctionFastWithKeywords)(void*)(PyCFunction)cfunc->func)(self, &arg, 1, NULL);
+        }
+    }
+    return __Pyx__CallUnboundCMethod1(cfunc, self, arg);
+}
+#endif
+static PyObject* __Pyx__CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg){
+    PyObject *args, *result = NULL;
+    if (unlikely(!cfunc->func && !cfunc->method) && unlikely(__Pyx_TryUnpackUnboundCMethod(cfunc) < 0)) return NULL;
+#if CYTHON_COMPILING_IN_CPYTHON
+    if (cfunc->func && (cfunc->flag & METH_VARARGS)) {
+        args = PyTuple_New(1);
+        if (unlikely(!args)) goto bad;
+        Py_INCREF(arg);
+        PyTuple_SET_ITEM(args, 0, arg);
+        if (cfunc->flag & METH_KEYWORDS)
+            result = (*(PyCFunctionWithKeywords)(void*)(PyCFunction)cfunc->func)(self, args, NULL);
+        else
+            result = (*cfunc->func)(self, args);
+    } else {
+        args = PyTuple_New(2);
+        if (unlikely(!args)) goto bad;
+        Py_INCREF(self);
+        PyTuple_SET_ITEM(args, 0, self);
+        Py_INCREF(arg);
+        PyTuple_SET_ITEM(args, 1, arg);
+        result = __Pyx_PyObject_Call(cfunc->method, args, NULL);
+    }
+#else
+    args = PyTuple_Pack(2, self, arg);
+    if (unlikely(!args)) goto bad;
+    result = __Pyx_PyObject_Call(cfunc->method, args, NULL);
+#endif
+bad:
+    Py_XDECREF(args);
+    return result;
+}
+
+/* CallUnboundCMethod2 */
+#if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030600B1
+static CYTHON_INLINE PyObject *__Pyx_CallUnboundCMethod2(__Pyx_CachedCFunction *cfunc, PyObject *self, PyObject *arg1, PyObject *arg2) {
+    if (likely(cfunc->func)) {
+        PyObject *args[2] = {arg1, arg2};
+        if (cfunc->flag == METH_FASTCALL) {
+            #if PY_VERSION_HEX >= 0x030700A0
+            return (*(__Pyx_PyCFunctionFast)(void*)(PyCFunction)cfunc->func)(self, args, 2);
+            #else
+            return (*(__Pyx_PyCFunctionFastWithKeywords)(void*)(PyCFunction)cfunc->func)(self, args, 2, NULL);
+            #endif
+        }
+        #if PY_VERSION_HEX >= 0x030700A0
+        if (cfunc->flag == (METH_FASTCALL | METH_KEYWORDS))
+            return (*(__Pyx_PyCFunctionFastWithKeywords)(void*)(PyCFunction)cfunc->func)(self, args, 2, NULL);
+        #endif
+    }
+    return __Pyx__CallUnboundCMethod2(cfunc, self, arg1, arg2);
+}
+#endif
+static PyObject* __Pyx__CallUnboundCMethod2(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg1, PyObject* arg2){
+    PyObject *args, *result = NULL;
+    if (unlikely(!cfunc->func && !cfunc->method) && unlikely(__Pyx_TryUnpackUnboundCMethod(cfunc) < 0)) return NULL;
+#if CYTHON_COMPILING_IN_CPYTHON
+    if (cfunc->func && (cfunc->flag & METH_VARARGS)) {
+        args = PyTuple_New(2);
+        if (unlikely(!args)) goto bad;
+        Py_INCREF(arg1);
+        PyTuple_SET_ITEM(args, 0, arg1);
+        Py_INCREF(arg2);
+        PyTuple_SET_ITEM(args, 1, arg2);
+        if (cfunc->flag & METH_KEYWORDS)
+            result = (*(PyCFunctionWithKeywords)(void*)(PyCFunction)cfunc->func)(self, args, NULL);
+        else
+            result = (*cfunc->func)(self, args);
+    } else {
+        args = PyTuple_New(3);
+        if (unlikely(!args)) goto bad;
+        Py_INCREF(self);
+        PyTuple_SET_ITEM(args, 0, self);
+        Py_INCREF(arg1);
+        PyTuple_SET_ITEM(args, 1, arg1);
+        Py_INCREF(arg2);
+        PyTuple_SET_ITEM(args, 2, arg2);
+        result = __Pyx_PyObject_Call(cfunc->method, args, NULL);
+    }
+#else
+    args = PyTuple_Pack(3, self, arg1, arg2);
+    if (unlikely(!args)) goto bad;
+    result = __Pyx_PyObject_Call(cfunc->method, args, NULL);
+#endif
+bad:
+    Py_XDECREF(args);
+    return result;
+}
+
+/* dict_getitem_default */
+static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value) {
+    PyObject* value;
+#if PY_MAJOR_VERSION >= 3 && !CYTHON_COMPILING_IN_PYPY
+    value = PyDict_GetItemWithError(d, key);
+    if (unlikely(!value)) {
+        if (unlikely(PyErr_Occurred()))
+            return NULL;
+        value = default_value;
+    }
+    Py_INCREF(value);
+    if ((1));
+#else
+    if (PyString_CheckExact(key) || PyUnicode_CheckExact(key) || PyInt_CheckExact(key)) {
+        value = PyDict_GetItem(d, key);
+        if (unlikely(!value)) {
+            value = default_value;
+        }
+        Py_INCREF(value);
+    }
+#endif
+    else {
+        if (default_value == Py_None)
+            value = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyDict_Type_get, d, key);
+        else
+            value = __Pyx_CallUnboundCMethod2(&__pyx_umethod_PyDict_Type_get, d, key, default_value);
+    }
+    return value;
+}
 
 /* PyErrExceptionMatches */
 #if CYTHON_FAST_THREAD_STATE
@@ -3872,6 +4117,19 @@ static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i, 
     return __Pyx_GetItemInt_Generic(o, PyInt_FromSsize_t(i));
 }
 
+/* ExtTypeTest */
+static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type) {
+    if (unlikely(!type)) {
+        PyErr_SetString(PyExc_SystemError, "Missing type object");
+        return 0;
+    }
+    if (likely(__Pyx_TypeCheck(obj, type)))
+        return 1;
+    PyErr_Format(PyExc_TypeError, "Cannot convert %.200s to %.200s",
+                 Py_TYPE(obj)->tp_name, type->tp_name);
+    return 0;
+}
+
 /* HasAttr */
 static CYTHON_INLINE int __Pyx_HasAttr(PyObject *o, PyObject *n) {
     PyObject *r;
@@ -4077,7 +4335,7 @@ bad:
 static int __Pyx_setup_reduce_is_named(PyObject* meth, PyObject* name) {
   int ret;
   PyObject *name_attr;
-  name_attr = __Pyx_PyObject_GetAttrStr(meth, __pyx_n_s_name_2);
+  name_attr = __Pyx_PyObject_GetAttrStr(meth, __pyx_n_s_name);
   if (likely(name_attr)) {
       ret = PyObject_RichCompareBool(name_attr, name, Py_EQ);
   } else {

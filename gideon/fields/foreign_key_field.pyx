@@ -3,8 +3,9 @@ from .field cimport Field
 
 cdef class ForeignKeyField(Field):
 
-    def __init__(self, to, str name):
-        super().__init__(name=name)
+    def __init__(self, to, **kwargs):
+        assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
+        super().__init__(**kwargs)
         self._to = to
 
     @property

@@ -31,10 +31,15 @@ class MetaModel(type):
 
                 fields = fields.set(attr, value)
                 property_name = attr.replace('_', '', 1)
-                property_fields[property_name] = property(
-                    create_property_field(attr),
-                    create_set_property_field(attr)
-                )
+                if value.read_only is True:
+                    prop = property(create_property_field(attr))
+                else:
+                    prop = property(
+                        create_property_field(attr),
+                        create_set_property_field(attr)
+                    )
+
+                property_fields[property_name] = prop
                 annotations[property_name] = value.internal_type
                 if isinstance(value, ForeignKeyField):
                     property_foreign_name = f'{property_name}_id'

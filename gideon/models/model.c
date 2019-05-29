@@ -3,6 +3,7 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
+        "depends": [],
         "name": "gideon.models.model",
         "sources": [
             "gideon/models/model.pyx"
@@ -600,6 +601,9 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE__gideon__models__model
 #define __PYX_HAVE_API__gideon__models__model
 /* Early includes */
+#include <string.h>
+#include <stdio.h>
+#include "pythread.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -809,6 +813,9 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "gideon/models/model.pyx",
+  "type.pxd",
+  "bool.pxd",
+  "complex.pxd",
   "gideon/fields/field.pxd",
 };
 
@@ -820,15 +827,18 @@ struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_2_filter;
 struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_3_all;
 struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection;
 
-/* "gideon/fields/field.pxd":1
- * cdef class Field:             # <<<<<<<<<<<<<<
- *     cdef public str name
+/* "gideon/fields/field.pxd":4
  * 
+ * 
+ * cdef class Field:             # <<<<<<<<<<<<<<
+ *     cdef readonly str _name
+ *     cdef readonly bool _read_only
  */
 struct __pyx_obj_6gideon_6fields_5field_Field {
   PyObject_HEAD
   struct __pyx_vtabstruct_6gideon_6fields_5field_Field *__pyx_vtab;
-  PyObject *name;
+  PyObject *_name;
+  PyBoolObject *_read_only;
 };
 
 
@@ -924,10 +934,12 @@ struct __pyx_obj_6gideon_6models_5model___pyx_scope_struct_4__get_connection {
 
 
 
-/* "gideon/fields/field.pxd":1
- * cdef class Field:             # <<<<<<<<<<<<<<
- *     cdef public str name
+/* "gideon/fields/field.pxd":4
  * 
+ * 
+ * cdef class Field:             # <<<<<<<<<<<<<<
+ *     cdef readonly str _name
+ *     cdef readonly bool _read_only
  */
 
 struct __pyx_vtabstruct_6gideon_6fields_5field_Field {
@@ -1636,6 +1648,89 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'cpython.version' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.type' */
+static PyTypeObject *__pyx_ptype_7cpython_4type_type = 0;
+
+/* Module declarations from 'libc.string' */
+
+/* Module declarations from 'libc.stdio' */
+
+/* Module declarations from 'cpython.object' */
+
+/* Module declarations from 'cpython.ref' */
+
+/* Module declarations from 'cpython.exc' */
+
+/* Module declarations from 'cpython.module' */
+
+/* Module declarations from 'cpython.mem' */
+
+/* Module declarations from 'cpython.tuple' */
+
+/* Module declarations from 'cpython.list' */
+
+/* Module declarations from 'cpython.sequence' */
+
+/* Module declarations from 'cpython.mapping' */
+
+/* Module declarations from 'cpython.iterator' */
+
+/* Module declarations from 'cpython.number' */
+
+/* Module declarations from 'cpython.int' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.bool' */
+static PyTypeObject *__pyx_ptype_7cpython_4bool_bool = 0;
+
+/* Module declarations from 'cpython.long' */
+
+/* Module declarations from 'cpython.float' */
+
+/* Module declarations from '__builtin__' */
+
+/* Module declarations from 'cpython.complex' */
+static PyTypeObject *__pyx_ptype_7cpython_7complex_complex = 0;
+
+/* Module declarations from 'cpython.string' */
+
+/* Module declarations from 'cpython.unicode' */
+
+/* Module declarations from 'cpython.dict' */
+
+/* Module declarations from 'cpython.instance' */
+
+/* Module declarations from 'cpython.function' */
+
+/* Module declarations from 'cpython.method' */
+
+/* Module declarations from 'cpython.weakref' */
+
+/* Module declarations from 'cpython.getargs' */
+
+/* Module declarations from 'cpython.pythread' */
+
+/* Module declarations from 'cpython.pystate' */
+
+/* Module declarations from 'cpython.cobject' */
+
+/* Module declarations from 'cpython.oldbuffer' */
+
+/* Module declarations from 'cpython.set' */
+
+/* Module declarations from 'cpython.buffer' */
+
+/* Module declarations from 'cpython.bytes' */
+
+/* Module declarations from 'cpython.pycapsule' */
+
+/* Module declarations from 'cpython' */
+
 /* Module declarations from 'gideon.fields.field' */
 static PyTypeObject *__pyx_ptype_6gideon_6fields_5field_Field = 0;
 
@@ -1809,6 +1904,7 @@ static PyObject *__pyx_kp_s_gideon_models_model_pyx;
 static PyObject *__pyx_n_u_hola;
 static PyObject *__pyx_n_s_host;
 static PyObject *__pyx_n_s_i;
+static PyObject *__pyx_n_s_id;
 static PyObject *__pyx_n_u_id;
 static PyObject *__pyx_n_s_id_2;
 static PyObject *__pyx_n_u_id_2;
@@ -3055,7 +3151,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
  *         fields = ', '.join(fields)
  *         values = ', '.join(values)             # <<<<<<<<<<<<<<
  *         con = await self._get_connection()
- *         self.id = await con.fetchval(
+ *         self._id = await con.fetchval(
  */
   __pyx_t_1 = PyUnicode_Join(__pyx_kp_u__8, __pyx_cur_scope->__pyx_v_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -3068,7 +3164,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
  *         fields = ', '.join(fields)
  *         values = ', '.join(values)
  *         con = await self._get_connection()             # <<<<<<<<<<<<<<
- *         self.id = await con.fetchval(
+ *         self._id = await con.fetchval(
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  */
   __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_get_connection); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
@@ -3113,7 +3209,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   /* "gideon/models/model.pyx":56
  *         values = ', '.join(values)
  *         con = await self._get_connection()
- *         self.id = await con.fetchval(             # <<<<<<<<<<<<<<
+ *         self._id = await con.fetchval(             # <<<<<<<<<<<<<<
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments
  */
@@ -3122,7 +3218,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
 
   /* "gideon/models/model.pyx":57
  *         con = await self._get_connection()
- *         self.id = await con.fetchval(
+ *         self._id = await con.fetchval(
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),             # <<<<<<<<<<<<<<
  *              *arguments
  *         )
@@ -3181,7 +3277,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   /* "gideon/models/model.pyx":56
  *         values = ', '.join(values)
  *         con = await self._get_connection()
- *         self.id = await con.fetchval(             # <<<<<<<<<<<<<<
+ *         self._id = await con.fetchval(             # <<<<<<<<<<<<<<
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments
  */
@@ -3192,7 +3288,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   __pyx_t_6 = 0;
 
   /* "gideon/models/model.pyx":58
- *         self.id = await con.fetchval(
+ *         self._id = await con.fetchval(
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments             # <<<<<<<<<<<<<<
  *         )
@@ -3204,7 +3300,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
   /* "gideon/models/model.pyx":56
  *         values = ', '.join(values)
  *         con = await self._get_connection()
- *         self.id = await con.fetchval(             # <<<<<<<<<<<<<<
+ *         self._id = await con.fetchval(             # <<<<<<<<<<<<<<
  *             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
  *              *arguments
  */
@@ -3234,7 +3330,7 @@ static PyObject *__pyx_gb_6gideon_6models_5model_5Model_7generator1(__pyx_Corout
     if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_6) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
   }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_id_2, __pyx_t_6) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_id, __pyx_t_6) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
   /* "gideon/models/model.pyx":60
@@ -5224,6 +5320,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_u_hola, __pyx_k_hola, sizeof(__pyx_k_hola), 0, 1, 0, 1},
   {&__pyx_n_s_host, __pyx_k_host, sizeof(__pyx_k_host), 0, 0, 1, 1},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
+  {&__pyx_n_s_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 0, 1, 1},
   {&__pyx_n_u_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 1, 0, 1},
   {&__pyx_n_s_id_2, __pyx_k_id_2, sizeof(__pyx_k_id_2), 0, 0, 1, 1},
   {&__pyx_n_u_id_2, __pyx_k_id_2, sizeof(__pyx_k_id_2), 0, 1, 0, 1},
@@ -5457,11 +5554,32 @@ static int __Pyx_modinit_type_import_code(void) {
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("gideon.fields.field"); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "type", 
+  #if defined(PYPY_VERSION_NUM) && PYPY_VERSION_NUM < 0x050B0000
+  sizeof(PyTypeObject),
+  #else
+  sizeof(PyHeapTypeObject),
+  #endif
+  __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_4type_type) __PYX_ERR(1, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_4bool_bool = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "bool", sizeof(PyBoolObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_4bool_bool) __PYX_ERR(2, 8, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_7cpython_7complex_complex = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "complex", sizeof(PyComplexObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_7cpython_7complex_complex) __PYX_ERR(3, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule("gideon.fields.field"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_6gideon_6fields_5field_Field = __Pyx_ImportType(__pyx_t_1, "gideon.fields.field", "Field", sizeof(struct __pyx_obj_6gideon_6fields_5field_Field), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_6gideon_6fields_5field_Field) __PYX_ERR(1, 1, __pyx_L1_error)
-  __pyx_vtabptr_6gideon_6fields_5field_Field = (struct __pyx_vtabstruct_6gideon_6fields_5field_Field*)__Pyx_GetVtable(__pyx_ptype_6gideon_6fields_5field_Field->tp_dict); if (unlikely(!__pyx_vtabptr_6gideon_6fields_5field_Field)) __PYX_ERR(1, 1, __pyx_L1_error)
+   if (!__pyx_ptype_6gideon_6fields_5field_Field) __PYX_ERR(4, 4, __pyx_L1_error)
+  __pyx_vtabptr_6gideon_6fields_5field_Field = (struct __pyx_vtabstruct_6gideon_6fields_5field_Field*)__Pyx_GetVtable(__pyx_ptype_6gideon_6fields_5field_Field->tp_dict); if (unlikely(!__pyx_vtabptr_6gideon_6fields_5field_Field)) __PYX_ERR(4, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;

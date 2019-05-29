@@ -53,7 +53,7 @@ class Model(metaclass=MetaModel):
         fields = ', '.join(fields)
         values = ', '.join(values)
         con = await self._get_connection()
-        self.id = await con.fetchval(
+        self._id = await con.fetchval(
             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
              *arguments
         )
