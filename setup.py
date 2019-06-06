@@ -20,6 +20,7 @@ extensions = [
     ('gideon.models.model', f'gideon/models/model.{ext}'),
     ('gideon.fields.field', f'gideon/fields/field.{ext}'),
     ('gideon.fields.date_field', f'gideon/fields/date_field.{ext}'),
+    ('gideon.fields.datetime_field', f'gideon/fields/datetime_field.{ext}'),
     ('gideon.fields.foreign_key_field', f'gideon/fields/foreign_key_field.{ext}'),
     ('gideon.fields.char_field', f'gideon/fields/char_field.{ext}'),
     ('gideon.fields.integer_field', f'gideon/fields/integer_field.{ext}')

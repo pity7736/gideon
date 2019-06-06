@@ -31,7 +31,6 @@ class Model(metaclass=MetaModel):
             return cls(**record)
 
     async def save(self):
-        print('hola')
         fields = []
         values = []
         arguments = []
