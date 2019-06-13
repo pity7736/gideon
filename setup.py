@@ -17,6 +17,7 @@ install_requires = [
 test_require = [
     'Cython==0.29.6',
     'factory-boy==2.11.1',
+    'pre-commit==1.15.1',
     'pytest==4.3.1',
     'pytest-asyncio==0.10.0',
     'pytest-cov==2.6.1',
@@ -50,7 +51,7 @@ else:
 
 setup(
     name='gideon',
-    version='0.0.0.a3',
+    version='v0.0.0.a4',
     packages=find_packages(exclude=('tests',)),
     install_requires=install_requires,
     author='Julián Cortés',
