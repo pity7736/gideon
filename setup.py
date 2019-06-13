@@ -8,13 +8,21 @@ except ImportError:
     ext = 'c'
 
 
-with open('requirements.txt') as f:
-    install_requires = f.readlines()
+install_requires = [
+    'asyncpg==0.18.3',
+    'immutables==0.9'
+]
 
 
-with open('requirements_dev.txt') as f:
-    test_require = install_requires + f.readlines()
-
+test_require = [
+    'Cython==0.29.6',
+    'factory-boy==2.11.1',
+    'pytest==4.3.1',
+    'pytest-asyncio==0.10.0',
+    'pytest-cov==2.6.1',
+    'pytest-dotenv==0.4.0',
+    'radon==3.0.1',
+]
 
 with open('README.md') as f:
     long_description = f.read()
@@ -42,7 +50,7 @@ else:
 
 setup(
     name='gideon',
-    version='0.0.0.a1',
+    version='0.0.0.a3',
     packages=find_packages(exclude=('tests',)),
     install_requires=install_requires,
     author='Julián Cortés',
