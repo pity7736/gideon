@@ -16,6 +16,10 @@ with open('requirements.txt') as f:
     install_requires = f.readlines()
 
 
+with open('README.md') as f:
+    long_description = f.read()
+
+
 extensions = [
     ('gideon.models.model', f'gideon/models/model.{ext}'),
     ('gideon.fields.field', f'gideon/fields/field.{ext}'),
@@ -38,14 +42,26 @@ else:
 
 setup(
     name='gideon',
-    version='0.0.2dev',
+    version='0.0.0.a1',
     packages=find_packages(exclude=('tests',)),
     install_requires=install_requires,
     author='Julián Cortés',
     author_email='pity7736@gmail.com',
     description='Async postgres data access layer',
+    long_description=long_description,
     keywords='async asyncpg DAL',
-    url='https://github.com/pity7736/gideon-db',
+    url='https://github.com/pity7736/gideon',
     tests_require=test_require,
-    ext_modules=extensions
+    ext_modules=extensions,
+    classifiers=[
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+        'Operating System :: POSIX :: Linux',
+        'Programming Language :: Cython',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.7',
+        'Topic :: Database',
+
+    ]
 )

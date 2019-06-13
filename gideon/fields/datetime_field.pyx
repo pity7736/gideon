@@ -7,7 +7,6 @@ cdef class DateTimeField(Field):
 
     _internal_type = datetime.datetime
 
-
     cpdef to_db(self, value):
         if isinstance(value, self._internal_type):
             return value

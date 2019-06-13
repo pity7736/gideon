@@ -1411,8 +1411,8 @@ static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 /* Late includes */
 
-/* "gideon/fields/datetime_field.pyx":11
- * 
+/* "gideon/fields/datetime_field.pyx":10
+ *     _internal_type = datetime.datetime
  * 
  *     cpdef to_db(self, value):             # <<<<<<<<<<<<<<
  *         if isinstance(value, self._internal_type):
@@ -1439,7 +1439,7 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_db); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_db); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6gideon_6fields_14datetime_field_13DateTimeField_1to_db)) {
         __Pyx_XDECREF(__pyx_r);
@@ -1456,7 +1456,7 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_value);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -1477,21 +1477,21 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
     #endif
   }
 
-  /* "gideon/fields/datetime_field.pyx":12
+  /* "gideon/fields/datetime_field.pyx":11
  * 
  *     cpdef to_db(self, value):
  *         if isinstance(value, self._internal_type):             # <<<<<<<<<<<<<<
  *             return value
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = PyObject_IsInstance(__pyx_v_value, __pyx_t_1); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_5 = PyObject_IsInstance(__pyx_v_value, __pyx_t_1); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (__pyx_t_5 != 0);
   if (__pyx_t_6) {
 
-    /* "gideon/fields/datetime_field.pyx":13
+    /* "gideon/fields/datetime_field.pyx":12
  *     cpdef to_db(self, value):
  *         if isinstance(value, self._internal_type):
  *             return value             # <<<<<<<<<<<<<<
@@ -1503,7 +1503,7 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "gideon/fields/datetime_field.pyx":12
+    /* "gideon/fields/datetime_field.pyx":11
  * 
  *     cpdef to_db(self, value):
  *         if isinstance(value, self._internal_type):             # <<<<<<<<<<<<<<
@@ -1512,7 +1512,7 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
  */
   }
 
-  /* "gideon/fields/datetime_field.pyx":15
+  /* "gideon/fields/datetime_field.pyx":14
  *             return value
  * 
  *         if isinstance(value, str):             # <<<<<<<<<<<<<<
@@ -1522,15 +1522,15 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
   __pyx_t_5 = (__pyx_t_6 != 0);
   if (__pyx_t_5) {
 
-    /* "gideon/fields/datetime_field.pyx":16
+    /* "gideon/fields/datetime_field.pyx":15
  * 
  *         if isinstance(value, str):
  *             return self._internal_type.fromisoformat(value)             # <<<<<<<<<<<<<<
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_fromisoformat); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_fromisoformat); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -1545,14 +1545,14 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_value);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "gideon/fields/datetime_field.pyx":15
+    /* "gideon/fields/datetime_field.pyx":14
  *             return value
  * 
  *         if isinstance(value, str):             # <<<<<<<<<<<<<<
@@ -1560,8 +1560,8 @@ PyObject *__pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(struct 
  */
   }
 
-  /* "gideon/fields/datetime_field.pyx":11
- * 
+  /* "gideon/fields/datetime_field.pyx":10
+ *     _internal_type = datetime.datetime
  * 
  *     cpdef to_db(self, value):             # <<<<<<<<<<<<<<
  *         if isinstance(value, self._internal_type):
@@ -1603,7 +1603,7 @@ static PyObject *__pyx_pf_6gideon_6fields_14datetime_field_13DateTimeField_to_db
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("to_db", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6gideon_6fields_14datetime_field_13DateTimeField_to_db(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2858,7 +2858,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     _internal_type = datetime.datetime             # <<<<<<<<<<<<<<
  * 
- * 
+ *     cpdef to_db(self, value):
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_datetime); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
