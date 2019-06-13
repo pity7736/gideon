@@ -8,12 +8,12 @@ except ImportError:
     ext = 'c'
 
 
-with open('requirements_dev.txt') as f:
-    test_require = f.readlines()
-
-
 with open('requirements.txt') as f:
     install_requires = f.readlines()
+
+
+with open('requirements_dev.txt') as f:
+    test_require = install_requires + f.readlines()
 
 
 with open('README.md') as f:
