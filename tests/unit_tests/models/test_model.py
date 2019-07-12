@@ -44,9 +44,9 @@ def test_fields_without_data():
 
 def test_set_value_to_field():
     category = Category()
-    category.name = 'hola'
+    category.name = 'hello'
 
-    assert category.name == 'hola'
+    assert category.name == 'hello'
 
 
 def test_fields_with_data_in_constructor():
@@ -92,8 +92,61 @@ def test_read_only_field():
         read.immutable = 'test'
 
 
-def test_foreign_key_not_can_be_read_only():
+def test_foreign_key_cannot_be_read_only():
     with raises(AssertionError):
         class ForeignReadOnly(Model):
             _name = CharField(name='name')
             _category = ForeignKeyField(to=Category, name='category', read_only=True)
+
+
+def test_getter():
+    class TestModel(Model):
+        _name = CharField(name='name')
+
+    test = TestModel(name='qwerty')
+
+    assert test.name == 'qwerty'
+    assert test.get_name() == 'qwerty'
+
+
+def test_setter():
+    class TestModel(Model):
+        _name = CharField(name='name')
+
+    test = TestModel()
+    test.set_name('qwerty')
+
+    assert test.get_name() == 'qwerty'
+
+
+def test_override_setter():
+    class TestModel(Model):
+        _name = CharField(name='name')
+        _password = CharField(name='password')
+
+        def set_password(self, raw_password):
+            self.name = raw_password
+            self._password = raw_password
+
+    test = TestModel()
+    test.set_password('hello')
+    assert test.name == 'hello'
+    assert test.password == 'hello'
+    test.password = 'world'
+    assert test.name == 'world'
+    assert test.password == 'world'
+
+
+def test_override_getter():
+    class TestModel(Model):
+        _name = CharField(name='name')
+        _password = CharField(name='password')
+
+        def get_password(self):
+            return f'{self.name} - {self._password}'
+
+    test = TestModel()
+    test.name = 'name'
+    test.password = 'password'
+    assert test.get_password() == 'name - password'
+    assert test.password == 'name - password'
