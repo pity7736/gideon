@@ -51,7 +51,7 @@ else:
 
 setup(
     name='gideon',
-    version='v0.0.0.a4',
+    version='0.0.0.a5',
     packages=find_packages(exclude=('tests',)),
     install_requires=install_requires,
     author='Julián Cortés',
