@@ -70,7 +70,6 @@ setup(
         'Programming Language :: Cython',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
-        'Topic :: Database',
-
+        'Topic :: Database :: Front-Ends',
     ]
 )
