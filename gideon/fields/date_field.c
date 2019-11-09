@@ -838,11 +838,12 @@ struct __pyx_obj_6gideon_6fields_5field_Field {
 };
 
 
-/* "gideon/fields/date_field.pxd":4
+/* "gideon/fields/date_field.pyx":6
  * 
  * 
  * cdef class DateField(Field):             # <<<<<<<<<<<<<<
- *     pass
+ * 
+ *     _internal_type = datetime.date
  */
 struct __pyx_obj_6gideon_6fields_10date_field_DateField {
   struct __pyx_obj_6gideon_6fields_5field_Field __pyx_base;
