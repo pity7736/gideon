@@ -1,4 +1,4 @@
-from .field import Field
+from .field cimport Field
 
 
 cdef class IntegerField(Field):

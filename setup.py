@@ -9,20 +9,20 @@ except ImportError:
 
 
 install_requires = [
-    'asyncpg==0.18.3',
+    'asyncpg==0.19.0',
     'immutables==0.9'
 ]
 
 
 test_require = [
-    'Cython==0.29.6',
-    'factory-boy==2.11.1',
-    'pre-commit==1.15.1',
-    'pytest==4.3.1',
+    'Cython==0.29.14',
+    'factory-boy==2.12.0',
+    'pre-commit==1.20.0',
+    'pytest==5.2.2',
     'pytest-asyncio==0.10.0',
-    'pytest-cov==2.6.1',
+    'pytest-cov==2.8.1',
     'pytest-dotenv==0.4.0',
-    'radon==3.0.1',
+    'radon==4.0.0',
 ]
 
 with open('README.md') as f:

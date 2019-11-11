@@ -1,9 +1,9 @@
-Cython==0.29.6
+Cython==0.29.14
 factory-boy==2.11.1
 pre-commit==1.15.1
-pytest==4.3.1
+pytest==5.2.2
 pytest-asyncio==0.10.0
-pytest-cov==2.6.1
+pytest-cov==2.8.1
 pytest-dotenv==0.4.0
 radon==3.0.1
 uvloop==0.12.1
