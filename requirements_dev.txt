@@ -1,6 +1,6 @@
 Cython==0.29.14
 factory-boy==2.11.1
-pre-commit==1.15.1
+pre-commit==1.20.0
 pytest==5.2.2
 pytest-asyncio==0.10.0
 pytest-cov==2.8.1

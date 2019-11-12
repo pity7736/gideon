@@ -1,3 +1,5 @@
+from enum import Enum
+
 from pytest import raises, mark
 
 from gideon.exceptions import NonExistsField, PrivateField
@@ -150,3 +152,27 @@ def test_override_getter():
     test.password = 'password'
     assert test.get_password() == 'name - password'
     assert test.password == 'name - password'
+
+
+def test_choices():
+    class Choices(Enum):
+        VALUE1 = '1'
+        VALUE2 = '2'
+
+    class TestModel(Model):
+        _test = CharField(choices=Choices)
+
+    instance = TestModel(test=Choices.VALUE1)
+
+    assert instance.test == Choices.VALUE1
+
+
+def test_enum_type_in_choices():
+    choices = (
+        ('value1', '1'),
+        ('value2', '2')
+    )
+
+    with raises(ValueError):
+        class TestModel(Model):
+            _test = CharField(choices=choices)

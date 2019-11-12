@@ -1,7 +1,7 @@
 from pytest import mark, raises
 
 from tests.factories import CategoryFactory
-from tests.models import Category, Movement
+from tests.models import Category, Movement, MovementType
 
 
 @mark.asyncio
@@ -17,6 +17,20 @@ async def test_save(create_db, db_transaction, connection):
     assert category.id == record['id']
     assert category.name == record['name']
     assert category.description == record['description']
+
+
+@mark.asyncio
+async def test_with_choices(create_db, db_transaction, connection, category):
+    mov = Movement(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test', category=category)
+    await mov.save()
+
+    record = await connection.fetchrow(
+        'select * from movements where id = $1',
+        mov.id
+    )
+
+    assert record['type'] == 'expense'
+    assert mov.type.value == record['type']
 
 
 @mark.asyncio
@@ -92,7 +106,7 @@ async def test_all(create_db, db_transaction):
 
 @mark.asyncio
 async def test_get_with_foreign_key(create_db, db_transaction, category):
-    mov = Movement(type='expense', date='2019-04-20', value=10000, note='test', category=category)
+    mov = Movement(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test', category=category)
     await mov.save()
     movement = await Movement.get(id=mov.id)
 
@@ -103,10 +117,21 @@ async def test_get_with_foreign_key(create_db, db_transaction, category):
 
 @mark.asyncio
 async def test_get_with_foreign_key_id(create_db, db_transaction, category):
-    mov = Movement(type='expense', date='2019-04-20', value=10000, note='test', category_id=category.id)
+    mov = Movement(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test', category_id=category.id)
     await mov.save()
     movement = await Movement.get(id=mov.id)
 
     assert movement.id == mov.id
     assert movement.category is None
     assert movement.category_id == category.id
+
+
+@mark.asyncio
+async def test_get_with_choices(create_db, db_transaction, connection, category):
+    mov = Movement(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test', category=category)
+    await mov.save()
+
+    movement = await Movement.get(id=mov.id)
+
+    assert mov.type.value == 'expense'
+    assert movement.type == mov.type

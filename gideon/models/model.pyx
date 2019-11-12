@@ -12,7 +12,11 @@ class Model(metaclass=MetaModel):
         cdef str key
         cdef Field field
         for key, field in self._fields.items():
-            setattr(self, key, kwargs.pop(key.replace('_', '', 1), None))
+            value = kwargs.pop(key.replace('_', '', 1), None)
+            if field.choices:
+                value = field.choices(value)
+
+            setattr(self, key, value)
             if isinstance(field, ForeignKeyField):
                 setattr(self, f'{key}_id', kwargs.pop(f'{key}_id'.replace('_', '', 1), None))
 

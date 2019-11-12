@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-radon cc -s -a -nc gideon
+radon cc -s -a -nb gideon
