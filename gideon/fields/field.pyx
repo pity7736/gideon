@@ -2,6 +2,7 @@ from enum import EnumMeta, Enum
 
 from cpython cimport bool
 
+from gideon.exceptions import InvalidChoice
 
 cdef class Field:
 
@@ -27,8 +28,12 @@ cdef class Field:
     def choices(self):
         return self._choices
 
+    @property
+    def internal_type(self):
+        return self._internal_type
+
     cpdef to_db(self, value):
-        if value is None or type(value) is self.internal_type:
+        if value is None or type(value) is self._internal_type:
             return value
 
         if isinstance(value, Enum):
@@ -36,6 +41,15 @@ cdef class Field:
 
         return self._internal_type(value)
 
-    @property
-    def internal_type(self):
-        return self._internal_type
+    cpdef to_python(self, value):
+        if value and self._choices:
+            try:
+                return self._choices(value)
+            except ValueError:
+                choices = ', '.join([i.value for i in self._choices.__members__.values()])
+                raise InvalidChoice(f'{value} is not a valid choice. Choices are {choices}')
+
+        if value is None or type(value) is self._internal_type:
+            return value
+
+        return self._internal_type(value)

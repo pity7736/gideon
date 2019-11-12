@@ -2,7 +2,7 @@ from enum import Enum
 
 from pytest import raises, mark
 
-from gideon.exceptions import NonExistsField, PrivateField
+from gideon.exceptions import NonExistsField, PrivateField, InvalidChoice
 from gideon.fields import CharField, IntegerField, ForeignKeyField
 from gideon.models.model import Model
 
@@ -176,3 +176,16 @@ def test_enum_type_in_choices():
     with raises(ValueError):
         class TestModel(Model):
             _test = CharField(choices=choices)
+
+
+def test_set_invalid_choice():
+    class Choices(Enum):
+        VALUE1 = '1'
+        VALUE2 = '2'
+
+    class TestModel(Model):
+        _test = CharField(choices=Choices)
+
+    test_instance = TestModel()
+    with raises(InvalidChoice):
+       test_instance.test = 'invalid value'

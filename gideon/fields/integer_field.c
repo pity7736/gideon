@@ -867,6 +867,7 @@ struct __pyx_obj_6gideon_6fields_13integer_field_IntegerField {
 
 struct __pyx_vtabstruct_6gideon_6fields_5field_Field {
   PyObject *(*to_db)(struct __pyx_obj_6gideon_6fields_5field_Field *, PyObject *, int __pyx_skip_dispatch);
+  PyObject *(*to_python)(struct __pyx_obj_6gideon_6fields_5field_Field *, PyObject *, int __pyx_skip_dispatch);
 };
 static struct __pyx_vtabstruct_6gideon_6fields_5field_Field *__pyx_vtabptr_6gideon_6fields_5field_Field;
 

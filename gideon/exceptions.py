@@ -9,3 +9,7 @@ class NonExistsField(GideonError):
 
 class PrivateField(GideonError):
     pass
+
+
+class InvalidChoice(GideonError):
+    pass

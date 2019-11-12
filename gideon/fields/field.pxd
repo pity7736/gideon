@@ -7,3 +7,4 @@ cdef class Field:
     cdef readonly _choices
 
     cpdef public to_db(self, value)
+    cpdef public to_python(self, value)

@@ -9,8 +9,12 @@ def create_getter(field_name):
     return lambda self: getattr(self, field_name)
 
 
-def create_setter(field_name):
-    return lambda self, value: setattr(self, field_name, value)
+def create_setter(name, field=None):
+    def setter(self, value):
+        if field:
+            value = field.to_python(value)
+        setattr(self, name, value)
+    return setter
 
 
 class MetaModel(type):
@@ -49,14 +53,14 @@ class MetaModel(type):
             namespace['_id'] = IntegerField(name='id')
 
     @staticmethod
-    def _resolve_getters_and_setters(attr, namespace, property_fields, value):
+    def _resolve_getters_and_setters(attr, namespace, property_fields, field):
         getter_name = f'get{attr}'
         getter = namespace.get(getter_name) or create_getter(attr)
         property_fields[getter_name] = getter
         setter = None
-        if value.read_only is False:
+        if field.read_only is False:
             setter_name = f'set{attr}'
-            setter = namespace.get(setter_name) or create_setter(attr)
+            setter = namespace.get(setter_name) or create_setter(attr, field)
             property_fields[setter_name] = setter
 
         return property(

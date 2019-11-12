@@ -13,7 +13,7 @@ class Model(metaclass=MetaModel):
         cdef Field field
         for key, field in self._fields.items():
             value = kwargs.pop(key.replace('_', '', 1), None)
-            if field.choices:
+            if value and field.choices:
                 value = field.choices(value)
 
             setattr(self, key, value)
