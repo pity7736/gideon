@@ -22,18 +22,8 @@ class Model(metaclass=MetaModel):
                 setattr(self, f'{key}_id', kwargs.pop(f'{key}_id'.replace('_', '', 1), None))
 
     @classmethod
-    async def get(cls, **kwargs):
-        fields = []
-        for i, key in enumerate(kwargs.keys(), start=1):
-            fields.append(f'{key} = ${i}')
-
-        fields = ' AND '.join(fields)
-        sql = f'select * from {cls.__table_name__} where {fields}'
-        con = await cls._get_connection()
-        record = await con.fetchrow(sql, *kwargs.values())
-        await con.close()
-        if record:
-            return cls(**record)
+    def get(cls, **kwargs):
+        return QuerySet(cls).get(**kwargs)
 
     async def save(self):
         fields = []

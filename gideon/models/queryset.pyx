@@ -30,6 +30,19 @@ cdef class QuerySet:
         assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'
         return QuerySet(self._model, criteria)
 
+    async def get(self, **criteria):
+        fields = []
+        for i, key in enumerate(criteria.keys(), start=1):
+            fields.append(f'{key} = ${i}')
+
+        fields = ' AND '.join(fields)
+        sql = f'select * from {self._model.__table_name__} where {fields}'
+        con = await self._get_connection()
+        record = await con.fetchrow(sql, *criteria.values())
+        await con.close()
+        if record:
+            return self._model(**record)
+
     @staticmethod
     async def _get_connection():
         # TODO: refactor this. it should not be here
