@@ -4,6 +4,7 @@ import os
 from gideon.fields import ForeignKeyField
 from gideon.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
+from gideon.models.queryset import QuerySet
 
 
 class Model(metaclass=MetaModel):
@@ -63,20 +64,8 @@ class Model(metaclass=MetaModel):
         await con.close()
 
     @classmethod
-    async def filter(cls, **kwargs):
-        assert kwargs, 'keyword arguments are obligatory. If you want all records, use all method instead.'
-        fields = []
-        for i, field in enumerate(kwargs.keys(), start=1):
-            fields.append(f'{field} = ${i}')
-
-        fields = ' AND '.join(fields)
-        connection = await cls._get_connection()
-        records = await connection.fetch(f'select * from {cls.__table_name__} where {fields}', *kwargs.values())
-        await connection.close()
-        result = []
-        for record in records:
-            result.append(cls(**record))
-        return result
+    def filter(cls, **kwargs):
+        return QuerySet(cls).filter(**kwargs)
 
     @classmethod
     async def all(cls):
