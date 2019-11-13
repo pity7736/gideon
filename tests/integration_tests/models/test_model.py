@@ -135,3 +135,17 @@ async def test_get_with_choices(create_db, db_transaction, connection, category)
 
     assert mov.type.value == 'expense'
     assert movement.type == mov.type
+
+
+@mark.asyncio
+async def test_filter_by_name_and_description_with_two_different_filter_calls(create_db, db_transaction, category):
+    cat = CategoryFactory.build(description='another description')
+    await cat.save()
+    queryset = Category.filter(description='test description')
+    queryset = queryset.filter(name='test name')
+    categories = await queryset
+    record = categories[0]
+
+    assert len(categories) == 1
+    assert record.id == category.id
+    assert record.description == 'test description'

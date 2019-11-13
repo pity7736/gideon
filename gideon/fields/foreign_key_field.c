@@ -877,7 +877,7 @@ static struct __pyx_vtabstruct_6gideon_6fields_5field_Field *__pyx_vtabptr_6gide
  * 
  * cdef class ForeignKeyField(Field):             # <<<<<<<<<<<<<<
  * 
- *     def __init__(self, to, **kwargs):
+ *     _internal_type = int
  */
 
 struct __pyx_vtabstruct_6gideon_6fields_17foreign_key_field_ForeignKeyField {
@@ -1398,6 +1398,7 @@ static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
+static const char __pyx_k_internal_type[] = "_internal_type";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_ForeignKeyField[] = "ForeignKeyField";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
@@ -1418,6 +1419,7 @@ static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_n_s_gideon_fields_foreign_key_field;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_init;
+static PyObject *__pyx_n_s_internal_type;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_new;
@@ -1454,8 +1456,8 @@ static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 /* Late includes */
 
-/* "gideon/fields/foreign_key_field.pyx":6
- * cdef class ForeignKeyField(Field):
+/* "gideon/fields/foreign_key_field.pyx":8
+ *     _internal_type = int
  * 
  *     def __init__(self, to, **kwargs):             # <<<<<<<<<<<<<<
  *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
@@ -1491,7 +1493,7 @@ static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_1__ini
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 6, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 8, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -1502,7 +1504,7 @@ static int __pyx_pw_6gideon_6fields_17foreign_key_field_15ForeignKeyField_1__ini
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 6, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 8, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("gideon.fields.foreign_key_field.ForeignKeyField.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -1525,7 +1527,7 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "gideon/fields/foreign_key_field.pyx":7
+  /* "gideon/fields/foreign_key_field.pyx":9
  * 
  *     def __init__(self, to, **kwargs):
  *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'             # <<<<<<<<<<<<<<
@@ -1534,25 +1536,25 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kwargs, __pyx_n_u_read_only, Py_False); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kwargs, __pyx_n_u_read_only, Py_False); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_2 = (__pyx_t_1 == Py_False);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (unlikely(!(__pyx_t_2 != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_ForeignKeyField_not_can_be_read);
-      __PYX_ERR(0, 7, __pyx_L1_error)
+      __PYX_ERR(0, 9, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gideon/fields/foreign_key_field.pyx":8
+  /* "gideon/fields/foreign_key_field.pyx":10
  *     def __init__(self, to, **kwargs):
  *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
  *         super().__init__(**kwargs)             # <<<<<<<<<<<<<<
  *         self._to = to
  * 
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_6gideon_6fields_17foreign_key_field_ForeignKeyField));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_6gideon_6fields_17foreign_key_field_ForeignKeyField));
@@ -1560,18 +1562,18 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "gideon/fields/foreign_key_field.pyx":9
+  /* "gideon/fields/foreign_key_field.pyx":11
  *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
  *         super().__init__(**kwargs)
  *         self._to = to             # <<<<<<<<<<<<<<
@@ -1584,8 +1586,8 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   __Pyx_DECREF(__pyx_v_self->_to);
   __pyx_v_self->_to = __pyx_v_to;
 
-  /* "gideon/fields/foreign_key_field.pyx":6
- * cdef class ForeignKeyField(Field):
+  /* "gideon/fields/foreign_key_field.pyx":8
+ *     _internal_type = int
  * 
  *     def __init__(self, to, **kwargs):             # <<<<<<<<<<<<<<
  *         assert kwargs.get('read_only', False) is False, 'ForeignKeyField not can be read only'
@@ -1605,7 +1607,7 @@ static int __pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField___init
   return __pyx_r;
 }
 
-/* "gideon/fields/foreign_key_field.pyx":12
+/* "gideon/fields/foreign_key_field.pyx":14
  * 
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
@@ -1631,7 +1633,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/foreign_key_field.pyx":13
+  /* "gideon/fields/foreign_key_field.pyx":15
  *     @property
  *     def internal_type(self):
  *         return int             # <<<<<<<<<<<<<<
@@ -1643,7 +1645,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __pyx_r = ((PyObject *)(&PyInt_Type));
   goto __pyx_L0;
 
-  /* "gideon/fields/foreign_key_field.pyx":12
+  /* "gideon/fields/foreign_key_field.pyx":14
  * 
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
@@ -1658,7 +1660,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   return __pyx_r;
 }
 
-/* "gideon/fields/foreign_key_field.pyx":16
+/* "gideon/fields/foreign_key_field.pyx":18
  * 
  *     @property
  *     def to(self):             # <<<<<<<<<<<<<<
@@ -1683,7 +1685,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/foreign_key_field.pyx":17
+  /* "gideon/fields/foreign_key_field.pyx":19
  *     @property
  *     def to(self):
  *         return self._to             # <<<<<<<<<<<<<<
@@ -1693,7 +1695,7 @@ static PyObject *__pyx_pf_6gideon_6fields_17foreign_key_field_15ForeignKeyField_
   __pyx_r = __pyx_v_self->_to;
   goto __pyx_L0;
 
-  /* "gideon/fields/foreign_key_field.pyx":16
+  /* "gideon/fields/foreign_key_field.pyx":18
  * 
  *     @property
  *     def to(self):             # <<<<<<<<<<<<<<
@@ -2681,6 +2683,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_gideon_fields_foreign_key_field, __pyx_k_gideon_fields_foreign_key_field, sizeof(__pyx_k_gideon_fields_foreign_key_field), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
+  {&__pyx_n_s_internal_type, __pyx_k_internal_type, sizeof(__pyx_k_internal_type), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
@@ -2706,7 +2709,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 10, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3052,6 +3055,16 @@ if (!__Pyx_RefNanny) {
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
+
+  /* "gideon/fields/foreign_key_field.pyx":6
+ * cdef class ForeignKeyField(Field):
+ * 
+ *     _internal_type = int             # <<<<<<<<<<<<<<
+ * 
+ *     def __init__(self, to, **kwargs):
+ */
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6gideon_6fields_17foreign_key_field_ForeignKeyField->tp_dict, __pyx_n_s_internal_type, ((PyObject *)(&PyInt_Type))) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  PyType_Modified(__pyx_ptype_6gideon_6fields_17foreign_key_field_ForeignKeyField);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_ForeignKeyField(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
