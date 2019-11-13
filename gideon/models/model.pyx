@@ -25,6 +25,14 @@ class Model(metaclass=MetaModel):
     def get(cls, **kwargs):
         return QuerySet(cls).get(**kwargs)
 
+    @classmethod
+    def filter(cls, **kwargs):
+        return QuerySet(cls).filter(**kwargs)
+
+    @classmethod
+    def all(cls):
+        return QuerySet(cls).all()
+
     async def save(self):
         fields = []
         values = []
@@ -52,20 +60,6 @@ class Model(metaclass=MetaModel):
              *arguments
         )
         await con.close()
-
-    @classmethod
-    def filter(cls, **kwargs):
-        return QuerySet(cls).filter(**kwargs)
-
-    @classmethod
-    async def all(cls):
-        connection = await cls._get_connection()
-        records = await connection.fetch(f'select * from {cls.__table_name__}')
-        await connection.close()
-        result = []
-        for record in records:
-            result.append(cls(**record))
-        return result
 
     @staticmethod
     async def _get_connection():

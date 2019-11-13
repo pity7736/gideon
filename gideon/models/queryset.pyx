@@ -43,6 +43,15 @@ cdef class QuerySet:
         if record:
             return self._model(**record)
 
+    async def all(self):
+        connection = await self._get_connection()
+        records = await connection.fetch(f'select * from {self._model.__table_name__}')
+        await connection.close()
+        result = []
+        for record in records:
+            result.append(self._model(**record))
+        return result
+
     @staticmethod
     async def _get_connection():
         # TODO: refactor this. it should not be here
