@@ -13,6 +13,7 @@ cdef class QuerySet:
         return self._run_query().__await__()
 
     async def _run_query(self):
+        print('criteria', self._criteria)
         fields = []
         for i, field in enumerate(self._criteria.keys(), start=1):
             fields.append(f'{field} = ${i}')
@@ -28,7 +29,8 @@ cdef class QuerySet:
 
     def filter(self, **criteria):
         assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'
-        return QuerySet(self._model, criteria)
+        self._criteria.update(criteria)
+        return QuerySet(self._model, self._criteria)
 
     async def get(self, **criteria):
         fields = []
