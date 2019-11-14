@@ -1,3 +1,5 @@
+import datetime
+
 from pytest import mark, raises
 
 from tests.factories import CategoryFactory
@@ -149,3 +151,14 @@ async def test_filter_by_name_and_description_with_two_different_filter_calls(cr
     assert len(categories) == 1
     assert record.id == category.id
     assert record.description == 'test description'
+
+
+@mark.asyncio
+async def test_only_fields(create_db, db_transaction, category):
+    categories = await Category.filter(name='test name').only('name')
+    category = categories[0]
+
+    assert len(categories) == 1
+    assert category.id == category.id
+    assert category.name == 'test name'
+    assert category.description is None
