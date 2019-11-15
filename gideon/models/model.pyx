@@ -1,6 +1,4 @@
-import asyncpg
-import os
-
+from gideon import connection_pool
 from gideon.fields import ForeignKeyField
 from gideon.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
@@ -54,20 +52,9 @@ class Model(metaclass=MetaModel):
 
         fields = ', '.join(fields)
         values = ', '.join(values)
-        con = await self._get_connection()
+        con = await connection_pool.acquire()
         self._id = await con.fetchval(
             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
              *arguments
         )
-        await con.close()
-
-    @staticmethod
-    async def _get_connection():
-        # TODO: refactor this. it should not be here
-        return await asyncpg.connect(
-            user=os.environ['DB_USER'],
-            password=os.environ['DB_PASSWORD'],
-            host=os.environ['DB_HOST'],
-            port=os.environ['DB_PORT'],
-            database=os.environ['DB_NAME']
-        )
+        await connection_pool.release(con)

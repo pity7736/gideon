@@ -37,7 +37,8 @@ extensions = [
     ('gideon.fields.datetime_field', f'gideon/fields/datetime_field.{ext}'),
     ('gideon.fields.foreign_key_field', f'gideon/fields/foreign_key_field.{ext}'),
     ('gideon.fields.char_field', f'gideon/fields/char_field.{ext}'),
-    ('gideon.fields.integer_field', f'gideon/fields/integer_field.{ext}')
+    ('gideon.fields.integer_field', f'gideon/fields/integer_field.{ext}'),
+    ('gideon.connection_pool', f'gideon/connection_pool.{ext}')
 ]
 
 

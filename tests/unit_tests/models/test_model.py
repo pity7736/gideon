@@ -188,4 +188,4 @@ def test_set_invalid_choice():
 
     test_instance = TestModel()
     with raises(InvalidChoice):
-       test_instance.test = 'invalid value'
+        test_instance.test = 'invalid value'

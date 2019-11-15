@@ -1,6 +1,4 @@
-import os
-
-import asyncpg
+from gideon import connection_pool
 
 
 cdef class QuerySet:
@@ -17,12 +15,12 @@ cdef class QuerySet:
         cdef int i
         cdef str field
         condition_fields = ' AND '.join([f'{field} = ${i}' for i, field in enumerate(self._criteria.keys(), start=1)])
-        connection = await self._get_connection()
+        connection = await connection_pool.acquire()
         records = await connection.fetch(
             f'select {self._fields} from {self._model.__table_name__} where {condition_fields}',
             *self._criteria.values()
         )
-        await connection.close()
+        await connection_pool.release(connection)
         return [self._model(**record) for record in records]
 
     def filter(self, **criteria):
@@ -37,16 +35,16 @@ cdef class QuerySet:
 
         fields = ' AND '.join(fields)
         sql = f'select * from {self._model.__table_name__} where {fields}'
-        con = await self._get_connection()
-        record = await con.fetchrow(sql, *criteria.values())
-        await con.close()
+        connection = await connection_pool.acquire()
+        record = await connection.fetchrow(sql, *criteria.values())
+        await connection_pool.release(connection)
         if record:
             return self._model(**record)
 
     async def all(self):
-        connection = await self._get_connection()
+        connection = await connection_pool.acquire()
         records = await connection.fetch(f'select * from {self._model.__table_name__}')
-        await connection.close()
+        await connection_pool.release(connection)
         result = []
         for record in records:
             result.append(self._model(**record))
@@ -54,14 +52,3 @@ cdef class QuerySet:
 
     def only(self, *fields):
         return QuerySet(self._model, self._criteria, ', '.join(fields))
-
-    @staticmethod
-    async def _get_connection():
-        # TODO: refactor this. it should not be here
-        return await asyncpg.connect(
-            user=os.environ['DB_USER'],
-            password=os.environ['DB_PASSWORD'],
-            host=os.environ['DB_HOST'],
-            port=os.environ['DB_PORT'],
-            database=os.environ['DB_NAME']
-        )

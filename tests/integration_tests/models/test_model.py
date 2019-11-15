@@ -1,5 +1,3 @@
-import datetime
-
 from pytest import mark, raises
 
 from tests.factories import CategoryFactory

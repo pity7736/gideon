@@ -1,9 +1,11 @@
-import asyncpg
+import asyncio
+
 import os
 import subprocess
 
 from pytest import fixture
 
+from gideon import connection_pool
 from tests.factories import CategoryFactory
 
 
@@ -15,17 +17,18 @@ def create_db():
                     f'{os.path.dirname(__file__)}/db.sql'])
 
 
+@fixture(scope='session')
+def event_loop():
+    loop = asyncio.get_event_loop()
+    yield loop
+    loop.close()
+
+
 @fixture
 async def connection():
-    con = await asyncpg.connect(
-        user=os.environ['DB_USER'],
-        password=os.environ['DB_PASSWORD'],
-        host=os.environ['DB_HOST'],
-        port=os.environ['DB_PORT'],
-        database=os.environ['DB_NAME']
-    )
+    con = await connection_pool.acquire()
     yield con
-    await con.close()
+    await connection_pool.release(con)
 
 
 @fixture
@@ -33,7 +36,6 @@ async def db_transaction(connection):
     # TODO: refactor this for a better solution
     yield
     await connection.execute('TRUNCATE categories, movements_tags, tags, movements;')
-    await connection.close()
 
 
 @fixture
