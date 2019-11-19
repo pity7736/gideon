@@ -1,4 +1,4 @@
-from gideon import connection_pool
+from gideon.db .db_client cimport DBClient
 
 
 cdef class QuerySet:
@@ -7,6 +7,7 @@ cdef class QuerySet:
         self._model = model
         self._criteria = criteria or {}
         self._fields = fields or '*'
+        self._client = DBClient()
 
     def __await__(self):
         return self._run_query().__await__()
@@ -15,12 +16,10 @@ cdef class QuerySet:
         cdef int i
         cdef str field
         condition_fields = ' AND '.join([f'{field} = ${i}' for i, field in enumerate(self._criteria.keys(), start=1)])
-        connection = await connection_pool.acquire()
-        records = await connection.fetch(
+        records = await self._client.run_query(
             f'select {self._fields} from {self._model.__table_name__} where {condition_fields}',
             *self._criteria.values()
         )
-        await connection_pool.release(connection)
         return [self._model(**record) for record in records]
 
     def filter(self, **criteria):
@@ -35,16 +34,12 @@ cdef class QuerySet:
 
         fields = ' AND '.join(fields)
         sql = f'select * from {self._model.__table_name__} where {fields}'
-        connection = await connection_pool.acquire()
-        record = await connection.fetchrow(sql, *criteria.values())
-        await connection_pool.release(connection)
-        if record:
-            return self._model(**record)
+        records = await self._client.run_query(sql, *criteria.values())
+        if records:
+            return self._model(**records[0])
 
     async def all(self):
-        connection = await connection_pool.acquire()
-        records = await connection.fetch(f'select * from {self._model.__table_name__}')
-        await connection_pool.release(connection)
+        records = await self._client.run_query(f'select * from {self._model.__table_name__}')
         result = []
         for record in records:
             result.append(self._model(**record))

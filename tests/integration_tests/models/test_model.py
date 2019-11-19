@@ -1,3 +1,5 @@
+import asyncio
+
 from pytest import mark, raises
 
 from tests.factories import CategoryFactory
@@ -35,6 +37,7 @@ async def test_with_choices(create_db, db_transaction, connection, category):
 
 @mark.asyncio
 async def test_get_by_id(create_db, db_transaction, category):
+    # await asyncio.sleep(30)
     record = await Category.get(id=category.id)
 
     assert record != category

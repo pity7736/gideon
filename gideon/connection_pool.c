@@ -822,24 +822,20 @@ struct __pyx_obj_6gideon_15connection_pool_ConnectionPool;
 struct __pyx_obj_6gideon_15connection_pool___pyx_scope_struct__acquire;
 struct __pyx_obj_6gideon_15connection_pool___pyx_scope_struct_1_release;
 
-/* "gideon/connection_pool.pxd":2
+/* "gideon/connection_pool.pyx":6
+ * 
  * 
  * cdef class ConnectionPool:             # <<<<<<<<<<<<<<
- *     cdef readonly  _user
- *     cdef readonly  _password
+ * 
+ *     cdef _pool
  */
 struct __pyx_obj_6gideon_15connection_pool_ConnectionPool {
   PyObject_HEAD
-  PyObject *_user;
-  PyObject *_password;
-  PyObject *_database;
-  PyObject *_host;
-  PyObject *_port;
   PyObject *_pool;
 };
 
 
-/* "gideon/connection_pool.pyx":11
+/* "gideon/connection_pool.pyx":13
  *         self._pool = None
  * 
  *     async def acquire(self):             # <<<<<<<<<<<<<<
@@ -852,7 +848,7 @@ struct __pyx_obj_6gideon_15connection_pool___pyx_scope_struct__acquire {
 };
 
 
-/* "gideon/connection_pool.pyx":24
+/* "gideon/connection_pool.pyx":26
  *         return await self._pool.acquire()
  * 
  *     async def release(self, connection):             # <<<<<<<<<<<<<<
@@ -1384,10 +1380,6 @@ static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_update[] = "update";
-static const char __pyx_k_DB_HOST[] = "DB_HOST";
-static const char __pyx_k_DB_NAME[] = "DB_NAME";
-static const char __pyx_k_DB_PORT[] = "DB_PORT";
-static const char __pyx_k_DB_USER[] = "DB_USER";
 static const char __pyx_k_acquire[] = "acquire";
 static const char __pyx_k_asyncpg[] = "asyncpg";
 static const char __pyx_k_environ[] = "environ";
@@ -1402,13 +1394,17 @@ static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
-static const char __pyx_k_DB_PASSWORD[] = "DB_PASSWORD";
+static const char __pyx_k_GIDEON_HOST[] = "GIDEON_HOST";
+static const char __pyx_k_GIDEON_PORT[] = "GIDEON_PORT";
+static const char __pyx_k_GIDEON_USER[] = "GIDEON_USER";
 static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_create_pool[] = "create_pool";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_ConnectionPool[] = "ConnectionPool";
+static const char __pyx_k_GIDEON_DATABASE[] = "GIDEON_DATABASE";
+static const char __pyx_k_GIDEON_PASSWORD[] = "GIDEON_PASSWORD";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -1416,16 +1412,16 @@ static const char __pyx_k_ConnectionPool_acquire[] = "ConnectionPool.acquire";
 static const char __pyx_k_ConnectionPool_release[] = "ConnectionPool.release";
 static const char __pyx_k_gideon_connection_pool[] = "gideon.connection_pool";
 static const char __pyx_k_pyx_unpickle_ConnectionPool[] = "__pyx_unpickle_ConnectionPool";
-static const char __pyx_k_Incompatible_checksums_s_vs_0x90[] = "Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))";
+static const char __pyx_k_Incompatible_checksums_s_vs_0xf7[] = "Incompatible checksums (%s vs 0xf753458 = (_pool))";
 static PyObject *__pyx_n_s_ConnectionPool;
 static PyObject *__pyx_n_s_ConnectionPool_acquire;
 static PyObject *__pyx_n_s_ConnectionPool_release;
-static PyObject *__pyx_n_u_DB_HOST;
-static PyObject *__pyx_n_u_DB_NAME;
-static PyObject *__pyx_n_u_DB_PASSWORD;
-static PyObject *__pyx_n_u_DB_PORT;
-static PyObject *__pyx_n_u_DB_USER;
-static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x90;
+static PyObject *__pyx_n_u_GIDEON_DATABASE;
+static PyObject *__pyx_n_u_GIDEON_HOST;
+static PyObject *__pyx_n_u_GIDEON_PASSWORD;
+static PyObject *__pyx_n_u_GIDEON_PORT;
+static PyObject *__pyx_n_u_GIDEON_USER;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xf7;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_n_s_acquire;
 static PyObject *__pyx_n_s_args;
@@ -1471,12 +1467,6 @@ static PyObject *__pyx_n_s_user;
 static int __pyx_pf_6gideon_15connection_pool_14ConnectionPool___init__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_2acquire(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5release(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self, PyObject *__pyx_v_connection); /* proto */
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_user___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_9_password___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_9_database___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_host___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_port___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_pool___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_cython__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_10__setstate_cython__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPool(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
@@ -1485,13 +1475,13 @@ static PyObject *__pyx_tp_new_6gideon_15connection_pool___pyx_scope_struct__acqu
 static PyObject *__pyx_tp_new_6gideon_15connection_pool___pyx_scope_struct_1_release(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_5;
 static PyObject *__pyx_int_20;
-static PyObject *__pyx_int_151621324;
+static PyObject *__pyx_int_259339352;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 /* Late includes */
 
-/* "gideon/connection_pool.pyx":8
- * cdef class ConnectionPool:
+/* "gideon/connection_pool.pyx":10
+ *     cdef _pool
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
  *         self._pool = None
@@ -1519,7 +1509,7 @@ static int __pyx_pf_6gideon_15connection_pool_14ConnectionPool___init__(struct _
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "gideon/connection_pool.pyx":9
+  /* "gideon/connection_pool.pyx":11
  * 
  *     def __init__(self):
  *         self._pool = None             # <<<<<<<<<<<<<<
@@ -1532,8 +1522,8 @@ static int __pyx_pf_6gideon_15connection_pool_14ConnectionPool___init__(struct _
   __Pyx_DECREF(__pyx_v_self->_pool);
   __pyx_v_self->_pool = Py_None;
 
-  /* "gideon/connection_pool.pyx":8
- * cdef class ConnectionPool:
+  /* "gideon/connection_pool.pyx":10
+ *     cdef _pool
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
  *         self._pool = None
@@ -1547,7 +1537,7 @@ static int __pyx_pf_6gideon_15connection_pool_14ConnectionPool___init__(struct _
 }
 static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gideon/connection_pool.pyx":11
+/* "gideon/connection_pool.pyx":13
  *         self._pool = None
  * 
  *     async def acquire(self):             # <<<<<<<<<<<<<<
@@ -1577,7 +1567,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_2acquire(st
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_6gideon_15connection_pool___pyx_scope_struct__acquire *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 11, __pyx_L1_error)
+    __PYX_ERR(0, 13, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -1585,7 +1575,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_2acquire(st
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_acquire, __pyx_n_s_ConnectionPool_acquire, __pyx_n_s_gideon_connection_pool); if (unlikely(!gen)) __PYX_ERR(0, 11, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_acquire, __pyx_n_s_ConnectionPool_acquire, __pyx_n_s_gideon_connection_pool); if (unlikely(!gen)) __PYX_ERR(0, 13, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -1622,137 +1612,137 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 13, __pyx_L1_error)
 
-  /* "gideon/connection_pool.pyx":12
+  /* "gideon/connection_pool.pyx":14
  * 
  *     async def acquire(self):
  *         if self._pool is None:             # <<<<<<<<<<<<<<
  *             self._pool = await asyncpg.create_pool(
- *                 user=os.environ['DB_USER'],
+ *                 user=os.environ['GIDEON_USER'],
  */
   __pyx_t_1 = (__pyx_cur_scope->__pyx_v_self->_pool == Py_None);
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "gideon/connection_pool.pyx":13
+    /* "gideon/connection_pool.pyx":15
  *     async def acquire(self):
  *         if self._pool is None:
  *             self._pool = await asyncpg.create_pool(             # <<<<<<<<<<<<<<
- *                 user=os.environ['DB_USER'],
- *                 password=os.environ['DB_PASSWORD'],
+ *                 user=os.environ['GIDEON_USER'],
+ *                 password=os.environ['GIDEON_PASSWORD'],
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_asyncpg); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_asyncpg); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_create_pool); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 13, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_create_pool); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "gideon/connection_pool.pyx":14
+    /* "gideon/connection_pool.pyx":16
  *         if self._pool is None:
  *             self._pool = await asyncpg.create_pool(
- *                 user=os.environ['DB_USER'],             # <<<<<<<<<<<<<<
- *                 password=os.environ['DB_PASSWORD'],
- *                 host=os.environ['DB_HOST'],
+ *                 user=os.environ['GIDEON_USER'],             # <<<<<<<<<<<<<<
+ *                 password=os.environ['GIDEON_PASSWORD'],
+ *                 host=os.environ['GIDEON_HOST'],
  */
-    __pyx_t_3 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 14, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_environ); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 14, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_DB_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 14, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_user, __pyx_t_5) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-    /* "gideon/connection_pool.pyx":15
- *             self._pool = await asyncpg.create_pool(
- *                 user=os.environ['DB_USER'],
- *                 password=os.environ['DB_PASSWORD'],             # <<<<<<<<<<<<<<
- *                 host=os.environ['DB_HOST'],
- *                 port=int(os.environ['DB_PORT']),
- */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_environ); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_DB_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_password, __pyx_t_5) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-    /* "gideon/connection_pool.pyx":16
- *                 user=os.environ['DB_USER'],
- *                 password=os.environ['DB_PASSWORD'],
- *                 host=os.environ['DB_HOST'],             # <<<<<<<<<<<<<<
- *                 port=int(os.environ['DB_PORT']),
- *                 database=os.environ['DB_NAME'],
- */
     __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_environ); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_DB_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_GIDEON_USER); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_host, __pyx_t_5) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_user, __pyx_t_5) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
     /* "gideon/connection_pool.pyx":17
- *                 password=os.environ['DB_PASSWORD'],
- *                 host=os.environ['DB_HOST'],
- *                 port=int(os.environ['DB_PORT']),             # <<<<<<<<<<<<<<
- *                 database=os.environ['DB_NAME'],
- *                 min_size=5,
+ *             self._pool = await asyncpg.create_pool(
+ *                 user=os.environ['GIDEON_USER'],
+ *                 password=os.environ['GIDEON_PASSWORD'],             # <<<<<<<<<<<<<<
+ *                 host=os.environ['GIDEON_HOST'],
+ *                 port=int(os.environ['GIDEON_PORT']),
  */
     __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_environ); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_DB_PORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_GIDEON_PASSWORD); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_password, __pyx_t_5) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_port, __pyx_t_6) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
     /* "gideon/connection_pool.pyx":18
- *                 host=os.environ['DB_HOST'],
- *                 port=int(os.environ['DB_PORT']),
- *                 database=os.environ['DB_NAME'],             # <<<<<<<<<<<<<<
+ *                 user=os.environ['GIDEON_USER'],
+ *                 password=os.environ['GIDEON_PASSWORD'],
+ *                 host=os.environ['GIDEON_HOST'],             # <<<<<<<<<<<<<<
+ *                 port=int(os.environ['GIDEON_PORT']),
+ *                 database=os.environ['GIDEON_DATABASE'],
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_environ); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_GIDEON_HOST); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_host, __pyx_t_5) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+    /* "gideon/connection_pool.pyx":19
+ *                 password=os.environ['GIDEON_PASSWORD'],
+ *                 host=os.environ['GIDEON_HOST'],
+ *                 port=int(os.environ['GIDEON_PORT']),             # <<<<<<<<<<<<<<
+ *                 database=os.environ['GIDEON_DATABASE'],
+ *                 min_size=5,
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_environ); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_6, __pyx_n_u_GIDEON_PORT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_port, __pyx_t_6) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+    /* "gideon/connection_pool.pyx":20
+ *                 host=os.environ['GIDEON_HOST'],
+ *                 port=int(os.environ['GIDEON_PORT']),
+ *                 database=os.environ['GIDEON_DATABASE'],             # <<<<<<<<<<<<<<
  *                 min_size=5,
  *                 max_size=20,
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_os); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_os); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_environ); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_environ); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_u_DB_NAME); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_u_GIDEON_DATABASE); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_database, __pyx_t_6) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_database, __pyx_t_6) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_min_size, __pyx_int_5) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_max_size, __pyx_int_20) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_min_size, __pyx_int_5) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_max_size, __pyx_int_20) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
 
-    /* "gideon/connection_pool.pyx":13
+    /* "gideon/connection_pool.pyx":15
  *     async def acquire(self):
  *         if self._pool is None:
  *             self._pool = await asyncpg.create_pool(             # <<<<<<<<<<<<<<
- *                 user=os.environ['DB_USER'],
- *                 password=os.environ['DB_PASSWORD'],
+ *                 user=os.environ['GIDEON_USER'],
+ *                 password=os.environ['GIDEON_PASSWORD'],
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 13, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -1767,11 +1757,11 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L5_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 13, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 15, __pyx_L1_error)
       __pyx_t_6 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_6);
     } else {
       __pyx_t_6 = NULL;
-      if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_6) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+      if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_6) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
     }
     __Pyx_GIVEREF(__pyx_t_6);
@@ -1780,16 +1770,16 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
     __pyx_cur_scope->__pyx_v_self->_pool = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "gideon/connection_pool.pyx":12
+    /* "gideon/connection_pool.pyx":14
  * 
  *     async def acquire(self):
  *         if self._pool is None:             # <<<<<<<<<<<<<<
  *             self._pool = await asyncpg.create_pool(
- *                 user=os.environ['DB_USER'],
+ *                 user=os.environ['GIDEON_USER'],
  */
   }
 
-  /* "gideon/connection_pool.pyx":22
+  /* "gideon/connection_pool.pyx":24
  *                 max_size=20,
  *             )
  *         return await self._pool.acquire()             # <<<<<<<<<<<<<<
@@ -1797,7 +1787,7 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
  *     async def release(self, connection):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->_pool, __pyx_n_s_acquire); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->_pool, __pyx_n_s_acquire); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -1811,7 +1801,7 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
   }
   __pyx_t_6 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6);
@@ -1825,11 +1815,11 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
     __pyx_generator->resume_label = 2;
     return __pyx_r;
     __pyx_L6_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 22, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 24, __pyx_L1_error)
     __pyx_t_6 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_6);
   } else {
     __pyx_t_6 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_6) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_6) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
   }
   __pyx_r = NULL; __Pyx_ReturnWithStopIteration(__pyx_t_6);
@@ -1838,7 +1828,7 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "gideon/connection_pool.pyx":11
+  /* "gideon/connection_pool.pyx":13
  *         self._pool = None
  * 
  *     async def acquire(self):             # <<<<<<<<<<<<<<
@@ -1865,7 +1855,7 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_4generator(
 }
 static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gideon/connection_pool.pyx":24
+/* "gideon/connection_pool.pyx":26
  *         return await self._pool.acquire()
  * 
  *     async def release(self, connection):             # <<<<<<<<<<<<<<
@@ -1895,7 +1885,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5release(st
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_6gideon_15connection_pool___pyx_scope_struct_1_release *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 24, __pyx_L1_error)
+    __PYX_ERR(0, 26, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -1906,7 +1896,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5release(st
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_connection);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_connection);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_release, __pyx_n_s_ConnectionPool_release, __pyx_n_s_gideon_connection_pool); if (unlikely(!gen)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_release, __pyx_n_s_ConnectionPool_release, __pyx_n_s_gideon_connection_pool); if (unlikely(!gen)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -1940,9 +1930,9 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 26, __pyx_L1_error)
 
-  /* "gideon/connection_pool.pyx":25
+  /* "gideon/connection_pool.pyx":27
  * 
  *     async def release(self, connection):
  *         assert self._pool             # <<<<<<<<<<<<<<
@@ -1950,20 +1940,20 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_self->_pool); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_self->_pool); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 27, __pyx_L1_error)
     if (unlikely(!__pyx_t_1)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 25, __pyx_L1_error)
+      __PYX_ERR(0, 27, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gideon/connection_pool.pyx":26
+  /* "gideon/connection_pool.pyx":28
  *     async def release(self, connection):
  *         assert self._pool
  *         await self._pool.release(connection)             # <<<<<<<<<<<<<<
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->_pool, __pyx_n_s_release); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->_pool, __pyx_n_s_release); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -1977,7 +1967,7 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_cur_scope->__pyx_v_connection) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_cur_scope->__pyx_v_connection);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2);
@@ -1991,17 +1981,17 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 26, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 28, __pyx_L1_error)
   } else {
     PyObject* exc_type = __Pyx_PyErr_Occurred();
     if (exc_type) {
       if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
-      else __PYX_ERR(0, 26, __pyx_L1_error)
+      else __PYX_ERR(0, 28, __pyx_L1_error)
     }
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "gideon/connection_pool.pyx":24
+  /* "gideon/connection_pool.pyx":26
  *         return await self._pool.acquire()
  * 
  *     async def release(self, connection):             # <<<<<<<<<<<<<<
@@ -2024,225 +2014,6 @@ static PyObject *__pyx_gb_6gideon_15connection_pool_14ConnectionPool_7generator1
   #endif
   __pyx_generator->resume_label = -1;
   __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "gideon/connection_pool.pxd":3
- * 
- * cdef class ConnectionPool:
- *     cdef readonly  _user             # <<<<<<<<<<<<<<
- *     cdef readonly  _password
- *     cdef readonly  _database
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_user_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_user_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_user___get__(((struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_user___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_self->_user);
-  __pyx_r = __pyx_v_self->_user;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "gideon/connection_pool.pxd":4
- * cdef class ConnectionPool:
- *     cdef readonly  _user
- *     cdef readonly  _password             # <<<<<<<<<<<<<<
- *     cdef readonly  _database
- *     cdef readonly  _host
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_9_password_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_9_password_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_15connection_pool_14ConnectionPool_9_password___get__(((struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_9_password___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_self->_password);
-  __pyx_r = __pyx_v_self->_password;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "gideon/connection_pool.pxd":5
- *     cdef readonly  _user
- *     cdef readonly  _password
- *     cdef readonly  _database             # <<<<<<<<<<<<<<
- *     cdef readonly  _host
- *     cdef readonly  _port
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_9_database_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_9_database_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_15connection_pool_14ConnectionPool_9_database___get__(((struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_9_database___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_self->_database);
-  __pyx_r = __pyx_v_self->_database;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "gideon/connection_pool.pxd":6
- *     cdef readonly  _password
- *     cdef readonly  _database
- *     cdef readonly  _host             # <<<<<<<<<<<<<<
- *     cdef readonly  _port
- *     cdef readonly  _pool
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_host_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_host_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_host___get__(((struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_host___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_self->_host);
-  __pyx_r = __pyx_v_self->_host;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "gideon/connection_pool.pxd":7
- *     cdef readonly  _database
- *     cdef readonly  _host
- *     cdef readonly  _port             # <<<<<<<<<<<<<<
- *     cdef readonly  _pool
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_port_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_port_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_port___get__(((struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_port___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_self->_port);
-  __pyx_r = __pyx_v_self->_port;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "gideon/connection_pool.pxd":8
- *     cdef readonly  _host
- *     cdef readonly  _port
- *     cdef readonly  _pool             # <<<<<<<<<<<<<<
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_pool_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_pool_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_pool___get__(((struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_5_pool___get__(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_self->_pool);
-  __pyx_r = __pyx_v_self->_pool;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -2276,43 +2047,27 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_c
   int __pyx_t_2;
   int __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
-  int __pyx_t_5;
-  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("__reduce_cython__", 0);
 
   /* "(tree fragment)":5
  *     cdef object _dict
  *     cdef bint use_setstate
- *     state = (self._database, self._host, self._password, self._pool, self._port, self._user)             # <<<<<<<<<<<<<<
+ *     state = (self._pool,)             # <<<<<<<<<<<<<<
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:
  */
-  __pyx_t_1 = PyTuple_New(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_v_self->_database);
-  __Pyx_GIVEREF(__pyx_v_self->_database);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_self->_database);
-  __Pyx_INCREF(__pyx_v_self->_host);
-  __Pyx_GIVEREF(__pyx_v_self->_host);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_self->_host);
-  __Pyx_INCREF(__pyx_v_self->_password);
-  __Pyx_GIVEREF(__pyx_v_self->_password);
-  PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_self->_password);
   __Pyx_INCREF(__pyx_v_self->_pool);
   __Pyx_GIVEREF(__pyx_v_self->_pool);
-  PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_v_self->_pool);
-  __Pyx_INCREF(__pyx_v_self->_port);
-  __Pyx_GIVEREF(__pyx_v_self->_port);
-  PyTuple_SET_ITEM(__pyx_t_1, 4, __pyx_v_self->_port);
-  __Pyx_INCREF(__pyx_v_self->_user);
-  __Pyx_GIVEREF(__pyx_v_self->_user);
-  PyTuple_SET_ITEM(__pyx_t_1, 5, __pyx_v_self->_user);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_self->_pool);
   __pyx_v_state = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":6
  *     cdef bint use_setstate
- *     state = (self._database, self._host, self._password, self._pool, self._port, self._user)
+ *     state = (self._pool,)
  *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
  *     if _dict is not None:
  *         state += (_dict,)
@@ -2323,7 +2078,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_c
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":7
- *     state = (self._database, self._host, self._password, self._pool, self._port, self._user)
+ *     state = (self._pool,)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -2356,12 +2111,12 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_c
  *         state += (_dict,)
  *         use_setstate = True             # <<<<<<<<<<<<<<
  *     else:
- *         use_setstate = self._database is not None or self._host is not None or self._password is not None or self._pool is not None or self._port is not None or self._user is not None
+ *         use_setstate = self._pool is not None
  */
     __pyx_v_use_setstate = 1;
 
     /* "(tree fragment)":7
- *     state = (self._database, self._host, self._password, self._pool, self._port, self._user)
+ *     state = (self._pool,)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -2373,70 +2128,32 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_c
   /* "(tree fragment)":11
  *         use_setstate = True
  *     else:
- *         use_setstate = self._database is not None or self._host is not None or self._password is not None or self._pool is not None or self._port is not None or self._user is not None             # <<<<<<<<<<<<<<
+ *         use_setstate = self._pool is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, None), state
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, None), state
  */
   /*else*/ {
-    __pyx_t_2 = (__pyx_v_self->_database != Py_None);
-    __pyx_t_5 = (__pyx_t_2 != 0);
-    if (!__pyx_t_5) {
-    } else {
-      __pyx_t_3 = __pyx_t_5;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_5 = (__pyx_v_self->_host != Py_None);
-    __pyx_t_2 = (__pyx_t_5 != 0);
-    if (!__pyx_t_2) {
-    } else {
-      __pyx_t_3 = __pyx_t_2;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_2 = (__pyx_v_self->_password != Py_None);
-    __pyx_t_5 = (__pyx_t_2 != 0);
-    if (!__pyx_t_5) {
-    } else {
-      __pyx_t_3 = __pyx_t_5;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_5 = (__pyx_v_self->_pool != Py_None);
-    __pyx_t_2 = (__pyx_t_5 != 0);
-    if (!__pyx_t_2) {
-    } else {
-      __pyx_t_3 = __pyx_t_2;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_2 = (__pyx_v_self->_port != Py_None);
-    __pyx_t_5 = (__pyx_t_2 != 0);
-    if (!__pyx_t_5) {
-    } else {
-      __pyx_t_3 = __pyx_t_5;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_5 = (__pyx_v_self->_user != Py_None);
-    __pyx_t_2 = (__pyx_t_5 != 0);
-    __pyx_t_3 = __pyx_t_2;
-    __pyx_L4_bool_binop_done:;
+    __pyx_t_3 = (__pyx_v_self->_pool != Py_None);
     __pyx_v_use_setstate = __pyx_t_3;
   }
   __pyx_L3:;
 
   /* "(tree fragment)":12
  *     else:
- *         use_setstate = self._database is not None or self._host is not None or self._password is not None or self._pool is not None or self._port is not None or self._user is not None
+ *         use_setstate = self._pool is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, None), state
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, None), state
  *     else:
  */
   __pyx_t_3 = (__pyx_v_use_setstate != 0);
   if (__pyx_t_3) {
 
     /* "(tree fragment)":13
- *         use_setstate = self._database is not None or self._host is not None or self._password is not None or self._pool is not None or self._port is not None or self._user is not None
+ *         use_setstate = self._pool is not None
  *     if use_setstate:
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, state)
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, state)
  */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle_ConnectionPool); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
@@ -2446,65 +2163,65 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_c
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_151621324);
-    __Pyx_GIVEREF(__pyx_int_151621324);
-    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_151621324);
+    __Pyx_INCREF(__pyx_int_259339352);
+    __Pyx_GIVEREF(__pyx_int_259339352);
+    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_259339352);
     __Pyx_INCREF(Py_None);
     __Pyx_GIVEREF(Py_None);
     PyTuple_SET_ITEM(__pyx_t_1, 2, Py_None);
-    __pyx_t_6 = PyTuple_New(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4);
-    PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_1);
-    PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
+    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_v_state);
+    PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_state);
     __pyx_t_4 = 0;
     __pyx_t_1 = 0;
-    __pyx_r = __pyx_t_6;
-    __pyx_t_6 = 0;
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
     goto __pyx_L0;
 
     /* "(tree fragment)":12
  *     else:
- *         use_setstate = self._database is not None or self._host is not None or self._password is not None or self._pool is not None or self._port is not None or self._user is not None
+ *         use_setstate = self._pool is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, None), state
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, None), state
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, None), state
  *     else:
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_ConnectionPool__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pyx_unpickle_ConnectionPool); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pyx_unpickle_ConnectionPool); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_151621324);
-    __Pyx_GIVEREF(__pyx_int_151621324);
-    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_151621324);
+    __Pyx_INCREF(__pyx_int_259339352);
+    __Pyx_GIVEREF(__pyx_int_259339352);
+    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_259339352);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
     PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_state);
     __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_6);
-    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6);
+    __Pyx_GIVEREF(__pyx_t_5);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_1);
     PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
-    __pyx_t_6 = 0;
+    __pyx_t_5 = 0;
     __pyx_t_1 = 0;
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
@@ -2521,7 +2238,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_c
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_AddTraceback("gideon.connection_pool.ConnectionPool.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2534,7 +2251,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_8__reduce_c
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, state)
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ConnectionPool__set_state(self, __pyx_state)
  */
@@ -2559,7 +2276,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_10__setstat
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, state)
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, state)
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_ConnectionPool__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
@@ -2570,7 +2287,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool_14ConnectionPool_10__setstat
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_ConnectionPool, (type(self), 0x9098ecc, state)
+ *         return __pyx_unpickle_ConnectionPool, (type(self), 0xf753458, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ConnectionPool__set_state(self, __pyx_state)
  */
@@ -2683,18 +2400,18 @@ static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPoo
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x9098ecc:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xf753458:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf753458 = (_pool))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x9098ecc) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xf753458) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x9098ecc:
+ *     if __pyx_checksum != 0xf753458:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf753458 = (_pool))" % __pyx_checksum)
  *     __pyx_result = ConnectionPool.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
@@ -2713,15 +2430,15 @@ static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPoo
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0x9098ecc:
+ *     if __pyx_checksum != 0xf753458:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf753458 = (_pool))" % __pyx_checksum)             # <<<<<<<<<<<<<<
  *     __pyx_result = ConnectionPool.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x90, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xf7, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -2748,15 +2465,15 @@ static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPoo
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x9098ecc:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xf753458:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf753458 = (_pool))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf753458 = (_pool))" % __pyx_checksum)
  *     __pyx_result = ConnectionPool.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
  *         __pyx_unpickle_ConnectionPool__set_state(<ConnectionPool> __pyx_result, __pyx_state)
@@ -2782,7 +2499,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPoo
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf753458 = (_pool))" % __pyx_checksum)
  *     __pyx_result = ConnectionPool.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_ConnectionPool__set_state(<ConnectionPool> __pyx_result, __pyx_state)
@@ -2805,7 +2522,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPoo
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9098ecc = (_database, _host, _password, _pool, _port, _user))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf753458 = (_pool))" % __pyx_checksum)
  *     __pyx_result = ConnectionPool.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_ConnectionPool__set_state(<ConnectionPool> __pyx_result, __pyx_state)
@@ -2818,7 +2535,7 @@ static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPoo
  *         __pyx_unpickle_ConnectionPool__set_state(<ConnectionPool> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
  * cdef __pyx_unpickle_ConnectionPool__set_state(ConnectionPool __pyx_result, tuple __pyx_state):
- *     __pyx_result._database = __pyx_state[0]; __pyx_result._host = __pyx_state[1]; __pyx_result._password = __pyx_state[2]; __pyx_result._pool = __pyx_state[3]; __pyx_result._port = __pyx_state[4]; __pyx_result._user = __pyx_state[5]
+ *     __pyx_result._pool = __pyx_state[0]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -2851,8 +2568,8 @@ static PyObject *__pyx_pf_6gideon_15connection_pool___pyx_unpickle_ConnectionPoo
  *         __pyx_unpickle_ConnectionPool__set_state(<ConnectionPool> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_ConnectionPool__set_state(ConnectionPool __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result._database = __pyx_state[0]; __pyx_result._host = __pyx_state[1]; __pyx_result._password = __pyx_state[2]; __pyx_result._pool = __pyx_state[3]; __pyx_result._port = __pyx_state[4]; __pyx_result._user = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result._pool = __pyx_state[0]
+ *     if len(__pyx_state) > 1 and hasattr(__pyx_result, '__dict__'):
  */
 
 static PyObject *__pyx_f_6gideon_15connection_pool___pyx_unpickle_ConnectionPool__set_state(struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
@@ -2871,9 +2588,9 @@ static PyObject *__pyx_f_6gideon_15connection_pool___pyx_unpickle_ConnectionPool
   /* "(tree fragment)":12
  *     return __pyx_result
  * cdef __pyx_unpickle_ConnectionPool__set_state(ConnectionPool __pyx_result, tuple __pyx_state):
- *     __pyx_result._database = __pyx_state[0]; __pyx_result._host = __pyx_state[1]; __pyx_result._password = __pyx_state[2]; __pyx_result._pool = __pyx_state[3]; __pyx_result._port = __pyx_state[4]; __pyx_result._user = __pyx_state[5]             # <<<<<<<<<<<<<<
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[6])
+ *     __pyx_result._pool = __pyx_state[0]             # <<<<<<<<<<<<<<
+ *     if len(__pyx_state) > 1 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[1])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -2882,78 +2599,23 @@ static PyObject *__pyx_f_6gideon_15connection_pool___pyx_unpickle_ConnectionPool
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_database);
-  __Pyx_DECREF(__pyx_v___pyx_result->_database);
-  __pyx_v___pyx_result->_database = __pyx_t_1;
-  __pyx_t_1 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(1, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_host);
-  __Pyx_DECREF(__pyx_v___pyx_result->_host);
-  __pyx_v___pyx_result->_host = __pyx_t_1;
-  __pyx_t_1 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(1, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_password);
-  __Pyx_DECREF(__pyx_v___pyx_result->_password);
-  __pyx_v___pyx_result->_password = __pyx_t_1;
-  __pyx_t_1 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(1, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->_pool);
   __Pyx_DECREF(__pyx_v___pyx_result->_pool);
   __pyx_v___pyx_result->_pool = __pyx_t_1;
   __pyx_t_1 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(1, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_port);
-  __Pyx_DECREF(__pyx_v___pyx_result->_port);
-  __pyx_v___pyx_result->_port = __pyx_t_1;
-  __pyx_t_1 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(1, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_user);
-  __Pyx_DECREF(__pyx_v___pyx_result->_user);
-  __pyx_v___pyx_result->_user = __pyx_t_1;
-  __pyx_t_1 = 0;
 
   /* "(tree fragment)":13
  * cdef __pyx_unpickle_ConnectionPool__set_state(ConnectionPool __pyx_result, tuple __pyx_state):
- *     __pyx_result._database = __pyx_state[0]; __pyx_result._host = __pyx_state[1]; __pyx_result._password = __pyx_state[2]; __pyx_result._pool = __pyx_state[3]; __pyx_result._port = __pyx_state[4]; __pyx_result._user = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[6])
+ *     __pyx_result._pool = __pyx_state[0]
+ *     if len(__pyx_state) > 1 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[1])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
     __PYX_ERR(1, 13, __pyx_L1_error)
   }
   __pyx_t_3 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(1, 13, __pyx_L1_error)
-  __pyx_t_4 = ((__pyx_t_3 > 6) != 0);
+  __pyx_t_4 = ((__pyx_t_3 > 1) != 0);
   if (__pyx_t_4) {
   } else {
     __pyx_t_2 = __pyx_t_4;
@@ -2966,9 +2628,9 @@ static PyObject *__pyx_f_6gideon_15connection_pool___pyx_unpickle_ConnectionPool
   if (__pyx_t_2) {
 
     /* "(tree fragment)":14
- *     __pyx_result._database = __pyx_state[0]; __pyx_result._host = __pyx_state[1]; __pyx_result._password = __pyx_state[2]; __pyx_result._pool = __pyx_state[3]; __pyx_result._port = __pyx_state[4]; __pyx_result._user = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[6])             # <<<<<<<<<<<<<<
+ *     __pyx_result._pool = __pyx_state[0]
+ *     if len(__pyx_state) > 1 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[1])             # <<<<<<<<<<<<<<
  */
     __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
@@ -2979,7 +2641,7 @@ static PyObject *__pyx_f_6gideon_15connection_pool___pyx_unpickle_ConnectionPool
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
       __PYX_ERR(1, 14, __pyx_L1_error)
     }
-    __pyx_t_6 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 6, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 14, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -3001,9 +2663,9 @@ static PyObject *__pyx_f_6gideon_15connection_pool___pyx_unpickle_ConnectionPool
 
     /* "(tree fragment)":13
  * cdef __pyx_unpickle_ConnectionPool__set_state(ConnectionPool __pyx_result, tuple __pyx_state):
- *     __pyx_result._database = __pyx_state[0]; __pyx_result._host = __pyx_state[1]; __pyx_result._password = __pyx_state[2]; __pyx_result._pool = __pyx_state[3]; __pyx_result._port = __pyx_state[4]; __pyx_result._user = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[6])
+ *     __pyx_result._pool = __pyx_state[0]
+ *     if len(__pyx_state) > 1 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[1])
  */
   }
 
@@ -3011,8 +2673,8 @@ static PyObject *__pyx_f_6gideon_15connection_pool___pyx_unpickle_ConnectionPool
  *         __pyx_unpickle_ConnectionPool__set_state(<ConnectionPool> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_ConnectionPool__set_state(ConnectionPool __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result._database = __pyx_state[0]; __pyx_result._host = __pyx_state[1]; __pyx_result._password = __pyx_state[2]; __pyx_result._pool = __pyx_state[3]; __pyx_result._port = __pyx_state[4]; __pyx_result._user = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result._pool = __pyx_state[0]
+ *     if len(__pyx_state) > 1 and hasattr(__pyx_result, '__dict__'):
  */
 
   /* function exit code */
@@ -3041,11 +2703,6 @@ static PyObject *__pyx_tp_new_6gideon_15connection_pool_ConnectionPool(PyTypeObj
   }
   if (unlikely(!o)) return 0;
   p = ((struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)o);
-  p->_user = Py_None; Py_INCREF(Py_None);
-  p->_password = Py_None; Py_INCREF(Py_None);
-  p->_database = Py_None; Py_INCREF(Py_None);
-  p->_host = Py_None; Py_INCREF(Py_None);
-  p->_port = Py_None; Py_INCREF(Py_None);
   p->_pool = Py_None; Py_INCREF(Py_None);
   return o;
 }
@@ -3058,11 +2715,6 @@ static void __pyx_tp_dealloc_6gideon_15connection_pool_ConnectionPool(PyObject *
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->_user);
-  Py_CLEAR(p->_password);
-  Py_CLEAR(p->_database);
-  Py_CLEAR(p->_host);
-  Py_CLEAR(p->_port);
   Py_CLEAR(p->_pool);
   (*Py_TYPE(o)->tp_free)(o);
 }
@@ -3070,21 +2722,6 @@ static void __pyx_tp_dealloc_6gideon_15connection_pool_ConnectionPool(PyObject *
 static int __pyx_tp_traverse_6gideon_15connection_pool_ConnectionPool(PyObject *o, visitproc v, void *a) {
   int e;
   struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *p = (struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)o;
-  if (p->_user) {
-    e = (*v)(p->_user, a); if (e) return e;
-  }
-  if (p->_password) {
-    e = (*v)(p->_password, a); if (e) return e;
-  }
-  if (p->_database) {
-    e = (*v)(p->_database, a); if (e) return e;
-  }
-  if (p->_host) {
-    e = (*v)(p->_host, a); if (e) return e;
-  }
-  if (p->_port) {
-    e = (*v)(p->_port, a); if (e) return e;
-  }
   if (p->_pool) {
     e = (*v)(p->_pool, a); if (e) return e;
   }
@@ -3094,49 +2731,10 @@ static int __pyx_tp_traverse_6gideon_15connection_pool_ConnectionPool(PyObject *
 static int __pyx_tp_clear_6gideon_15connection_pool_ConnectionPool(PyObject *o) {
   PyObject* tmp;
   struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *p = (struct __pyx_obj_6gideon_15connection_pool_ConnectionPool *)o;
-  tmp = ((PyObject*)p->_user);
-  p->_user = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->_password);
-  p->_password = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->_database);
-  p->_database = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->_host);
-  p->_host = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->_port);
-  p->_port = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_pool);
   p->_pool = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
-}
-
-static PyObject *__pyx_getprop_6gideon_15connection_pool_14ConnectionPool__user(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_user_1__get__(o);
-}
-
-static PyObject *__pyx_getprop_6gideon_15connection_pool_14ConnectionPool__password(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gideon_15connection_pool_14ConnectionPool_9_password_1__get__(o);
-}
-
-static PyObject *__pyx_getprop_6gideon_15connection_pool_14ConnectionPool__database(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gideon_15connection_pool_14ConnectionPool_9_database_1__get__(o);
-}
-
-static PyObject *__pyx_getprop_6gideon_15connection_pool_14ConnectionPool__host(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_host_1__get__(o);
-}
-
-static PyObject *__pyx_getprop_6gideon_15connection_pool_14ConnectionPool__port(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_port_1__get__(o);
-}
-
-static PyObject *__pyx_getprop_6gideon_15connection_pool_14ConnectionPool__pool(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gideon_15connection_pool_14ConnectionPool_5_pool_1__get__(o);
 }
 
 static PyMethodDef __pyx_methods_6gideon_15connection_pool_ConnectionPool[] = {
@@ -3145,16 +2743,6 @@ static PyMethodDef __pyx_methods_6gideon_15connection_pool_ConnectionPool[] = {
   {"__reduce_cython__", (PyCFunction)__pyx_pw_6gideon_15connection_pool_14ConnectionPool_9__reduce_cython__, METH_NOARGS, 0},
   {"__setstate_cython__", (PyCFunction)__pyx_pw_6gideon_15connection_pool_14ConnectionPool_11__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
-};
-
-static struct PyGetSetDef __pyx_getsets_6gideon_15connection_pool_ConnectionPool[] = {
-  {(char *)"_user", __pyx_getprop_6gideon_15connection_pool_14ConnectionPool__user, 0, (char *)0, 0},
-  {(char *)"_password", __pyx_getprop_6gideon_15connection_pool_14ConnectionPool__password, 0, (char *)0, 0},
-  {(char *)"_database", __pyx_getprop_6gideon_15connection_pool_14ConnectionPool__database, 0, (char *)0, 0},
-  {(char *)"_host", __pyx_getprop_6gideon_15connection_pool_14ConnectionPool__host, 0, (char *)0, 0},
-  {(char *)"_port", __pyx_getprop_6gideon_15connection_pool_14ConnectionPool__port, 0, (char *)0, 0},
-  {(char *)"_pool", __pyx_getprop_6gideon_15connection_pool_14ConnectionPool__pool, 0, (char *)0, 0},
-  {0, 0, 0, 0, 0}
 };
 
 static PyTypeObject __pyx_type_6gideon_15connection_pool_ConnectionPool = {
@@ -3197,7 +2785,7 @@ static PyTypeObject __pyx_type_6gideon_15connection_pool_ConnectionPool = {
   0, /*tp_iternext*/
   __pyx_methods_6gideon_15connection_pool_ConnectionPool, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_6gideon_15connection_pool_ConnectionPool, /*tp_getset*/
+  0, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -3491,12 +3079,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ConnectionPool, __pyx_k_ConnectionPool, sizeof(__pyx_k_ConnectionPool), 0, 0, 1, 1},
   {&__pyx_n_s_ConnectionPool_acquire, __pyx_k_ConnectionPool_acquire, sizeof(__pyx_k_ConnectionPool_acquire), 0, 0, 1, 1},
   {&__pyx_n_s_ConnectionPool_release, __pyx_k_ConnectionPool_release, sizeof(__pyx_k_ConnectionPool_release), 0, 0, 1, 1},
-  {&__pyx_n_u_DB_HOST, __pyx_k_DB_HOST, sizeof(__pyx_k_DB_HOST), 0, 1, 0, 1},
-  {&__pyx_n_u_DB_NAME, __pyx_k_DB_NAME, sizeof(__pyx_k_DB_NAME), 0, 1, 0, 1},
-  {&__pyx_n_u_DB_PASSWORD, __pyx_k_DB_PASSWORD, sizeof(__pyx_k_DB_PASSWORD), 0, 1, 0, 1},
-  {&__pyx_n_u_DB_PORT, __pyx_k_DB_PORT, sizeof(__pyx_k_DB_PORT), 0, 1, 0, 1},
-  {&__pyx_n_u_DB_USER, __pyx_k_DB_USER, sizeof(__pyx_k_DB_USER), 0, 1, 0, 1},
-  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x90, __pyx_k_Incompatible_checksums_s_vs_0x90, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x90), 0, 0, 1, 0},
+  {&__pyx_n_u_GIDEON_DATABASE, __pyx_k_GIDEON_DATABASE, sizeof(__pyx_k_GIDEON_DATABASE), 0, 1, 0, 1},
+  {&__pyx_n_u_GIDEON_HOST, __pyx_k_GIDEON_HOST, sizeof(__pyx_k_GIDEON_HOST), 0, 1, 0, 1},
+  {&__pyx_n_u_GIDEON_PASSWORD, __pyx_k_GIDEON_PASSWORD, sizeof(__pyx_k_GIDEON_PASSWORD), 0, 1, 0, 1},
+  {&__pyx_n_u_GIDEON_PORT, __pyx_k_GIDEON_PORT, sizeof(__pyx_k_GIDEON_PORT), 0, 1, 0, 1},
+  {&__pyx_n_u_GIDEON_USER, __pyx_k_GIDEON_USER, sizeof(__pyx_k_GIDEON_USER), 0, 1, 0, 1},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0xf7, __pyx_k_Incompatible_checksums_s_vs_0xf7, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xf7), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_acquire, __pyx_k_acquire, sizeof(__pyx_k_acquire), 0, 0, 1, 1},
   {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
@@ -3569,7 +3157,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_5 = PyInt_FromLong(5); if (unlikely(!__pyx_int_5)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_20 = PyInt_FromLong(20); if (unlikely(!__pyx_int_20)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_151621324 = PyInt_FromLong(151621324L); if (unlikely(!__pyx_int_151621324)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_259339352 = PyInt_FromLong(259339352L); if (unlikely(!__pyx_int_259339352)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3621,7 +3209,7 @@ static int __Pyx_modinit_type_init_code(void) {
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ConnectionPool, (PyObject *)&__pyx_type_6gideon_15connection_pool_ConnectionPool) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6gideon_15connection_pool_ConnectionPool) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __pyx_ptype_6gideon_15connection_pool_ConnectionPool = &__pyx_type_6gideon_15connection_pool_ConnectionPool;
-  if (PyType_Ready(&__pyx_type_6gideon_15connection_pool___pyx_scope_struct__acquire) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6gideon_15connection_pool___pyx_scope_struct__acquire) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6gideon_15connection_pool___pyx_scope_struct__acquire.tp_print = 0;
   #endif
@@ -3629,7 +3217,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_6gideon_15connection_pool___pyx_scope_struct__acquire.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_6gideon_15connection_pool___pyx_scope_struct__acquire = &__pyx_type_6gideon_15connection_pool___pyx_scope_struct__acquire;
-  if (PyType_Ready(&__pyx_type_6gideon_15connection_pool___pyx_scope_struct_1_release) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6gideon_15connection_pool___pyx_scope_struct_1_release) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6gideon_15connection_pool___pyx_scope_struct_1_release.tp_print = 0;
   #endif

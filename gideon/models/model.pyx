@@ -2,7 +2,7 @@ from gideon import connection_pool
 from gideon.fields import ForeignKeyField
 from gideon.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
-from gideon.models.queryset import QuerySet
+from gideon.models.queryset cimport QuerySet
 
 
 class Model(metaclass=MetaModel):

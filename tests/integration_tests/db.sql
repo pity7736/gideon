@@ -1,5 +1,5 @@
-\set db_name `echo $DB_NAME`
-\set db_user `echo $DB_USER`
+\set db_name `echo $GIDEON_DATABASE`
+\set db_user `echo $GIDEON_USER`
 DROP DATABASE IF EXISTS :db_name;
 CREATE DATABASE :db_name WITH OWNER :db_user;
 \c :db_name

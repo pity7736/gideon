@@ -5,17 +5,19 @@ import asyncpg
 
 cdef class ConnectionPool:
 
+    cdef _pool
+
     def __init__(self):
         self._pool = None
 
     async def acquire(self):
         if self._pool is None:
             self._pool = await asyncpg.create_pool(
-                user=os.environ['DB_USER'],
-                password=os.environ['DB_PASSWORD'],
-                host=os.environ['DB_HOST'],
-                port=int(os.environ['DB_PORT']),
-                database=os.environ['DB_NAME'],
+                user=os.environ['GIDEON_USER'],
+                password=os.environ['GIDEON_PASSWORD'],
+                host=os.environ['GIDEON_HOST'],
+                port=int(os.environ['GIDEON_PORT']),
+                database=os.environ['GIDEON_DATABASE'],
                 min_size=5,
                 max_size=20,
             )

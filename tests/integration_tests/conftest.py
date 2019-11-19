@@ -13,7 +13,7 @@ from tests.factories import CategoryFactory
 def create_db():
     print('creating database...')
     # the password is in .pgpass file
-    subprocess.call(['psql', '-U', os.environ['DB_USER'], '-h', os.environ['DB_HOST'], '-f',
+    subprocess.call(['psql', '-U', os.environ['GIDEON_USER'], '-h', os.environ['GIDEON_HOST'], '-f',
                     f'{os.path.dirname(__file__)}/db.sql'])
 
 
