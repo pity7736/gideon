@@ -53,8 +53,7 @@ class Model(metaclass=MetaModel):
         fields = ', '.join(fields)
         values = ', '.join(values)
         db_client = DBClient()
-        result = await db_client.run_query(
+        self._id = await db_client.run_insert(
             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
              *arguments
         )
-        self._id = result[0]['id']

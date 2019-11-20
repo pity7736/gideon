@@ -17,3 +17,7 @@ cdef class DBClient:
     async def run_query(self, query, *values):
         async with ConnectionPool(**self._connection_data) as connection:
             return await connection.fetch(query, *values)
+
+    async def run_insert(self, query, *values):
+        async with ConnectionPool(**self._connection_data) as connection:
+            return await connection.fetchval(query, *values)
