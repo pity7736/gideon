@@ -5,7 +5,7 @@ import subprocess
 
 from pytest import fixture
 
-from gideon import connection_pool
+from gideon.db.connection_pool import ConnectionPool
 from tests.factories import CategoryFactory
 
 
@@ -25,10 +25,20 @@ def event_loop():
 
 
 @fixture
-async def connection():
-    con = await connection_pool.acquire()
-    yield con
-    await connection_pool.release(con)
+def connection_pool():
+    return ConnectionPool(
+        user=os.environ['GIDEON_USER'],
+        password=os.environ['GIDEON_PASSWORD'],
+        host=os.environ['GIDEON_HOST'],
+        port=os.environ['GIDEON_PORT'],
+        database=os.environ['GIDEON_DATABASE']
+    )
+
+
+@fixture
+async def connection(connection_pool):
+    yield await connection_pool.acquire()
+    await connection_pool.release()
 
 
 @fixture

@@ -1,13 +1,14 @@
-from gideon.db .db_client cimport DBClient
+from gideon.db.db_client cimport DBClient
 
 
 cdef class QuerySet:
+    _client = DBClient()
 
     def __init__(self, model, criteria=None, fields=()):
         self._model = model
         self._criteria = criteria or {}
         self._fields = fields or '*'
-        self._client = DBClient()
+        # self._client = DBClient()
 
     def __await__(self):
         return self._run_query().__await__()

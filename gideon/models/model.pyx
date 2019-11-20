@@ -1,4 +1,4 @@
-from gideon import connection_pool
+from gideon.db.db_client cimport DBClient
 from gideon.fields import ForeignKeyField
 from gideon.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
@@ -52,9 +52,9 @@ class Model(metaclass=MetaModel):
 
         fields = ', '.join(fields)
         values = ', '.join(values)
-        con = await connection_pool.acquire()
-        self._id = await con.fetchval(
+        db_client = DBClient()
+        result = await db_client.run_query(
             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
              *arguments
         )
-        await connection_pool.release(con)
+        self._id = result[0]['id']
