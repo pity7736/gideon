@@ -4,10 +4,10 @@ from gideon.db.db_client cimport DBClient
 cdef class QuerySet:
     _client = DBClient()
 
-    def __init__(self, model, criteria=None, fields=()):
+    def __init__(self, model):
         self._model = model
-        self._criteria = criteria or {}
-        self._fields = fields or '*'
+        self._criteria = {}
+        self._fields = '*'
         self._get = False
 
     def __await__(self):
@@ -27,16 +27,23 @@ cdef class QuerySet:
         return records
 
     def filter(self, **criteria):
-        new_criteria = self._criteria.copy()
-        new_criteria.update(criteria)
-        return QuerySet(self._model, new_criteria)
+        queryset = QuerySet(self._model)
+        queryset._criteria = self._get_new_criteria(**criteria)
+        queryset._get = self._get
+        queryset._fields = self._fields
+        return queryset
 
     def get(self, **criteria):
-        new_criteria = self._criteria.copy()
-        new_criteria.update(criteria)
-        queryset = QuerySet(self._model, new_criteria)
+        queryset = QuerySet(self._model)
+        queryset._criteria = self._get_new_criteria(**criteria)
         queryset._get = True
+        queryset._fields = self._fields
         return queryset
+
+    def _get_new_criteria(self, **criteria):
+        new_criteria = self._criteria.copy()
+        new_criteria.update(**criteria)
+        return new_criteria
 
     async def all(self):
         records = await self._client.run_query(f'select * from {self._model.__table_name__}')
@@ -46,4 +53,7 @@ cdef class QuerySet:
         return result
 
     def only(self, *fields):
-        return QuerySet(self._model, self._criteria, ', '.join(fields))
+        queryset = QuerySet(self._model)
+        queryset._criteria = self._criteria
+        queryset._fields = ', '.join(fields)
+        return queryset

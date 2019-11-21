@@ -165,3 +165,15 @@ async def test_create(create_db, db_transaction, category):
     assert movement.id == mov.id
     assert movement.category is None
     assert movement.category_id == category.id
+
+
+@mark.asyncio
+async def test_filter_after_get(create_db, db_transaction, category):
+    await CategoryFactory.build().save()
+    await CategoryFactory.build(description='another description').save()
+    queryset = Category.get(description='test description')
+    queryset = queryset.filter(name='test name')
+    record = await queryset
+
+    assert record.name == 'test name'
+    assert record.description == 'test description'
