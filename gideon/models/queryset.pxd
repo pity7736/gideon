@@ -1,5 +1,6 @@
 
 cdef class QuerySet:
-    cdef readonly _model
-    cdef readonly _criteria
-    cdef readonly _fields
+    cdef _model
+    cdef _criteria
+    cdef _fields
+    cdef _get

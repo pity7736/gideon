@@ -863,14 +863,15 @@ struct __pyx_obj_6gideon_6fields_5field_Field {
 /* "gideon/models/queryset.pxd":2
  * 
  * cdef class QuerySet:             # <<<<<<<<<<<<<<
- *     cdef readonly _model
- *     cdef readonly _criteria
+ *     cdef _model
+ *     cdef _criteria
  */
 struct __pyx_obj_6gideon_6models_8queryset_QuerySet {
   PyObject_HEAD
   PyObject *_model;
   PyObject *_criteria;
   PyObject *_fields;
+  PyObject *_get;
 };
 
 

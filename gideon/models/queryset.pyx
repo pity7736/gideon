@@ -8,7 +8,7 @@ cdef class QuerySet:
         self._model = model
         self._criteria = criteria or {}
         self._fields = fields or '*'
-        # self._client = DBClient()
+        self._get = False
 
     def __await__(self):
         return self._run_query().__await__()
@@ -21,23 +21,22 @@ cdef class QuerySet:
             f'select {self._fields} from {self._model.__table_name__} where {condition_fields}',
             *self._criteria.values()
         )
-        return [self._model(**record) for record in records]
+        records = [self._model(**record) for record in records]
+        if self._get is True and records:
+            records = records[0]
+        return records
 
     def filter(self, **criteria):
         new_criteria = self._criteria.copy()
         new_criteria.update(criteria)
         return QuerySet(self._model, new_criteria)
 
-    async def get(self, **criteria):
-        fields = []
-        for i, key in enumerate(criteria.keys(), start=1):
-            fields.append(f'{key} = ${i}')
-
-        fields = ' AND '.join(fields)
-        sql = f'select * from {self._model.__table_name__} where {fields}'
-        records = await self._client.run_query(sql, *criteria.values())
-        if records:
-            return self._model(**records[0])
+    def get(self, **criteria):
+        new_criteria = self._criteria.copy()
+        new_criteria.update(criteria)
+        queryset = QuerySet(self._model, new_criteria)
+        queryset._get = True
+        return queryset
 
     async def all(self):
         records = await self._client.run_query(f'select * from {self._model.__table_name__}')
