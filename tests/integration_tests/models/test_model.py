@@ -1,5 +1,3 @@
-import asyncio
-
 from pytest import mark, raises
 
 from tests.factories import CategoryFactory
@@ -37,7 +35,6 @@ async def test_with_choices(create_db, db_transaction, connection, category):
 
 @mark.asyncio
 async def test_get_by_id(create_db, db_transaction, category):
-    # await asyncio.sleep(30)
     record = await Category.get(id=category.id)
 
     assert record != category
@@ -163,3 +160,14 @@ async def test_only_fields(create_db, db_transaction, category):
     assert category.id == category.id
     assert category.name == 'test name'
     assert category.description is None
+
+
+@mark.asyncio
+async def test_create(create_db, db_transaction, category):
+    mov = await Movement.create(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test',
+                                category=category)
+    movement = await Movement.get(id=mov.id)
+
+    assert movement.id == mov.id
+    assert movement.category is None
+    assert movement.category_id == category.id

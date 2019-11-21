@@ -31,6 +31,12 @@ class Model(metaclass=MetaModel):
     def all(cls):
         return QuerySet(cls).all()
 
+    @classmethod
+    async def create(cls, **kwargs):
+        obj = cls(**kwargs)
+        await obj.save()
+        return obj
+
     async def save(self):
         fields = []
         values = []
