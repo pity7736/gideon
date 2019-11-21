@@ -871,7 +871,7 @@ struct __pyx_obj_6gideon_6models_8queryset___pyx_scope_struct___run_query {
 
 
 /* "gideon/models/queryset.pyx":31
- *         return QuerySet(self._model, self._criteria)
+ *         return QuerySet(self._model, new_criteria)
  * 
  *     async def get(self, **criteria):             # <<<<<<<<<<<<<<
  *         fields = []
@@ -1539,6 +1539,7 @@ static const char __pyx_k_get[] = "get";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_None[] = "None";
 static const char __pyx_k_args[] = "args";
+static const char __pyx_k_copy[] = "copy";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_from[] = " from ";
 static const char __pyx_k_keys[] = "keys";
@@ -1587,7 +1588,6 @@ static const char __pyx_k_QuerySet__run_query[] = "QuerySet._run_query";
 static const char __pyx_k_pyx_unpickle_QuerySet[] = "__pyx_unpickle_QuerySet";
 static const char __pyx_k_gideon_models_queryset[] = "gideon.models.queryset";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x1f[] = "Incompatible checksums (%s vs 0x1f17eec = (_criteria, _fields, _model))";
-static const char __pyx_k_keyword_arguments_are_obligatory[] = "keyword arguments are obligatory. If you want all records, use all method instead.";
 static PyObject *__pyx_kp_u_;
 static PyObject *__pyx_kp_u_AND;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x1f;
@@ -1606,6 +1606,7 @@ static PyObject *__pyx_n_s_await;
 static PyObject *__pyx_n_s_client;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_close;
+static PyObject *__pyx_n_s_copy;
 static PyObject *__pyx_n_s_criteria;
 static PyObject *__pyx_n_s_dict;
 static PyObject *__pyx_n_s_enumerate;
@@ -1616,7 +1617,6 @@ static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_n_s_gideon_models_queryset;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_keys;
-static PyObject *__pyx_kp_u_keyword_arguments_are_obligatory;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_model;
 static PyObject *__pyx_n_s_name;
@@ -2452,8 +2452,8 @@ static PyObject *__pyx_gb_6gideon_6models_8queryset_8QuerySet_6generator(__pyx_C
  *         return [self._model(**record) for record in records]
  * 
  *     def filter(self, **criteria):             # <<<<<<<<<<<<<<
- *         assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'
- *         self._criteria.update(criteria)
+ *         new_criteria = self._criteria.copy()
+ *         new_criteria.update(criteria)
  */
 
 /* Python wrapper */
@@ -2477,96 +2477,107 @@ static PyObject *__pyx_pw_6gideon_6models_8queryset_8QuerySet_8filter(PyObject *
 }
 
 static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_7filter(struct __pyx_obj_6gideon_6models_8queryset_QuerySet *__pyx_v_self, PyObject *__pyx_v_criteria) {
+  PyObject *__pyx_v_new_criteria = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
+  PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("filter", 0);
 
   /* "gideon/models/queryset.pyx":27
  * 
  *     def filter(self, **criteria):
- *         assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'             # <<<<<<<<<<<<<<
- *         self._criteria.update(criteria)
- *         return QuerySet(self._model, self._criteria)
+ *         new_criteria = self._criteria.copy()             # <<<<<<<<<<<<<<
+ *         new_criteria.update(criteria)
+ *         return QuerySet(self._model, new_criteria)
  */
-  #ifndef CYTHON_WITHOUT_ASSERTIONS
-  if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_criteria); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 27, __pyx_L1_error)
-    if (unlikely(!__pyx_t_1)) {
-      PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_keyword_arguments_are_obligatory);
-      __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_criteria, __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  #endif
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_new_criteria = __pyx_t_1;
+  __pyx_t_1 = 0;
 
   /* "gideon/models/queryset.pyx":28
  *     def filter(self, **criteria):
- *         assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'
- *         self._criteria.update(criteria)             # <<<<<<<<<<<<<<
- *         return QuerySet(self._model, self._criteria)
+ *         new_criteria = self._criteria.copy()
+ *         new_criteria.update(criteria)             # <<<<<<<<<<<<<<
+ *         return QuerySet(self._model, new_criteria)
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_criteria, __pyx_n_s_update); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_new_criteria, __pyx_n_s_update); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_criteria) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_criteria);
-  __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_criteria) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_criteria);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "gideon/models/queryset.pyx":29
- *         assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'
- *         self._criteria.update(criteria)
- *         return QuerySet(self._model, self._criteria)             # <<<<<<<<<<<<<<
+ *         new_criteria = self._criteria.copy()
+ *         new_criteria.update(criteria)
+ *         return QuerySet(self._model, new_criteria)             # <<<<<<<<<<<<<<
  * 
  *     async def get(self, **criteria):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_self->_model);
   __Pyx_GIVEREF(__pyx_v_self->_model);
-  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_self->_model);
-  __Pyx_INCREF(__pyx_v_self->_criteria);
-  __Pyx_GIVEREF(__pyx_v_self->_criteria);
-  PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_self->_criteria);
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6gideon_6models_8queryset_QuerySet), __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_r = __pyx_t_3;
-  __pyx_t_3 = 0;
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_self->_model);
+  __Pyx_INCREF(__pyx_v_new_criteria);
+  __Pyx_GIVEREF(__pyx_v_new_criteria);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_new_criteria);
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6gideon_6models_8queryset_QuerySet), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* "gideon/models/queryset.pyx":26
  *         return [self._model(**record) for record in records]
  * 
  *     def filter(self, **criteria):             # <<<<<<<<<<<<<<
- *         assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'
- *         self._criteria.update(criteria)
+ *         new_criteria = self._criteria.copy()
+ *         new_criteria.update(criteria)
  */
 
   /* function exit code */
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("gideon.models.queryset.QuerySet.filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_new_criteria);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -2574,7 +2585,7 @@ static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_7filter(struct __p
 static PyObject *__pyx_gb_6gideon_6models_8queryset_8QuerySet_11generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
 /* "gideon/models/queryset.pyx":31
- *         return QuerySet(self._model, self._criteria)
+ *         return QuerySet(self._model, new_criteria)
  * 
  *     async def get(self, **criteria):             # <<<<<<<<<<<<<<
  *         fields = []
@@ -3000,7 +3011,7 @@ static PyObject *__pyx_gb_6gideon_6models_8queryset_8QuerySet_11generator1(__pyx
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
   /* "gideon/models/queryset.pyx":31
- *         return QuerySet(self._model, self._criteria)
+ *         return QuerySet(self._model, new_criteria)
  * 
  *     async def get(self, **criteria):             # <<<<<<<<<<<<<<
  *         fields = []
@@ -4802,6 +4813,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_client, __pyx_k_client, sizeof(__pyx_k_client), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_close, __pyx_k_close, sizeof(__pyx_k_close), 0, 0, 1, 1},
+  {&__pyx_n_s_copy, __pyx_k_copy, sizeof(__pyx_k_copy), 0, 0, 1, 1},
   {&__pyx_n_s_criteria, __pyx_k_criteria, sizeof(__pyx_k_criteria), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
@@ -4812,7 +4824,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_gideon_models_queryset, __pyx_k_gideon_models_queryset, sizeof(__pyx_k_gideon_models_queryset), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_keys, __pyx_k_keys, sizeof(__pyx_k_keys), 0, 0, 1, 1},
-  {&__pyx_kp_u_keyword_arguments_are_obligatory, __pyx_k_keyword_arguments_are_obligatory, sizeof(__pyx_k_keyword_arguments_are_obligatory), 0, 1, 0, 0},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_model, __pyx_k_model, sizeof(__pyx_k_model), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},

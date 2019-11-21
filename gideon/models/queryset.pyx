@@ -24,9 +24,9 @@ cdef class QuerySet:
         return [self._model(**record) for record in records]
 
     def filter(self, **criteria):
-        assert criteria, 'keyword arguments are obligatory. If you want all records, use all method instead.'
-        self._criteria.update(criteria)
-        return QuerySet(self._model, self._criteria)
+        new_criteria = self._criteria.copy()
+        new_criteria.update(criteria)
+        return QuerySet(self._model, new_criteria)
 
     async def get(self, **criteria):
         fields = []
