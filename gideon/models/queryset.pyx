@@ -17,14 +17,17 @@ cdef class QuerySet:
         cdef int i
         cdef str field
         condition_fields = ' AND '.join([f'{field} = ${i}' for i, field in enumerate(self._criteria.keys(), start=1)])
-        records = await self._client.run_query(
-            f'select {self._fields} from {self._model.__table_name__} where {condition_fields}',
-            *self._criteria.values()
-        )
-        records = [self._model(**record) for record in records]
+        sql = f'select {self._fields} from {self._model.__table_name__}'
+        if condition_fields:
+            sql += f' where {condition_fields}'
+
+        records = [self._model(**record) for record in await self._client.run_query(sql, *self._criteria.values())]
         if self._get is True and records:
             records = records[0]
         return records
+
+    def all(self):
+        return self.filter()
 
     def filter(self, **criteria):
         queryset = QuerySet(self._model)
@@ -44,13 +47,6 @@ cdef class QuerySet:
         new_criteria = self._criteria.copy()
         new_criteria.update(**criteria)
         return new_criteria
-
-    async def all(self):
-        records = await self._client.run_query(f'select * from {self._model.__table_name__}')
-        result = []
-        for record in records:
-            result.append(self._model(**record))
-        return result
 
     def only(self, *fields):
         queryset = QuerySet(self._model)

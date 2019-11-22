@@ -4,15 +4,7 @@ from asyncpg.pool import Pool
 
 class ConnectionPool:
 
-    __slots__ = (
-        '_user',
-        '_password',
-        '_host',
-        '_port',
-        '_database',
-        '_pool',
-        '_connection'
-    )
+    __slots__ = ('_pool', '_connection')
 
     def __init__(self, user: str, password: str, host: str, port, database):
         self._pool = _ConnectionPoolWrapper(
