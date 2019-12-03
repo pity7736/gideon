@@ -1,4 +1,4 @@
-from pytest import mark, raises
+from pytest import mark
 
 from tests.factories import CategoryFactory
 from tests.models import Category, Movement, MovementType
@@ -17,6 +17,45 @@ async def test_save(create_db, db_transaction, connection):
     assert category.id == record['id']
     assert category.name == record['name']
     assert category.description == record['description']
+
+
+@mark.asyncio
+async def test_update_with_save(create_db, db_transaction, category):
+    cat = await Category.get(name='test name')
+    cat.name = 'test new name'
+    await cat.save()
+
+    c1 = await Category.get(name='test new name')
+    c2 = await Category.get(name='test name')
+
+    assert c1.name == 'test new name'
+    assert c2 == []
+
+
+@mark.asyncio
+async def test_update_save_with_foreign_key(create_db, db_transaction, category):
+    mov = Movement(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test', category=category)
+    await mov.save()
+    new_category = await Category.create(name='test new category', description='test new description')
+    mov.category = new_category
+    await mov.save()
+
+    m = await Movement.get(id=mov.id)
+
+    assert m.category_id == new_category.id
+
+
+@mark.asyncio
+async def test_update_save_with_foreign_key_id(create_db, db_transaction, category):
+    mov = Movement(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test', category=category)
+    await mov.save()
+    new_category = await Category.create(name='test new category', description='test new description')
+    mov.category_id = new_category.id
+    await mov.save()
+
+    m = await Movement.get(id=mov.id)
+
+    assert m.category_id == new_category.id
 
 
 @mark.asyncio

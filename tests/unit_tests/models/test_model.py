@@ -121,6 +121,20 @@ def test_setter():
     assert test.get_name() == 'qwerty'
 
 
+def test_setter_with_foreign_field():
+    class Model1(Model):
+        _name = CharField(name='name')
+
+    class Model2(Model):
+        _model1 = ForeignKeyField(Model)
+
+    instance1 = Model1()
+    instance2 = Model2()
+    instance2.model1 = instance1
+
+    assert instance2.model1 == instance1
+
+
 def test_override_setter():
     class TestModel(Model):
         _name = CharField(name='name')

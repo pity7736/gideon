@@ -2786,7 +2786,7 @@ static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_13_get_new_criteri
  *         new_criteria.update(**criteria)
  *         return new_criteria             # <<<<<<<<<<<<<<
  * 
- *     # def all(self):
+ *     def only(self, *fields):
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_new_criteria);
@@ -2815,8 +2815,8 @@ static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_13_get_new_criteri
   return __pyx_r;
 }
 
-/* "gideon/models/queryset.pyx":60
- *         # return result
+/* "gideon/models/queryset.pyx":51
+ *         return new_criteria
  * 
  *     def only(self, *fields):             # <<<<<<<<<<<<<<
  *         queryset = QuerySet(self._model)
@@ -2848,19 +2848,19 @@ static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_15only(struct __py
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("only", 0);
 
-  /* "gideon/models/queryset.pyx":61
+  /* "gideon/models/queryset.pyx":52
  * 
  *     def only(self, *fields):
  *         queryset = QuerySet(self._model)             # <<<<<<<<<<<<<<
  *         queryset._criteria = self._criteria
  *         queryset._fields = ', '.join(fields)
  */
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_6gideon_6models_8queryset_QuerySet), __pyx_v_self->_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_6gideon_6models_8queryset_QuerySet), __pyx_v_self->_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_queryset = ((struct __pyx_obj_6gideon_6models_8queryset_QuerySet *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gideon/models/queryset.pyx":62
+  /* "gideon/models/queryset.pyx":53
  *     def only(self, *fields):
  *         queryset = QuerySet(self._model)
  *         queryset._criteria = self._criteria             # <<<<<<<<<<<<<<
@@ -2875,13 +2875,13 @@ static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_15only(struct __py
   __pyx_v_queryset->_criteria = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/queryset.pyx":63
+  /* "gideon/models/queryset.pyx":54
  *         queryset = QuerySet(self._model)
  *         queryset._criteria = self._criteria
  *         queryset._fields = ', '.join(fields)             # <<<<<<<<<<<<<<
  *         return queryset
  */
-  __pyx_t_1 = PyUnicode_Join(__pyx_kp_u__3, __pyx_v_fields); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_Join(__pyx_kp_u__3, __pyx_v_fields); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_queryset->_fields);
@@ -2889,7 +2889,7 @@ static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_15only(struct __py
   __pyx_v_queryset->_fields = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gideon/models/queryset.pyx":64
+  /* "gideon/models/queryset.pyx":55
  *         queryset._criteria = self._criteria
  *         queryset._fields = ', '.join(fields)
  *         return queryset             # <<<<<<<<<<<<<<
@@ -2899,8 +2899,8 @@ static PyObject *__pyx_pf_6gideon_6models_8queryset_8QuerySet_15only(struct __py
   __pyx_r = ((PyObject *)__pyx_v_queryset);
   goto __pyx_L0;
 
-  /* "gideon/models/queryset.pyx":60
- *         # return result
+  /* "gideon/models/queryset.pyx":51
+ *         return new_criteria
  * 
  *     def only(self, *fields):             # <<<<<<<<<<<<<<
  *         queryset = QuerySet(self._model)

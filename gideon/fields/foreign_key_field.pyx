@@ -17,3 +17,6 @@ cdef class ForeignKeyField(Field):
     @property
     def to(self):
         return self._to
+
+    cpdef to_python(self, value):
+        return value

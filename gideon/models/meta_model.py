@@ -13,6 +13,8 @@ def create_setter(name, field=None):
     def setter(self, value):
         if field:
             value = field.to_python(value)
+            if value and isinstance(field, ForeignKeyField):
+                setattr(self, f'{name}_id', value.id)
         setattr(self, name, value)
     return setter
 

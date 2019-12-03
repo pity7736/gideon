@@ -38,6 +38,12 @@ class Model(metaclass=MetaModel):
         return obj
 
     async def save(self):
+        if self._id is None:
+            return await self._insert()
+        return await self._update()
+
+    async def _insert(self):
+        db_client = DBClient()
         fields = []
         values = []
         arguments = []
@@ -58,8 +64,27 @@ class Model(metaclass=MetaModel):
 
         fields = ', '.join(fields)
         values = ', '.join(values)
-        db_client = DBClient()
         self._id = await db_client.run_insert(
             f'insert into {self.__table_name__}({fields}) values ({values}) RETURNING id'.replace("'", ''),
              *arguments
         )
+
+    async def _update(self):
+        db_client = DBClient()
+        i = 1
+        values = []
+        fields = []
+        for field in self._fields.values():
+            field_name = field.name
+            if field_name != 'id':
+                if isinstance(field, ForeignKeyField):
+                    field_name = f'{field_name}_id'
+
+                fields.append(f'{field_name} = ${i}')
+                values.append(field.to_db(getattr(self, field_name)))
+                i += 1
+
+        fields = ', '.join(fields)
+        values.append(self._id)
+        sql = f'UPDATE {self.__table_name__} SET {fields} WHERE id = ${i}'
+        await db_client.run_query(sql, *values)
