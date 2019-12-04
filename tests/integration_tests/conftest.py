@@ -7,6 +7,7 @@ from pytest import fixture
 
 from gideon.db.connection_pool import ConnectionPool
 from tests.factories import CategoryFactory
+from tests.models import Movement, MovementType
 
 
 @fixture(scope='session')
@@ -49,7 +50,15 @@ async def db_transaction(connection):
 
 
 @fixture
-async def category():
+async def category_fixture():
     cat = CategoryFactory.build()
     await cat.save()
     return cat
+
+
+@fixture
+async def movement_fixture(category_fixture):
+    movement = Movement(type=MovementType.EXPENSE, date='2019-04-20', value=10000, note='test',
+                        category=category_fixture)
+    await movement.save()
+    return movement
