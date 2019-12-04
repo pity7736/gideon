@@ -26,7 +26,7 @@ def event_loop():
 
 
 @fixture
-def connection_pool():
+def connection_pool(create_db):
     return ConnectionPool(
         user=os.environ['GIDEON_USER'],
         password=os.environ['GIDEON_PASSWORD'],
@@ -50,10 +50,10 @@ async def db_transaction(connection):
 
 
 @fixture
-async def category_fixture():
-    cat = CategoryFactory.build()
-    await cat.save()
-    return cat
+async def category_fixture(db_transaction):
+    category = CategoryFactory.build()
+    await category.save()
+    return category
 
 
 @fixture

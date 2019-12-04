@@ -1,11 +1,11 @@
 from pytest import mark
 
 from tests.factories import CategoryFactory
-from tests.models import Category, Movement, MovementType
+from tests.models import Category, Movement
 
 
 @mark.asyncio
-async def test_save(create_db, db_transaction, connection):
+async def test_save(db_transaction, connection):
     category = Category(name='test category', description='test description')
     await category.save()
 
@@ -20,7 +20,7 @@ async def test_save(create_db, db_transaction, connection):
 
 
 @mark.asyncio
-async def test_update_with_save(create_db, db_transaction, category_fixture):
+async def test_update_with_save(category_fixture):
     cat = await Category.get(name='test name')
     cat.name = 'test new name'
     await cat.save()
@@ -33,7 +33,7 @@ async def test_update_with_save(create_db, db_transaction, category_fixture):
 
 
 @mark.asyncio
-async def test_update_save_with_foreign_key(create_db, db_transaction, movement_fixture):
+async def test_update_save_with_foreign_key(movement_fixture):
     new_category = await Category.create(name='test new category', description='test new description')
     movement_fixture.category = new_category
     await movement_fixture.save()
@@ -44,7 +44,7 @@ async def test_update_save_with_foreign_key(create_db, db_transaction, movement_
 
 
 @mark.asyncio
-async def test_update_save_with_foreign_key_id(create_db, db_transaction, movement_fixture):
+async def test_update_save_with_foreign_key_id(movement_fixture):
     new_category = await Category.create(name='test new category', description='test new description')
     movement_fixture.category_id = new_category.id
     await movement_fixture.save()
@@ -55,7 +55,7 @@ async def test_update_save_with_foreign_key_id(create_db, db_transaction, moveme
 
 
 @mark.asyncio
-async def test_with_choices(create_db, db_transaction, connection, movement_fixture):
+async def test_with_choices(connection, movement_fixture):
     record = await connection.fetchrow(
         'select * from movements where id = $1',
         movement_fixture.id
@@ -66,7 +66,7 @@ async def test_with_choices(create_db, db_transaction, connection, movement_fixt
 
 
 @mark.asyncio
-async def test_get_by_id(create_db, db_transaction, category_fixture):
+async def test_get_by_id(category_fixture):
     record = await Category.get(id=category_fixture.id)
 
     assert record != category_fixture
@@ -76,7 +76,7 @@ async def test_get_by_id(create_db, db_transaction, category_fixture):
 
 
 @mark.asyncio
-async def test_get_by_name(create_db, db_transaction, category_fixture):
+async def test_get_by_name(category_fixture):
     record = await Category.get(name=category_fixture.name)
 
     assert record != category_fixture
@@ -86,7 +86,7 @@ async def test_get_by_name(create_db, db_transaction, category_fixture):
 
 
 @mark.asyncio
-async def test_get_by_id_and_name(create_db, db_transaction, category_fixture):
+async def test_get_by_id_and_name(category_fixture):
     record = await Category.get(id=category_fixture.id, name=category_fixture.name)
 
     assert record != category_fixture
@@ -96,13 +96,13 @@ async def test_get_by_id_and_name(create_db, db_transaction, category_fixture):
 
 
 @mark.asyncio
-async def test_filter_by_name_with_not_existing_categories(create_db, db_transaction):
+async def test_filter_by_name_with_not_existing_categories(db_transaction):
     categories = await Category.filter(name='test name')
     assert categories == []
 
 
 @mark.asyncio
-async def test_filter_by_id(create_db, db_transaction):
+async def test_filter_by_id(db_transaction):
     fixture = CategoryFactory(name='qwerty')
     await fixture.save()
     categories = await Category.filter(id=fixture.id)
@@ -113,7 +113,7 @@ async def test_filter_by_id(create_db, db_transaction):
 
 
 @mark.asyncio
-async def test_filter_by_description(create_db, db_transaction, category_fixture):
+async def test_filter_by_description(category_fixture):
     categories = await Category.filter(description='test description')
     record = categories[0]
 
@@ -131,7 +131,7 @@ async def test_all(create_db, db_transaction):
 
 
 @mark.asyncio
-async def test_get_with_foreign_key(create_db, db_transaction, movement_fixture):
+async def test_get_with_foreign_key(movement_fixture):
     movement = await Movement.get(id=movement_fixture.id)
 
     assert movement.id == movement_fixture.id
@@ -140,7 +140,7 @@ async def test_get_with_foreign_key(create_db, db_transaction, movement_fixture)
 
 
 @mark.asyncio
-async def test_get_with_foreign_key_id(create_db, db_transaction, movement_fixture):
+async def test_get_with_foreign_key_id(movement_fixture):
     movement = await Movement.get(id=movement_fixture.id)
 
     assert movement.id == movement_fixture.id
@@ -149,7 +149,7 @@ async def test_get_with_foreign_key_id(create_db, db_transaction, movement_fixtu
 
 
 @mark.asyncio
-async def test_get_with_choices(create_db, db_transaction, connection, movement_fixture):
+async def test_get_with_choices(movement_fixture):
     movement = await Movement.get(id=movement_fixture.id)
 
     assert movement_fixture.type.value == 'expense'
@@ -157,8 +157,7 @@ async def test_get_with_choices(create_db, db_transaction, connection, movement_
 
 
 @mark.asyncio
-async def test_filter_by_name_and_description_with_two_different_filter_calls(create_db, db_transaction,
-                                                                              category_fixture):
+async def test_filter_by_name_and_description_with_two_different_filter_calls(category_fixture):
     cat = CategoryFactory.build(description='another description')
     await cat.save()
     queryset = Category.filter(description='test description')
@@ -172,7 +171,7 @@ async def test_filter_by_name_and_description_with_two_different_filter_calls(cr
 
 
 @mark.asyncio
-async def test_only_fields(create_db, db_transaction, category_fixture):
+async def test_only_fields(category_fixture):
     categories = await Category.filter(name='test name').only('name')
     category = categories[0]
 
@@ -183,7 +182,7 @@ async def test_only_fields(create_db, db_transaction, category_fixture):
 
 
 @mark.asyncio
-async def test_create(create_db, db_transaction, movement_fixture):
+async def test_create(movement_fixture):
     movement = await Movement.get(id=movement_fixture.id)
 
     assert movement.id == movement_fixture.id
@@ -192,7 +191,7 @@ async def test_create(create_db, db_transaction, movement_fixture):
 
 
 @mark.asyncio
-async def test_filter_after_get(create_db, db_transaction, category_fixture):
+async def test_filter_after_get(category_fixture):
     await CategoryFactory.build().save()
     await CategoryFactory.build(description='another description').save()
     queryset = Category.get(description='test description')
