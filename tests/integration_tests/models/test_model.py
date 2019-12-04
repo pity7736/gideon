@@ -1,7 +1,10 @@
-from pytest import mark
+import datetime
 
+from pytest import mark, raises
+
+from gideon.exceptions import NonExistsField
 from tests.factories import CategoryFactory
-from tests.models import Category, Movement
+from tests.models import Category, Movement, MovementType
 
 
 @mark.asyncio
@@ -52,6 +55,54 @@ async def test_update_save_with_foreign_key_id(movement_fixture):
     m = await Movement.get(id=movement_fixture.id)
 
     assert m.category_id == new_category.id
+
+
+@mark.asyncio
+async def test_update_some_fields_with_save(movement_fixture):
+    movement_fixture.date = datetime.date(2019, 12, 3)
+    movement_fixture.note = 'new test note'
+    movement_fixture.type = MovementType.INCOME
+    await movement_fixture.save(update_fields=('date', 'note'))
+
+    updated_movement = await Movement.get(id=movement_fixture.id)
+
+    assert updated_movement.date == datetime.date(2019, 12, 3)
+    assert updated_movement.note == 'new test note'
+    assert updated_movement.type == MovementType.EXPENSE
+
+
+@mark.asyncio
+async def test_update_only_foreign_key_with_save(movement_fixture):
+    new_category = await Category.create(name='test new category', description='test new description')
+    movement_fixture.category = new_category
+    movement_fixture.note = 'test new note'
+    await movement_fixture.save(update_fields=('category',))
+
+    m = await Movement.get(id=movement_fixture.id)
+
+    assert m.category_id == new_category.id
+    assert m.note == 'test'
+
+
+@mark.asyncio
+async def test_update_only_foreign_key_id_with_save(movement_fixture):
+    new_category = await Category.create(name='test new category', description='test new description')
+    movement_fixture.category_id = new_category.id
+    movement_fixture.note = 'test new note'
+    await movement_fixture.save(update_fields=('category',))
+
+    m = await Movement.get(id=movement_fixture.id)
+
+    assert m.category_id == new_category.id
+    assert m.note == 'test'
+
+
+@mark.asyncio
+async def test_update_wrong_field_with_save(movement_fixture):
+    movement_fixture.date = datetime.date(2019, 12, 3)
+    movement_fixture.note = 'new test note'
+    with raises(NonExistsField):
+        await movement_fixture.save(update_fields=('date', 'note', 'qwerty'))
 
 
 @mark.asyncio

@@ -1,4 +1,6 @@
 from gideon.db.db_client cimport DBClient
+
+from gideon.exceptions import NonExistsField
 from gideon.fields import ForeignKeyField
 from gideon.fields.field cimport Field
 from gideon.models.meta_model import MetaModel
@@ -37,10 +39,10 @@ class Model(metaclass=MetaModel):
         await obj.save()
         return obj
 
-    async def save(self):
-        if self._id is None:
+    async def save(self, update_fields=()):
+        if self._id is None and not update_fields:
             return await self._insert()
-        return await self._update()
+        return await self._update(update_fields)
 
     async def _insert(self):
         db_client = DBClient()
@@ -69,20 +71,33 @@ class Model(metaclass=MetaModel):
              *arguments
         )
 
-    async def _update(self):
+    async def _update(self, update_fields):
         db_client = DBClient()
-        i = 1
         values = []
         fields = []
-        for field in self._fields.values():
-            field_name = field.name
-            if field_name != 'id':
+        i = 1
+        if update_fields:
+            for field_name in update_fields:
+                field = self._fields.get(f'_{field_name}')
+                if field is None:
+                    raise NonExistsField(f'field {field_name} does not exists!')
+
                 if isinstance(field, ForeignKeyField):
                     field_name = f'{field_name}_id'
 
                 fields.append(f'{field_name} = ${i}')
                 values.append(field.to_db(getattr(self, field_name)))
                 i += 1
+        else:
+            for field in self._fields.values():
+                field_name = field.name
+                if field_name != 'id':
+                    if isinstance(field, ForeignKeyField):
+                        field_name = f'{field_name}_id'
+
+                    fields.append(f'{field_name} = ${i}')
+                    values.append(field.to_db(getattr(self, field_name)))
+                    i += 1
 
         fields = ', '.join(fields)
         values.append(self._id)
