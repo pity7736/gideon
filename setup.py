@@ -53,7 +53,7 @@ else:
 
 setup(
     name='gideon',
-    version='0.0.0.a5',
+    version='0.0.0.a6',
     packages=find_packages(exclude=('tests',)),
     install_requires=install_requires,
     author='Julián Cortés',
