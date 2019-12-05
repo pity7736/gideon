@@ -4,11 +4,12 @@ from cpython cimport bool
 
 from gideon.exceptions import InvalidChoice
 
+
 cdef class Field:
 
     _internal_type = None
 
-    def __init__(self, str name='', bool read_only=False, choices=None):
+    def __init__(self, str name=None, bool read_only=False, choices=None):
         if choices and type(choices) is not EnumMeta:
             raise ValueError('choices must be Enum type')
 
@@ -19,6 +20,12 @@ cdef class Field:
     @property
     def name(self):
         return self._name
+
+    @name.setter
+    def name(self, value):
+        if self.name:
+            raise ValueError('field name cannot be renamed')
+        self._name = value
 
     @property
     def read_only(self):

@@ -203,3 +203,10 @@ def test_set_invalid_choice():
     test_instance = TestModel()
     with raises(InvalidChoice):
         test_instance.test = 'invalid value'
+
+
+def test_field_auto_name():
+    class TestModel(Model):
+        _value = CharField()
+
+    assert TestModel._value.name == 'value'

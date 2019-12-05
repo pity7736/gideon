@@ -6,8 +6,8 @@ from gideon.models import Model
 
 class Category(Model):
     __table_name__ = 'categories'
-    _name = CharField(name='name')
-    _description = CharField(name='description')
+    _name = CharField()
+    _description = CharField()
 
 
 class MovementType(Enum):
@@ -17,8 +17,8 @@ class MovementType(Enum):
 
 class Movement(Model):
     __table_name__ = 'movements'
-    _type = CharField(name='type', choices=MovementType)
-    _date = DateField(name='date')
-    _value = IntegerField(name='value')
-    _note = CharField(name='note')
-    _category = ForeignKeyField(name='category', to=Category)
+    _type = CharField(choices=MovementType)
+    _date = DateField()
+    _value = IntegerField()
+    _note = CharField()
+    _category = ForeignKeyField(to=Category)

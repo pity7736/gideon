@@ -28,21 +28,24 @@ class MetaModel(type):
         property_fields = {}
         MetaModel._set_id(namespace)
         annotations = {}
-        for attr, value in namespace.items():
-            if isinstance(value, Field):
+        for attr, field in namespace.items():
+            if isinstance(field, Field):
                 if not attr.startswith('_'):
                     raise PrivateField('Fields name must be private')
 
-                fields = fields.set(attr, value)
+                fields = fields.set(attr, field)
                 property_name = attr.replace('_', '', 1)
+                if field.name is None:
+                    field.name = property_name
+
                 property_fields[property_name] = MetaModel._resolve_getters_and_setters(
                     attr,
                     namespace,
                     property_fields,
-                    value
+                    field
                 )
-                annotations[property_name] = value.internal_type
-                MetaModel._set_foreignkey_field(annotations, attr, property_fields, property_name, value)
+                annotations[property_name] = field.internal_type
+                MetaModel._set_foreignkey_field(annotations, attr, property_fields, property_name, field)
 
         namespace['_fields'] = fields
         namespace.update(property_fields)
