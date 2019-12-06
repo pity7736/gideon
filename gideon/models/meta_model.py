@@ -22,34 +22,35 @@ def create_setter(name, field=None):
 class MetaModel(type):
 
     def __new__(mcs, name, bases, namespace, **kwargs):
-        table_name = namespace.get('__table_name__', name)
-        namespace['__table_name__'] = camel_case_to_snake_case(table_name).replace(' ', '_')
-        fields = Map()
-        property_fields = {}
-        MetaModel._set_id(namespace)
-        annotations = {}
-        for attr, field in namespace.items():
-            if isinstance(field, Field):
-                if not attr.startswith('_'):
-                    raise PrivateField('Fields name must be private')
+        if name != 'Model':
+            table_name = namespace.get('__table_name__', name)
+            namespace['__table_name__'] = camel_case_to_snake_case(table_name).replace(' ', '_')
+            fields = Map()
+            property_fields = {}
+            MetaModel._set_id(namespace)
+            annotations = {}
+            for attr, field in namespace.items():
+                if isinstance(field, Field):
+                    if not attr.startswith('_'):
+                        raise PrivateField('Fields name must be private')
 
-                fields = fields.set(attr, field)
-                property_name = attr.replace('_', '', 1)
-                if field.name is None:
-                    field.name = property_name
+                    fields = fields.set(attr, field)
+                    property_name = attr.replace('_', '', 1)
+                    if field.name is None:
+                        field.name = property_name
 
-                property_fields[property_name] = MetaModel._resolve_getters_and_setters(
-                    attr,
-                    namespace,
-                    property_fields,
-                    field
-                )
-                annotations[property_name] = field.internal_type
-                MetaModel._set_foreignkey_field(annotations, attr, property_fields, property_name, field)
+                    property_fields[property_name] = MetaModel._resolve_getters_and_setters(
+                        attr,
+                        namespace,
+                        property_fields,
+                        field
+                    )
+                    annotations[property_name] = field.internal_type
+                    MetaModel._set_foreignkey_field(annotations, attr, property_fields, property_name, field)
 
-        namespace['_fields'] = fields
-        namespace.update(property_fields)
-        namespace['__annotations__'] = annotations
+            namespace['_fields'] = fields
+            namespace.update(property_fields)
+            namespace['__annotations__'] = annotations
         return super().__new__(mcs, name, bases, namespace)
 
     @staticmethod
