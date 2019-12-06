@@ -126,13 +126,13 @@ def test_setter_with_foreign_field():
         _name = CharField(name='name')
 
     class Model2(Model):
-        _model1 = ForeignKeyField(Model)
+        _model1 = ForeignKeyField(Model1)
 
     instance1 = Model1()
     instance2 = Model2()
     instance2.model1 = instance1
 
-    assert instance2.model1 == instance1
+    assert id(instance2.model1) == id(instance1)
 
 
 def test_override_setter():
@@ -210,3 +210,44 @@ def test_field_auto_name():
         _value = CharField()
 
     assert TestModel._value.name == 'value'
+
+
+def test_str_model():
+    class TestModel(Model):
+        _value = CharField()
+
+    instance = TestModel()
+
+    assert str(instance) == 'TestModel'
+    instance.id = 1
+    assert str(instance) == 'TestModel: 1'
+
+
+def test_repr_model():
+    class TestModel(Model):
+        _value = CharField()
+
+    instance = TestModel()
+
+    assert repr(instance) == '<TestModel>'
+    instance.id = 1
+    assert repr(instance) == '<TestModel: 1>'
+
+
+def test_equal_model():
+    class TestModel1(Model):
+        _value1 = CharField()
+
+    class TestModel2(Model):
+        _value2 = CharField()
+
+    instance1 = TestModel1(id=1)
+    instance2 = TestModel2(id=1)
+    instance3 = TestModel1(id=1)
+    instance4 = TestModel1()
+
+    assert instance1 == instance3
+    assert instance1 != instance2
+    assert instance1 != instance4
+    assert instance1 != 1
+    assert instance1 != 'instance1'

@@ -120,7 +120,7 @@ async def test_with_choices(connection, movement_fixture):
 async def test_get_by_id(category_fixture):
     record = await Category.get(id=category_fixture.id)
 
-    assert record != category_fixture
+    assert id(record) != id(category_fixture)
     assert record.id == category_fixture.id
     assert record.name == category_fixture.name
     assert record.description == category_fixture.description
@@ -130,7 +130,7 @@ async def test_get_by_id(category_fixture):
 async def test_get_by_name(category_fixture):
     record = await Category.get(name=category_fixture.name)
 
-    assert record != category_fixture
+    assert id(record) != id(category_fixture)
     assert record.id == category_fixture.id
     assert record.name == category_fixture.name
     assert record.description == category_fixture.description
@@ -140,7 +140,7 @@ async def test_get_by_name(category_fixture):
 async def test_get_by_id_and_name(category_fixture):
     record = await Category.get(id=category_fixture.id, name=category_fixture.name)
 
-    assert record != category_fixture
+    assert id(record) != id(category_fixture)
     assert record.id == category_fixture.id
     assert record.name == category_fixture.name
     assert record.description == category_fixture.description

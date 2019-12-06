@@ -1,8 +1,8 @@
 from gideon.db.db_client cimport DBClient
 
 from gideon.exceptions import NonExistsField
-from gideon.fields import ForeignKeyField
 from gideon.fields.field cimport Field
+from gideon.fields.foreign_key_field cimport ForeignKeyField
 from gideon.models.meta_model import MetaModel
 from gideon.models.queryset cimport QuerySet
 
@@ -20,6 +20,19 @@ class Model(metaclass=MetaModel):
             setattr(self, key, value)
             if isinstance(field, ForeignKeyField):
                 setattr(self, f'{key}_id', kwargs.pop(f'{key}_id'.replace('_', '', 1), None))
+
+    def __repr__(self):
+        return f'<{self}>'
+
+    def __str__(self):
+        if self.id:
+            return f'{self.__class__.__name__}: {self.id}'
+        return self.__class__.__name__
+
+    def __eq__(self, other):
+        if type(self) is type(other) and self.id and other.id:
+            return self.id == other.id
+        return False
 
     @classmethod
     def get(cls, **kwargs):
@@ -76,6 +89,8 @@ class Model(metaclass=MetaModel):
         values = []
         fields = []
         i = 1
+        cdef str field_name
+        cdef Field field
         if update_fields:
             for field_name in update_fields:
                 field = self._fields.get(f'_{field_name}')
