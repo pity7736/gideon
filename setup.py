@@ -38,7 +38,9 @@ extensions = [
     ('gideon.fields.foreign_key_field', f'gideon/fields/foreign_key_field.{ext}'),
     ('gideon.fields.char_field', f'gideon/fields/char_field.{ext}'),
     ('gideon.fields.integer_field', f'gideon/fields/integer_field.{ext}'),
-    ('gideon.db.db_client', f'gideon/db/db_client.{ext}')
+    ('gideon.db.db_client', f'gideon/db/db_client.{ext}'),
+    ('gideon.criterion', f'gideon/criterion.{ext}'),
+    ('gideon.complex_criterion', f'gideon/complex_criterion.{ext}')
 ]
 
 

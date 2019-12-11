@@ -251,3 +251,16 @@ def test_equal_model():
     assert instance1 != instance4
     assert instance1 != 1
     assert instance1 != 'instance1'
+
+
+def test_field_property():
+    class TestModel(Model):
+        _name = CharField()
+        _value = IntegerField()
+
+    test = TestModel(name='hi', value=10)
+
+    assert isinstance(TestModel.name, CharField)
+    assert isinstance(TestModel.value, IntegerField)
+    assert test.name == 'hi'
+    assert test.value == 10

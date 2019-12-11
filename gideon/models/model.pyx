@@ -39,8 +39,8 @@ class Model(metaclass=MetaModel):
         return QuerySet(cls).get(**kwargs)
 
     @classmethod
-    def filter(cls, **kwargs):
-        return QuerySet(cls).filter(**kwargs)
+    def filter(cls, new_criteria=None, **kwargs):
+        return QuerySet(cls).filter(new_criteria, **kwargs)
 
     @classmethod
     def all(cls):

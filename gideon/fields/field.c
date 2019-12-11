@@ -822,10 +822,26 @@ static const char *__pyx_f[] = {
   "type.pxd",
   "bool.pxd",
   "complex.pxd",
+  "gideon/criterion.pxd",
 };
 
 /*--- Type declarations ---*/
+struct __pyx_obj_6gideon_9criterion_Criterion;
 struct __pyx_obj_6gideon_6fields_5field_Field;
+
+/* "gideon/criterion.pxd":2
+ * 
+ * cdef class Criterion:             # <<<<<<<<<<<<<<
+ * 
+ *     cdef _value
+ */
+struct __pyx_obj_6gideon_9criterion_Criterion {
+  PyObject_HEAD
+  struct __pyx_vtabstruct_6gideon_9criterion_Criterion *__pyx_vtab;
+  PyObject *_value;
+  PyObject *_field;
+};
+
 
 /* "gideon/fields/field.pxd":4
  * 
@@ -844,8 +860,21 @@ struct __pyx_obj_6gideon_6fields_5field_Field {
 
 
 
-/* "gideon/fields/field.pyx":8
+/* "gideon/criterion.pxd":2
  * 
+ * cdef class Criterion:             # <<<<<<<<<<<<<<
+ * 
+ *     cdef _value
+ */
+
+struct __pyx_vtabstruct_6gideon_9criterion_Criterion {
+  PyObject *(*get_sql)(struct __pyx_obj_6gideon_9criterion_Criterion *, int __pyx_skip_dispatch);
+};
+static struct __pyx_vtabstruct_6gideon_9criterion_Criterion *__pyx_vtabptr_6gideon_9criterion_Criterion;
+
+
+/* "gideon/fields/field.pyx":8
+ * from gideon.criterion cimport Criterion
  * 
  * cdef class Field:             # <<<<<<<<<<<<<<
  * 
@@ -1285,6 +1314,9 @@ enum __Pyx_ImportType_CheckSize {
 static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
 #endif
 
+/* GetVTable.proto */
+static void* __Pyx_GetVtable(PyObject *dict);
+
 /* CLineInTraceback.proto */
 #ifdef CYTHON_CLINE_IN_TRACEBACK
 #define __Pyx_CLineForTraceback(tstate, c_line)  (((CYTHON_CLINE_IN_TRACEBACK)) ? c_line : 0)
@@ -1425,6 +1457,9 @@ static PyTypeObject *__pyx_ptype_7cpython_7complex_complex = 0;
 
 /* Module declarations from 'cpython' */
 
+/* Module declarations from 'gideon.criterion' */
+static PyTypeObject *__pyx_ptype_6gideon_9criterion_Criterion = 0;
+
 /* Module declarations from 'gideon.fields.field' */
 static PyTypeObject *__pyx_ptype_6gideon_6fields_5field_Field = 0;
 static PyObject *__pyx_f_6gideon_6fields_5field___pyx_unpickle_Field__set_state(struct __pyx_obj_6gideon_6fields_5field_Field *, PyObject *); /*proto*/
@@ -1444,6 +1479,7 @@ static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "name";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_Field[] = "Field";
+static const char __pyx_k_field[] = "field";
 static const char __pyx_k_to_db[] = "to_db";
 static const char __pyx_k_value[] = "value";
 static const char __pyx_k_import[] = "__import__";
@@ -1495,6 +1531,7 @@ static PyObject *__pyx_kp_u_choices_must_be_Enum_type;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_dict;
 static PyObject *__pyx_n_s_enum;
+static PyObject *__pyx_n_s_field;
 static PyObject *__pyx_kp_u_field_name_cannot_be_renamed;
 static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_n_s_gideon_exceptions;
@@ -1529,18 +1566,19 @@ static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_value;
 static PyObject *__pyx_n_s_values;
 static int __pyx_pf_6gideon_6fields_5field_5Field___init__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_name, PyBoolObject *__pyx_v_read_only, PyObject *__pyx_v_choices); /* proto */
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_2__eq__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4name___get__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
 static int __pyx_pf_6gideon_6fields_5field_5Field_4name_2__set__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_9read_only___get__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_7choices___get__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_13internal_type___get__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_2to_db(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4to_python(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4to_db(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_6to_python(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_5_name___get__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_10_read_only___get__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_8_choices___get__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_6__reduce_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_8__setstate_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_8__reduce_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_10__setstate_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_6gideon_6fields_5field___pyx_unpickle_Field(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_6gideon_6fields_5field_Field(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_76526800;
@@ -1730,7 +1768,7 @@ static int __pyx_pf_6gideon_6fields_5field_5Field___init__(struct __pyx_obj_6gid
  *         self._read_only = read_only
  *         self._choices = choices             # <<<<<<<<<<<<<<
  * 
- *     @property
+ *     def __eq__(self, other):
  */
   __Pyx_INCREF(__pyx_v_choices);
   __Pyx_GIVEREF(__pyx_v_choices);
@@ -1758,7 +1796,74 @@ static int __pyx_pf_6gideon_6fields_5field_5Field___init__(struct __pyx_obj_6gid
   return __pyx_r;
 }
 
-/* "gideon/fields/field.pyx":21
+/* "gideon/fields/field.pyx":20
+ *         self._choices = choices
+ * 
+ *     def __eq__(self, other):             # <<<<<<<<<<<<<<
+ *         return Criterion(field=self, value=other)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_3__eq__(PyObject *__pyx_v_self, PyObject *__pyx_v_other); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_3__eq__(PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__eq__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_2__eq__(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self), ((PyObject *)__pyx_v_other));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_2__eq__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_other) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  __Pyx_RefNannySetupContext("__eq__", 0);
+
+  /* "gideon/fields/field.pyx":21
+ * 
+ *     def __eq__(self, other):
+ *         return Criterion(field=self, value=other)             # <<<<<<<<<<<<<<
+ * 
+ *     @property
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_field, ((PyObject *)__pyx_v_self)) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_value, __pyx_v_other) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6gideon_9criterion_Criterion), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* "gideon/fields/field.pyx":20
+ *         self._choices = choices
+ * 
+ *     def __eq__(self, other):             # <<<<<<<<<<<<<<
+ *         return Criterion(field=self, value=other)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("gideon.fields.field.Field.__eq__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gideon/fields/field.pyx":24
  * 
  *     @property
  *     def name(self):             # <<<<<<<<<<<<<<
@@ -1784,7 +1889,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4name___get__(struct __p
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/field.pyx":22
+  /* "gideon/fields/field.pyx":25
  *     @property
  *     def name(self):
  *         return self._name             # <<<<<<<<<<<<<<
@@ -1796,7 +1901,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4name___get__(struct __p
   __pyx_r = __pyx_v_self->_name;
   goto __pyx_L0;
 
-  /* "gideon/fields/field.pyx":21
+  /* "gideon/fields/field.pyx":24
  * 
  *     @property
  *     def name(self):             # <<<<<<<<<<<<<<
@@ -1811,7 +1916,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4name___get__(struct __p
   return __pyx_r;
 }
 
-/* "gideon/fields/field.pyx":25
+/* "gideon/fields/field.pyx":28
  * 
  *     @name.setter
  *     def name(self, value):             # <<<<<<<<<<<<<<
@@ -1839,33 +1944,33 @@ static int __pyx_pf_6gideon_6fields_5field_5Field_4name_2__set__(struct __pyx_ob
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "gideon/fields/field.pyx":26
+  /* "gideon/fields/field.pyx":29
  *     @name.setter
  *     def name(self, value):
  *         if self.name:             # <<<<<<<<<<<<<<
  *             raise ValueError('field name cannot be renamed')
  *         self._name = value
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (unlikely(__pyx_t_2)) {
 
-    /* "gideon/fields/field.pyx":27
+    /* "gideon/fields/field.pyx":30
  *     def name(self, value):
  *         if self.name:
  *             raise ValueError('field name cannot be renamed')             # <<<<<<<<<<<<<<
  *         self._name = value
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 27, __pyx_L1_error)
+    __PYX_ERR(0, 30, __pyx_L1_error)
 
-    /* "gideon/fields/field.pyx":26
+    /* "gideon/fields/field.pyx":29
  *     @name.setter
  *     def name(self, value):
  *         if self.name:             # <<<<<<<<<<<<<<
@@ -1874,14 +1979,14 @@ static int __pyx_pf_6gideon_6fields_5field_5Field_4name_2__set__(struct __pyx_ob
  */
   }
 
-  /* "gideon/fields/field.pyx":28
+  /* "gideon/fields/field.pyx":31
  *         if self.name:
  *             raise ValueError('field name cannot be renamed')
  *         self._name = value             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 31, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -1890,7 +1995,7 @@ static int __pyx_pf_6gideon_6fields_5field_5Field_4name_2__set__(struct __pyx_ob
   __pyx_v_self->_name = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gideon/fields/field.pyx":25
+  /* "gideon/fields/field.pyx":28
  * 
  *     @name.setter
  *     def name(self, value):             # <<<<<<<<<<<<<<
@@ -1910,7 +2015,7 @@ static int __pyx_pf_6gideon_6fields_5field_5Field_4name_2__set__(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "gideon/fields/field.pyx":31
+/* "gideon/fields/field.pyx":34
  * 
  *     @property
  *     def read_only(self):             # <<<<<<<<<<<<<<
@@ -1936,7 +2041,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_9read_only___get__(struc
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/field.pyx":32
+  /* "gideon/fields/field.pyx":35
  *     @property
  *     def read_only(self):
  *         return self._read_only             # <<<<<<<<<<<<<<
@@ -1948,7 +2053,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_9read_only___get__(struc
   __pyx_r = ((PyObject *)__pyx_v_self->_read_only);
   goto __pyx_L0;
 
-  /* "gideon/fields/field.pyx":31
+  /* "gideon/fields/field.pyx":34
  * 
  *     @property
  *     def read_only(self):             # <<<<<<<<<<<<<<
@@ -1963,7 +2068,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_9read_only___get__(struc
   return __pyx_r;
 }
 
-/* "gideon/fields/field.pyx":35
+/* "gideon/fields/field.pyx":38
  * 
  *     @property
  *     def choices(self):             # <<<<<<<<<<<<<<
@@ -1989,7 +2094,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_7choices___get__(struct 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/field.pyx":36
+  /* "gideon/fields/field.pyx":39
  *     @property
  *     def choices(self):
  *         return self._choices             # <<<<<<<<<<<<<<
@@ -2001,7 +2106,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_7choices___get__(struct 
   __pyx_r = __pyx_v_self->_choices;
   goto __pyx_L0;
 
-  /* "gideon/fields/field.pyx":35
+  /* "gideon/fields/field.pyx":38
  * 
  *     @property
  *     def choices(self):             # <<<<<<<<<<<<<<
@@ -2016,7 +2121,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_7choices___get__(struct 
   return __pyx_r;
 }
 
-/* "gideon/fields/field.pyx":39
+/* "gideon/fields/field.pyx":42
  * 
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
@@ -2043,7 +2148,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_13internal_type___get__(
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gideon/fields/field.pyx":40
+  /* "gideon/fields/field.pyx":43
  *     @property
  *     def internal_type(self):
  *         return self._internal_type             # <<<<<<<<<<<<<<
@@ -2051,13 +2156,13 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_13internal_type___get__(
  *     cpdef to_db(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gideon/fields/field.pyx":39
+  /* "gideon/fields/field.pyx":42
  * 
  *     @property
  *     def internal_type(self):             # <<<<<<<<<<<<<<
@@ -2076,7 +2181,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_13internal_type___get__(
   return __pyx_r;
 }
 
-/* "gideon/fields/field.pyx":42
+/* "gideon/fields/field.pyx":45
  *         return self._internal_type
  * 
  *     cpdef to_db(self, value):             # <<<<<<<<<<<<<<
@@ -2084,7 +2189,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_13internal_type___get__(
  *             return value
  */
 
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_3to_db(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_5to_db(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
 PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2105,9 +2210,9 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_db); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_db); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6gideon_6fields_5field_5Field_3to_db)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6gideon_6fields_5field_5Field_5to_db)) {
         __Pyx_XDECREF(__pyx_r);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
@@ -2122,7 +2227,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_value);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -2143,7 +2248,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
     #endif
   }
 
-  /* "gideon/fields/field.pyx":43
+  /* "gideon/fields/field.pyx":46
  * 
  *     cpdef to_db(self, value):
  *         if value is None or type(value) is self._internal_type:             # <<<<<<<<<<<<<<
@@ -2157,7 +2262,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
     __pyx_t_5 = __pyx_t_7;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_7 = (((PyObject *)Py_TYPE(__pyx_v_value)) == __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2166,7 +2271,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "gideon/fields/field.pyx":44
+    /* "gideon/fields/field.pyx":47
  *     cpdef to_db(self, value):
  *         if value is None or type(value) is self._internal_type:
  *             return value             # <<<<<<<<<<<<<<
@@ -2178,7 +2283,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "gideon/fields/field.pyx":43
+    /* "gideon/fields/field.pyx":46
  * 
  *     cpdef to_db(self, value):
  *         if value is None or type(value) is self._internal_type:             # <<<<<<<<<<<<<<
@@ -2187,21 +2292,21 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
  */
   }
 
-  /* "gideon/fields/field.pyx":46
+  /* "gideon/fields/field.pyx":49
  *             return value
  * 
  *         if isinstance(value, Enum):             # <<<<<<<<<<<<<<
  *             return value.value
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Enum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Enum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = PyObject_IsInstance(__pyx_v_value, __pyx_t_1); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_5 = PyObject_IsInstance(__pyx_v_value, __pyx_t_1); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (__pyx_t_5 != 0);
   if (__pyx_t_6) {
 
-    /* "gideon/fields/field.pyx":47
+    /* "gideon/fields/field.pyx":50
  * 
  *         if isinstance(value, Enum):
  *             return value.value             # <<<<<<<<<<<<<<
@@ -2209,13 +2314,13 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
  *         return self._internal_type(value)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_value); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_value); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "gideon/fields/field.pyx":46
+    /* "gideon/fields/field.pyx":49
  *             return value
  * 
  *         if isinstance(value, Enum):             # <<<<<<<<<<<<<<
@@ -2224,7 +2329,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
  */
   }
 
-  /* "gideon/fields/field.pyx":49
+  /* "gideon/fields/field.pyx":52
  *             return value.value
  * 
  *         return self._internal_type(value)             # <<<<<<<<<<<<<<
@@ -2232,7 +2337,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
  *     cpdef to_python(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -2246,14 +2351,14 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_value);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gideon/fields/field.pyx":42
+  /* "gideon/fields/field.pyx":45
  *         return self._internal_type
  * 
  *     cpdef to_db(self, value):             # <<<<<<<<<<<<<<
@@ -2276,25 +2381,25 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_db(struct __pyx_obj_6gideon_6
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_3to_db(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_3to_db(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_5to_db(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_5to_db(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("to_db (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_2to_db(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_4to_db(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_2to_db(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value) {
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4to_db(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("to_db", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6gideon_6fields_5field_5Field_to_db(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6gideon_6fields_5field_5Field_to_db(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2311,7 +2416,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_2to_db(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "gideon/fields/field.pyx":51
+/* "gideon/fields/field.pyx":54
  *         return self._internal_type(value)
  * 
  *     cpdef to_python(self, value):             # <<<<<<<<<<<<<<
@@ -2319,7 +2424,7 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_2to_db(struct __pyx_obj_
  *             try:
  */
 
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_5to_python(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_7to_python(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
 PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value, int __pyx_skip_dispatch) {
   PyObject *__pyx_v_choices = NULL;
   PyObject *__pyx_7genexpr__pyx_v_i = NULL;
@@ -2353,9 +2458,9 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_python); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_python); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6gideon_6fields_5field_5Field_5to_python)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6gideon_6fields_5field_5Field_7to_python)) {
         __Pyx_XDECREF(__pyx_r);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
@@ -2370,7 +2475,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_value);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -2391,25 +2496,25 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
     #endif
   }
 
-  /* "gideon/fields/field.pyx":52
+  /* "gideon/fields/field.pyx":55
  * 
  *     cpdef to_python(self, value):
  *         if value and self._choices:             # <<<<<<<<<<<<<<
  *             try:
  *                 return self._choices(value)
  */
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 55, __pyx_L1_error)
   if (__pyx_t_6) {
   } else {
     __pyx_t_5 = __pyx_t_6;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_self->_choices); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_self->_choices); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 55, __pyx_L1_error)
   __pyx_t_5 = __pyx_t_6;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "gideon/fields/field.pyx":53
+    /* "gideon/fields/field.pyx":56
  *     cpdef to_python(self, value):
  *         if value and self._choices:
  *             try:             # <<<<<<<<<<<<<<
@@ -2425,7 +2530,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
       __Pyx_XGOTREF(__pyx_t_9);
       /*try:*/ {
 
-        /* "gideon/fields/field.pyx":54
+        /* "gideon/fields/field.pyx":57
  *         if value and self._choices:
  *             try:
  *                 return self._choices(value)             # <<<<<<<<<<<<<<
@@ -2446,14 +2551,14 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
         }
         __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_value);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L6_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L6_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_1;
         __pyx_t_1 = 0;
         goto __pyx_L10_try_return;
 
-        /* "gideon/fields/field.pyx":53
+        /* "gideon/fields/field.pyx":56
  *     cpdef to_python(self, value):
  *         if value and self._choices:
  *             try:             # <<<<<<<<<<<<<<
@@ -2467,7 +2572,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "gideon/fields/field.pyx":55
+      /* "gideon/fields/field.pyx":58
  *             try:
  *                 return self._choices(value)
  *             except ValueError:             # <<<<<<<<<<<<<<
@@ -2477,12 +2582,12 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
       __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ValueError);
       if (__pyx_t_10) {
         __Pyx_AddTraceback("gideon.fields.field.Field.to_python", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3) < 0) __PYX_ERR(0, 55, __pyx_L8_except_error)
+        if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3) < 0) __PYX_ERR(0, 58, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_GOTREF(__pyx_t_3);
 
-        /* "gideon/fields/field.pyx":56
+        /* "gideon/fields/field.pyx":59
  *                 return self._choices(value)
  *             except ValueError:
  *                 choices = ', '.join([i.value for i in self._choices.__members__.values()])             # <<<<<<<<<<<<<<
@@ -2490,16 +2595,16 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
  * 
  */
         { /* enter inner scope */
-          __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L16_error)
+          __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L16_error)
           __Pyx_GOTREF(__pyx_t_4);
           __pyx_t_12 = 0;
-          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_choices, __pyx_n_s_members); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 56, __pyx_L16_error)
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_choices, __pyx_n_s_members); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 59, __pyx_L16_error)
           __Pyx_GOTREF(__pyx_t_14);
           if (unlikely(__pyx_t_14 == Py_None)) {
             PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-            __PYX_ERR(0, 56, __pyx_L16_error)
+            __PYX_ERR(0, 59, __pyx_L16_error)
           }
-          __pyx_t_15 = __Pyx_dict_iterator(__pyx_t_14, 0, __pyx_n_s_values, (&__pyx_t_13), (&__pyx_t_10)); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 56, __pyx_L16_error)
+          __pyx_t_15 = __Pyx_dict_iterator(__pyx_t_14, 0, __pyx_n_s_values, (&__pyx_t_13), (&__pyx_t_10)); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 59, __pyx_L16_error)
           __Pyx_GOTREF(__pyx_t_15);
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
           __Pyx_XDECREF(__pyx_t_11);
@@ -2508,13 +2613,13 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
           while (1) {
             __pyx_t_16 = __Pyx_dict_iter_next(__pyx_t_11, __pyx_t_13, &__pyx_t_12, NULL, &__pyx_t_15, NULL, __pyx_t_10);
             if (unlikely(__pyx_t_16 == 0)) break;
-            if (unlikely(__pyx_t_16 == -1)) __PYX_ERR(0, 56, __pyx_L16_error)
+            if (unlikely(__pyx_t_16 == -1)) __PYX_ERR(0, 59, __pyx_L16_error)
             __Pyx_GOTREF(__pyx_t_15);
             __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_i, __pyx_t_15);
             __pyx_t_15 = 0;
-            __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_7genexpr__pyx_v_i, __pyx_n_s_value); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 56, __pyx_L16_error)
+            __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_7genexpr__pyx_v_i, __pyx_n_s_value); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 59, __pyx_L16_error)
             __Pyx_GOTREF(__pyx_t_15);
-            if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_15))) __PYX_ERR(0, 56, __pyx_L16_error)
+            if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_15))) __PYX_ERR(0, 59, __pyx_L16_error)
             __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
           }
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -2525,26 +2630,26 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
           goto __pyx_L8_except_error;
           __pyx_L19_exit_scope:;
         } /* exit inner scope */
-        __pyx_t_11 = PyUnicode_Join(__pyx_kp_u__3, __pyx_t_4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L8_except_error)
+        __pyx_t_11 = PyUnicode_Join(__pyx_kp_u__3, __pyx_t_4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 59, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_v_choices = ((PyObject*)__pyx_t_11);
         __pyx_t_11 = 0;
 
-        /* "gideon/fields/field.pyx":57
+        /* "gideon/fields/field.pyx":60
  *             except ValueError:
  *                 choices = ', '.join([i.value for i in self._choices.__members__.values()])
  *                 raise InvalidChoice(f'{value} is not a valid choice. Choices are {choices}')             # <<<<<<<<<<<<<<
  * 
  *         if value is None or type(value) is self._internal_type:
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_InvalidChoice); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L8_except_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_InvalidChoice); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_15 = PyTuple_New(3); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 57, __pyx_L8_except_error)
+        __pyx_t_15 = PyTuple_New(3); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 60, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_15);
         __pyx_t_13 = 0;
         __pyx_t_17 = 127;
-        __pyx_t_14 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_empty_unicode); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 57, __pyx_L8_except_error)
+        __pyx_t_14 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_empty_unicode); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 60, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_14);
         __pyx_t_17 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_14) > __pyx_t_17) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_14) : __pyx_t_17;
         __pyx_t_13 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_14);
@@ -2555,14 +2660,14 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
         __pyx_t_13 += 36;
         __Pyx_GIVEREF(__pyx_kp_u_is_not_a_valid_choice_Choices_a);
         PyTuple_SET_ITEM(__pyx_t_15, 1, __pyx_kp_u_is_not_a_valid_choice_Choices_a);
-        __pyx_t_14 = __Pyx_PyUnicode_Unicode(__pyx_v_choices); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 57, __pyx_L8_except_error)
+        __pyx_t_14 = __Pyx_PyUnicode_Unicode(__pyx_v_choices); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 60, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_14);
         __pyx_t_17 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_14) > __pyx_t_17) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_14) : __pyx_t_17;
         __pyx_t_13 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_14);
         __Pyx_GIVEREF(__pyx_t_14);
         PyTuple_SET_ITEM(__pyx_t_15, 2, __pyx_t_14);
         __pyx_t_14 = 0;
-        __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_15, 3, __pyx_t_13, __pyx_t_17); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 57, __pyx_L8_except_error)
+        __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_15, 3, __pyx_t_13, __pyx_t_17); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 60, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_14);
         __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
         __pyx_t_15 = NULL;
@@ -2578,17 +2683,17 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
         __pyx_t_11 = (__pyx_t_15) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_15, __pyx_t_14) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_14);
         __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
         __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 57, __pyx_L8_except_error)
+        if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 60, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_Raise(__pyx_t_11, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __PYX_ERR(0, 57, __pyx_L8_except_error)
+        __PYX_ERR(0, 60, __pyx_L8_except_error)
       }
       goto __pyx_L8_except_error;
       __pyx_L8_except_error:;
 
-      /* "gideon/fields/field.pyx":53
+      /* "gideon/fields/field.pyx":56
  *     cpdef to_python(self, value):
  *         if value and self._choices:
  *             try:             # <<<<<<<<<<<<<<
@@ -2608,7 +2713,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
       goto __pyx_L0;
     }
 
-    /* "gideon/fields/field.pyx":52
+    /* "gideon/fields/field.pyx":55
  * 
  *     cpdef to_python(self, value):
  *         if value and self._choices:             # <<<<<<<<<<<<<<
@@ -2617,7 +2722,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
  */
   }
 
-  /* "gideon/fields/field.pyx":59
+  /* "gideon/fields/field.pyx":62
  *                 raise InvalidChoice(f'{value} is not a valid choice. Choices are {choices}')
  * 
  *         if value is None or type(value) is self._internal_type:             # <<<<<<<<<<<<<<
@@ -2631,7 +2736,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
     __pyx_t_5 = __pyx_t_18;
     goto __pyx_L21_bool_binop_done;
   }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_18 = (((PyObject *)Py_TYPE(__pyx_v_value)) == __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2640,7 +2745,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
   __pyx_L21_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "gideon/fields/field.pyx":60
+    /* "gideon/fields/field.pyx":63
  * 
  *         if value is None or type(value) is self._internal_type:
  *             return value             # <<<<<<<<<<<<<<
@@ -2652,7 +2757,7 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "gideon/fields/field.pyx":59
+    /* "gideon/fields/field.pyx":62
  *                 raise InvalidChoice(f'{value} is not a valid choice. Choices are {choices}')
  * 
  *         if value is None or type(value) is self._internal_type:             # <<<<<<<<<<<<<<
@@ -2661,13 +2766,13 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
  */
   }
 
-  /* "gideon/fields/field.pyx":62
+  /* "gideon/fields/field.pyx":65
  *             return value
  * 
  *         return self._internal_type(value)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_internal_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -2681,14 +2786,14 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_value);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "gideon/fields/field.pyx":51
+  /* "gideon/fields/field.pyx":54
  *         return self._internal_type(value)
  * 
  *     cpdef to_python(self, value):             # <<<<<<<<<<<<<<
@@ -2716,25 +2821,25 @@ PyObject *__pyx_f_6gideon_6fields_5field_5Field_to_python(struct __pyx_obj_6gide
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_5to_python(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_5to_python(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_7to_python(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_7to_python(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("to_python (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_4to_python(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_6to_python(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_4to_python(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value) {
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_6to_python(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v_value) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("to_python", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6gideon_6fields_5field_5Field_to_python(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6gideon_6fields_5field_5Field_to_python(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2869,19 +2974,19 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_8_choices___get__(struct
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_6__reduce_cython__(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_8__reduce_cython__(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_6__reduce_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self) {
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_8__reduce_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -3125,19 +3230,19 @@ static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_6__reduce_cython__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_6gideon_6fields_5field_5Field_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_8__setstate_cython__(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_6gideon_6fields_5field_5Field_10__setstate_cython__(((struct __pyx_obj_6gideon_6fields_5field_Field *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_8__setstate_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_6gideon_6fields_5field_5Field_10__setstate_cython__(struct __pyx_obj_6gideon_6fields_5field_Field *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3641,6 +3746,28 @@ static int __pyx_tp_clear_6gideon_6fields_5field_Field(PyObject *o) {
   return 0;
 }
 
+static PyObject *__pyx_tp_richcompare_6gideon_6fields_5field_Field(PyObject *o1, PyObject *o2, int op) {
+  switch (op) {
+    case Py_EQ: {
+      return __pyx_pw_6gideon_6fields_5field_5Field_3__eq__(o1, o2);
+    }
+    case Py_NE: {
+      PyObject *ret;
+      ret = __pyx_pw_6gideon_6fields_5field_5Field_3__eq__(o1, o2);
+      if (likely(ret && ret != Py_NotImplemented)) {
+        int b = __Pyx_PyObject_IsTrue(ret); Py_DECREF(ret);
+        if (unlikely(b < 0)) return NULL;
+        ret = (b) ? Py_False : Py_True;
+        Py_INCREF(ret);
+      }
+      return ret;
+    }
+    default: {
+      return __Pyx_NewRef(Py_NotImplemented);
+    }
+  }
+}
+
 static PyObject *__pyx_getprop_6gideon_6fields_5field_5Field_name(PyObject *o, CYTHON_UNUSED void *x) {
   return __pyx_pw_6gideon_6fields_5field_5Field_4name_1__get__(o);
 }
@@ -3680,10 +3807,10 @@ static PyObject *__pyx_getprop_6gideon_6fields_5field_5Field__choices(PyObject *
 }
 
 static PyMethodDef __pyx_methods_6gideon_6fields_5field_Field[] = {
-  {"to_db", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_3to_db, METH_O, 0},
-  {"to_python", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_5to_python, METH_O, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_9__setstate_cython__, METH_O, 0},
+  {"to_db", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_5to_db, METH_O, 0},
+  {"to_python", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_7to_python, METH_O, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_9__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_6gideon_6fields_5field_5Field_11__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -3732,7 +3859,7 @@ static PyTypeObject __pyx_type_6gideon_6fields_5field_Field = {
   0, /*tp_doc*/
   __pyx_tp_traverse_6gideon_6fields_5field_Field, /*tp_traverse*/
   __pyx_tp_clear_6gideon_6fields_5field_Field, /*tp_clear*/
-  0, /*tp_richcompare*/
+  __pyx_tp_richcompare_6gideon_6fields_5field_Field, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
@@ -3827,6 +3954,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
   {&__pyx_n_s_enum, __pyx_k_enum, sizeof(__pyx_k_enum), 0, 0, 1, 1},
+  {&__pyx_n_s_field, __pyx_k_field, sizeof(__pyx_k_field), 0, 0, 1, 1},
   {&__pyx_kp_u_field_name_cannot_be_renamed, __pyx_k_field_name_cannot_be_renamed, sizeof(__pyx_k_field_name_cannot_be_renamed), 0, 1, 0, 0},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
   {&__pyx_n_s_gideon_exceptions, __pyx_k_gideon_exceptions, sizeof(__pyx_k_gideon_exceptions), 0, 0, 1, 1},
@@ -3884,14 +4012,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "gideon/fields/field.pyx":27
+  /* "gideon/fields/field.pyx":30
  *     def name(self, value):
  *         if self.name:
  *             raise ValueError('field name cannot be renamed')             # <<<<<<<<<<<<<<
  *         self._name = value
  * 
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_field_name_cannot_be_renamed); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_field_name_cannot_be_renamed); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
@@ -4001,6 +4129,12 @@ static int __Pyx_modinit_type_import_code(void) {
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_7cpython_7complex_complex = __Pyx_ImportType(__pyx_t_1, __Pyx_BUILTIN_MODULE_NAME, "complex", sizeof(PyComplexObject), __Pyx_ImportType_CheckSize_Warn);
    if (!__pyx_ptype_7cpython_7complex_complex) __PYX_ERR(4, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule("gideon.criterion"); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 2, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_6gideon_9criterion_Criterion = __Pyx_ImportType(__pyx_t_1, "gideon.criterion", "Criterion", sizeof(struct __pyx_obj_6gideon_9criterion_Criterion), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_6gideon_9criterion_Criterion) __PYX_ERR(5, 2, __pyx_L1_error)
+  __pyx_vtabptr_6gideon_9criterion_Criterion = (struct __pyx_vtabstruct_6gideon_9criterion_Criterion*)__Pyx_GetVtable(__pyx_ptype_6gideon_9criterion_Criterion->tp_dict); if (unlikely(!__pyx_vtabptr_6gideon_9criterion_Criterion)) __PYX_ERR(5, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -4254,7 +4388,7 @@ if (!__Pyx_RefNanny) {
  * from cpython cimport bool
  * 
  * from gideon.exceptions import InvalidChoice             # <<<<<<<<<<<<<<
- * 
+ * from gideon.criterion cimport Criterion
  * 
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
@@ -6058,6 +6192,26 @@ bad:
     return NULL;
 }
 #endif
+
+/* GetVTable */
+static void* __Pyx_GetVtable(PyObject *dict) {
+    void* ptr;
+    PyObject *ob = PyObject_GetItem(dict, __pyx_n_s_pyx_vtable);
+    if (!ob)
+        goto bad;
+#if PY_VERSION_HEX >= 0x02070000
+    ptr = PyCapsule_GetPointer(ob, 0);
+#else
+    ptr = PyCObject_AsVoidPtr(ob);
+#endif
+    if (!ptr && !PyErr_Occurred())
+        PyErr_SetString(PyExc_RuntimeError, "invalid vtable found for imported type");
+    Py_DECREF(ob);
+    return ptr;
+bad:
+    Py_XDECREF(ob);
+    return NULL;
+}
 
 /* CLineInTraceback */
 #ifndef CYTHON_CLINE_IN_TRACEBACK

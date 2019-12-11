@@ -4,11 +4,12 @@ from gideon.db.db_client cimport DBClient
 cdef class QuerySet:
     _client = DBClient()
 
-    def __init__(self, model):
+    def __init__(self, model, criterion=None):
         self._model = model
         self._criteria = {}
         self._fields = '*'
         self._get = False
+        self._criterion = criterion
 
     def __await__(self):
         return self._run_query().__await__()
@@ -16,12 +17,17 @@ cdef class QuerySet:
     async def _run_query(self):
         cdef int i
         cdef str field
-        condition_fields = ' AND '.join([f'{field} = ${i}' for i, field in enumerate(self._criteria.keys(), start=1)])
-        sql = f'select {self._fields} from {self._model.__table_name__}'
-        if condition_fields:
-            sql += f' where {condition_fields}'
+        if self._criteria or not self._criterion:
+            condition_fields = ' AND '.join([f'{field} = ${i}' for i, field in enumerate(self._criteria.keys(), start=1)])
+            sql = f'select {self._fields} from {self._model.__table_name__}'
+            if condition_fields:
+                sql += f' where {condition_fields}'
+            values = self._criteria.values()
+        else:
+            sql = f'SELECT {self._fields} FROM {self._model.__table_name__} WHERE {self._criterion.get_sql()}'
+            values = self._criterion.values
 
-        records = [self._model(**record) for record in await self._client.run_query(sql, *self._criteria.values())]
+        records = [self._model(**record) for record in await self._client.run_query(sql, *values,)]
         if self._get is True and records:
             records = records[0]
         return records
@@ -29,8 +35,8 @@ cdef class QuerySet:
     def all(self):
         return self.filter()
 
-    def filter(self, **criteria):
-        queryset = QuerySet(self._model)
+    def filter(self, new_criteria=None, **criteria):
+        queryset = QuerySet(self._model, new_criteria)
         queryset._criteria = self._get_new_criteria(**criteria)
         queryset._get = self._get
         queryset._fields = self._fields

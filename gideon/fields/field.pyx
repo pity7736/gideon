@@ -3,7 +3,7 @@ from enum import EnumMeta, Enum
 from cpython cimport bool
 
 from gideon.exceptions import InvalidChoice
-
+from gideon.criterion cimport Criterion
 
 cdef class Field:
 
@@ -16,6 +16,9 @@ cdef class Field:
         self._name = name
         self._read_only = read_only
         self._choices = choices
+
+    def __eq__(self, other):
+        return Criterion(field=self, value=other)
 
     @property
     def name(self):

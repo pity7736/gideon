@@ -84,3 +84,10 @@ class MetaModel(type):
             )
             annotations[property_name] = value.to
             annotations[property_foreign_name] = value.internal_type
+
+    def __getattribute__(self, item):
+        fields = type.__getattribute__(self, '_fields')
+        field = fields.get(f'_{item}')
+        if field:
+            return field
+        return type.__getattribute__(self, item)
